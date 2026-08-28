@@ -1,0 +1,15 @@
+# Copie este arquivo para terraform.tfvars e ajuste os valores reais
+# NUNCA commitar terraform.tfvars com dados reais se o domínio for sensível
+
+primary_region   = "us-east-1"
+secondary_region = "sa-east-1"
+
+# Trocar quando tivermos o domínio real da Wizard/campanha
+domain_name = "wizard-case-placeholder.com.br"
+subdomain   = "campanha"
+
+project_tag = "case-b-resilience"
+team_tag    = "bruma"
+environment = "hackathon"
+
+waf_rate_limit = 2000

@@ -1,14 +1,22 @@
-resource "aws_dynamodb_table" "leads" {
-  name         = "${var.project_tag}-leads"
+# Tabela DynamoDB com faturamento On-Demand (PAY_PER_REQUEST)
+resource "aws_dynamodb_table" "wizard_leads" {
+  name         = "wizard-leads"
   billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "lead_id"
+  hash_key     = "id"
 
   attribute {
-    name = "lead_id"
+    name = "id"
     type = "S"
   }
 
-  point_in_time_recovery {
-    enabled = true
+  # Configuração de Global Tables (Multi-Região para Alta Disponibilidade)
+  # Cria uma réplica automática na região us-east-2 (Ohio)
+  replica {
+    region_name = "us-east-2"
+  }
+
+  tags = {
+    Name        = "Wizard-Leads-Global-Table"
+    Environment = "Production"
   }
 }

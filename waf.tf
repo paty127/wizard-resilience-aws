@@ -1,6 +1,6 @@
 resource "aws_wafv2_web_acl" "site" {
   name        = "${var.project_tag}-web-acl"
-  description = "WAF para a vitrine digital da Wizard - proteção L7"
+  description = "WAF para a vitrine digital da Wizard - protecao L7"
   scope       = "CLOUDFRONT" # WebACL para CloudFront deve ser criada em us-east-1
 
   default_action {

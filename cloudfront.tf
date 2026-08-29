@@ -10,7 +10,7 @@ resource "aws_cloudfront_distribution" "site" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
-  aliases             = ["${var.subdomain}.${var.domain_name}"]
+  aliases             = var.enable_custom_domain ? ["${var.subdomain}.${var.domain_name}"] : []
   web_acl_id          = aws_wafv2_web_acl.site.arn
 
   origin {
@@ -67,13 +67,12 @@ resource "aws_cloudfront_distribution" "site" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = aws_acm_certificate_validation.site.certificate_arn
-    ssl_support_method       = "sni-only"
-    minimum_protocol_version = "TLSv1.2_2021"
+    cloudfront_default_certificate = !var.enable_custom_domain
+    acm_certificate_arn            = var.enable_custom_domain ? aws_acm_certificate_validation.site[0].certificate_arn : null
+    ssl_support_method             = var.enable_custom_domain ? "sni-only" : null
+    minimum_protocol_version       = var.enable_custom_domain ? "TLSv1.2_2021" : null
   }
 }
-
-# --- Bucket policies: acesso exclusivo via OAC da distribuição acima ---
 
 data "aws_iam_policy_document" "origin_primary" {
   statement {

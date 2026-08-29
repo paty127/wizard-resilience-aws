@@ -45,3 +45,15 @@ variable "waf_rate_limit" {
   type        = number
   default     = 2000
 }
+
+variable "enable_custom_domain" {
+  description = <<-EOT
+    Controla se o CloudFront usa domínio customizado + certificado ACM.
+    Deixar como 'false' enquanto o domínio ainda for placeholder/fictício -
+    a validação DNS do ACM nunca termina para um domínio que não existe de verdade.
+    Trocar para 'true' assim que tivermos o domínio real e os nameservers
+    apontando para a hosted zone criada aqui.
+  EOT
+  type        = bool
+  default     = false
+}

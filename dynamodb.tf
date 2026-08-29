@@ -1,22 +1,23 @@
-# Tabela DynamoDB com faturamento On-Demand (PAY_PER_REQUEST)
-resource "aws_dynamodb_table" "wizard_leads" {
-  name         = "wizard-leads"
+resource "aws_dynamodb_table" "leads" {
+  name         = "${var.project_tag}-leads"
   billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "id"
+  hash_key     = "lead_id"
 
   attribute {
-    name = "id"
+    name = "lead_id"
     type = "S"
   }
 
-  # Configuração de Global Tables (Multi-Região para Alta Disponibilidade)
-  # Cria uma réplica automática na região us-east-2 (Ohio)
-  replica {
-    region_name = "us-east-2"
+  point_in_time_recovery {
+    enabled = true
   }
 
-  tags = {
-    Name        = "Wizard-Leads-Global-Table"
-    Environment = "Production"
+  # Global Tables (replica abaixo) exige Streams habilitado - sem isso a
+  # AWS rejeita a operação.
+  stream_enabled   = true
+  stream_view_type = "NEW_AND_OLD_IMAGES"
+
+  replica {
+    region_name = var.secondary_region
   }
 }

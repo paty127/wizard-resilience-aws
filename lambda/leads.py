@@ -37,6 +37,12 @@ def handler(event, context):
     phone = (body.get("phone") or "").strip()
     campaign = (body.get("campaign") or "site-institucional").strip()
 
+        name = (body.get("name") or "").strip()
+    email = (body.get("email") or "").strip()
+    phone = (body.get("phone") or "").strip()
+    unit = (body.get("unit") or "").strip()
+    campaign = (body.get("campaign") or "site-institucional").strip()
+
     # --- Validação de payload ---
     errors = []
     if not name or len(name) < 2:
@@ -45,6 +51,8 @@ def handler(event, context):
         errors.append("email invalido")
     if not phone or len(phone) < 8:
         errors.append("telefone invalido")
+    if not unit or len(unit) < 2:
+        errors.append("unidade/cidade invalida")
 
     if errors:
         return response(400, {"error": "validacao falhou", "details": errors})
@@ -55,10 +63,10 @@ def handler(event, context):
         "name": name,
         "email": email,
         "phone": phone,
+        "unit": unit,
         "campaign": campaign,
         "created_at": int(time.time()),
     }
-
     # Não grava direto no DynamoDB: manda pra fila SQS. Um processador
     # separado (lambda-processor) consome a fila e grava no banco. Isso
     # desacopla a recepção do lead da gravação, e se o processamento falhar

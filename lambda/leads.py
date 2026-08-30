@@ -35,6 +35,7 @@ def handler(event, context):
     name = (body.get("name") or "").strip()
     email = (body.get("email") or "").strip()
     phone = (body.get("phone") or "").strip()
+    unit = (body.get("unit") or "").strip()
     campaign = (body.get("campaign") or "site-institucional").strip()
 
     # --- Validação de payload ---
@@ -45,6 +46,8 @@ def handler(event, context):
         errors.append("email invalido")
     if not phone or len(phone) < 8:
         errors.append("telefone invalido")
+    if not unit or len(unit) < 2:
+        errors.append("unidade/cidade invalida")
 
     if errors:
         return response(400, {"error": "validacao falhou", "details": errors})
@@ -55,6 +58,7 @@ def handler(event, context):
         "name": name,
         "email": email,
         "phone": phone,
+        "unit": unit,
         "campaign": campaign,
         "created_at": int(time.time()),
     }

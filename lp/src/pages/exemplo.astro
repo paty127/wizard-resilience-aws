@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <header>
+    <div class="wrap header-row">
+      <div class="logo"><span class="mark">W</span> WIZARD</div>
+      <span class="badge-live">Página de teste — Case B</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Volta às Aulas 2027</span>
+        <h1>Fale inglês com <span>confiança</span> no ano que começa</h1>
+        <p class="lead">Garanta sua vaga na Wizard com condições exclusivas de Volta às Aulas. Aulas práticas, professores nativos e um método que já formou milhões de alunos no Brasil.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#form">Quero minha vaga</a>
+          <a class="btn btn-ghost" href="#beneficios">Ver benefícios</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>1.200+</b><span>unidades no Brasil</span></div>
+          <div class="stat"><b>40+</b><span>anos de experiência</span></div>
+          <div class="stat"><b>8</b><span>idiomas disponíveis</span></div>
+        </div>
+      </div>
+      <div class="flight-motif">
+        <svg viewBox="0 0 300 420" fill="none">
+          <path d="M40 380 C 90 280, 60 180, 150 90 C 200 45, 240 30, 270 20" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="6 8"/>
+          <circle cx="270" cy="20" r="6" fill="#ff8a90"/>
+        </svg>
+        <div class="flight-card">
+          <div class="num">30%</div>
+          <div class="cap">de desconto na matrícula<br>por tempo limitado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits" id="beneficios">
+    <div class="wrap">
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <div class="icon">🗣️</div>
+          <h3>Método comunicativo</h3>
+          <p>Você fala inglês desde a primeira aula, com foco em situações reais do dia a dia.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">👩‍🏫</div>
+          <h3>Professores certificados</h3>
+          <p>Corpo docente treinado e acompanhamento pedagógico contínuo em todas as turmas.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">📱</div>
+          <h3>Plataforma híbrida</h3>
+          <p>Aulas presenciais e online, com material didático integrado ao seu ritmo de estudo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="form">
+    <div class="wrap">
+      <div class="form-copy">
+        <span class="kicker">Matrícula Volta às Aulas</span>
+        <h2>Peça uma ligação da nossa equipe</h2>
+        <p>Preencha seus dados e um consultor Wizard entra em contato para te ajudar a escolher a turma ideal, com a condição especial de Volta às Aulas.</p>
+        <ul>
+          <li><span class="tick">✓</span> Resposta em até 1 dia útil</li>
+          <li><span class="tick">✓</span> Aula experimental gratuita</li>
+          <li><span class="tick">✓</span> Condições especiais só para quem se inscrever agora</li>
+        </ul>
+      </div>
+
+      <div class="card-form">
+        <h3>Garanta sua condição especial</h3>
+        <p class="sub">Leva menos de 1 minuto</p>
+
+        <form id="leadForm" novalidate>
+          <div class="field">
+            <label for="name">Nome completo</label>
+            <input id="name" name="name" type="text" placeholder="Como podemos te chamar?" required minlength="2">
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Telefone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" placeholder="(11) 99999-9999" required minlength="8">
+          </div>
+          <div class="field">
+            <label for="unit">Unidade de interesse / Cidade</label>
+            <input id="unit" name="unit" type="text" placeholder="Ex: Unidade Paulista ou sua cidade" required minlength="2">
+          </div>
+          <input type="hidden" name="campaign" value="volta-as-aulas">
+
+          <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">Quero minha vaga</button>
+
+          <div class="form-msg" id="formMsg"></div>
+          <p class="privacy-note">Ao enviar, você concorda em ser contatado pela Wizard sobre matrículas e promoções. Seus dados são tratados com segurança em infraestrutura AWS resiliente e criptografada.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Wizard — Landing page de teste (Case B, Hackathon Future Builders). Não é o site oficial.
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  // Saídas "leads_api_url" (primária) e "leads_api_url_secondary" do Terraform.
+  // O backend hoje só grava name/email/phone/campaign (lambda/leads.py) — o
+  // campo "unit" é enviado mesmo assim (a API ignora chaves que não conhece,
+  // não gera erro) até a Lambda ser atualizada para persisti-lo.
+  const PRIMARY_API = "https://azgerdpbbf.execute-api.us-east-1.amazonaws.com/lead";
+  const SECONDARY_API = "https://d6vyxkv0ue.execute-api.sa-east-1.amazonaws.com/lead";
+
+  const form = document.getElementById("leadForm") as HTMLFormElement;
+  const msg = document.getElementById("formMsg") as HTMLDivElement;
+  const btn = document.getElementById("submitBtn") as HTMLButtonElement;
+
+  async function postLead(url: string, payload: Record<string, string>, timeoutMs = 4000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      return res;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    msg.className = "form-msg";
+    msg.textContent = "";
+
+    const payload = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
+      email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value.trim(),
+      unit: (form.elements.namedItem("unit") as HTMLInputElement).value.trim(),
+      campaign: (form.elements.namedItem("campaign") as HTMLInputElement).value,
+    };
+
+    btn.disabled = true;
+    btn.textContent = "Enviando...";
+
+    let res, usedFallback = false;
+    try {
+      res = await postLead(PRIMARY_API, payload);
+    } catch (primaryErr) {
+      // Região primária falhou ou não respondeu a tempo: tenta a secundária.
+      console.warn("Região primária indisponível, tentando failover:", primaryErr);
+      usedFallback = true;
+      try {
+        res = await postLead(SECONDARY_API, payload);
+      } catch (secondaryErr) {
+        msg.className = "form-msg err";
+        msg.textContent = "Erro de conexão em ambas as regiões. Tente novamente em instantes.";
+        btn.disabled = false;
+        btn.textContent = "Quero minha vaga";
+        return;
+      }
+    }
+
+    try {
+      const data = await res.json();
+      if (res.ok) {
+        msg.className = "form-msg ok";
+        msg.textContent = usedFallback
+          ? "Recebemos seus dados via nossa região de contingência! Em breve entraremos em contato."
+          : "Recebemos seus dados! Em breve um consultor Wizard vai entrar em contato.";
+        form.reset();
+      } else {
+        msg.className = "form-msg err";
+        msg.textContent = (data.details && data.details.join(", ")) || "Não foi possível enviar. Confira os dados e tente de novo.";
+      }
+    } catch (err) {
+      msg.className = "form-msg err";
+      msg.textContent = "Erro de conexão. Tente novamente em instantes.";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Quero minha vaga";
+    }
+  });
+</script>

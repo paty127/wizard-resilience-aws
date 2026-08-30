@@ -35,6 +35,20 @@ jobs:
         working-directory: lp
         run: pnpm install --frozen-lockfile
 
+      - name: Data do dia (chave do cache de unidades)
+        id: date
+        run: echo "today=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache de lp/public/data/units-sp.json (no máx. 1x/dia)
+        uses: actions/cache@v4
+        with:
+          path: lp/public/data/units-sp.json
+          key: units-sp-${{ steps.date.outputs.today }}
+
+      - name: Atualizar unidades de SP (pula se já rodou hoje)
+        working-directory: lp
+        run: node scripts/refresh-units.mjs
+
       - name: Build (base path para o Pages)
         working-directory: lp
         env:

@@ -1,0 +1,2787 @@
+{
+  "generatedAt": "2026-08-30",
+  "state": "SP",
+  "total": 278,
+  "units": [
+    {
+      "slug": "aeroporto",
+      "name": "AEROPORTO",
+      "address": "RUA PALACETE DAS AGUIAS 242, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5031-5933",
+      "lat": -23.6402099,
+      "lng": -46.6707825
+    },
+    {
+      "slug": "aguafriasp",
+      "name": "ÁGUA FRIA SP",
+      "address": "AV AGUA FRIA 1880, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2203-8800",
+      "lat": -23.472813,
+      "lng": -46.61793
+    },
+    {
+      "slug": "agudos",
+      "name": "AGUDOS",
+      "address": "RUA XV DE NOVEMBRO 157, Agudos - SP",
+      "city": "Agudos",
+      "uf": "SP",
+      "phone": "(14) 3261-1147",
+      "lat": -22.4681087,
+      "lng": -48.9873948
+    },
+    {
+      "slug": "aldeiadaserra3",
+      "name": "ALDEIA DA SERRA",
+      "address": "AVENIDA DOS PATOS 303, BARUERI - SP",
+      "city": "BARUERI",
+      "uf": "SP",
+      "phone": "(11) 4192 1646",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "amparo",
+      "name": "AMPARO",
+      "address": "R QUINZE DE NOVEMBRO 84, Amparo - SP",
+      "city": "Amparo",
+      "uf": "SP",
+      "phone": "(19) 3808-4656",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "andradina",
+      "name": "ANDRADINA",
+      "address": "SANTA TEREZINHA 555, Andradina - SP",
+      "city": "Andradina",
+      "uf": "SP",
+      "phone": "(18) 3722-6145",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "aracatuba",
+      "name": "ARAÇATUBA",
+      "address": "RUA JOSE BONIFACIO 344, Araçatuba - SP",
+      "city": "Araçatuba",
+      "uf": "SP",
+      "phone": "(18) 3624-3779",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "araraquara",
+      "name": "ARARAQUARA",
+      "address": "AV FEIJO 853, Araraquara - SP",
+      "city": "Araraquara",
+      "uf": "SP",
+      "phone": "(16) 3010-9717",
+      "lat": -21.791814,
+      "lng": -48.179775
+    },
+    {
+      "slug": "araras",
+      "name": "ARARAS",
+      "address": "R NUNES MACHADO 407, Araras - SP",
+      "city": "Araras",
+      "uf": "SP",
+      "phone": "(19) 3541-5448",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "arturalvim",
+      "name": "ARTUR ALVIM",
+      "address": "RUA DOUTOR CAMPOS MOURA 122, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2746-1000",
+      "lat": -23.5406133,
+      "lng": -46.4852756
+    },
+    {
+      "slug": "arturnogueiraiii",
+      "name": "ARTUR NOGUEIRA",
+      "address": "R ADHEMAR DE BARROS 807, ARTUR NOGUEIRA - SP",
+      "city": "ARTUR NOGUEIRA",
+      "uf": "SP",
+      "phone": "(19) 3877 1707",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "aruja",
+      "name": "ARUJÁ",
+      "address": "ESTRADA DO LIMOEIRO 401, Arujá - SP",
+      "city": "Arujá",
+      "uf": "SP",
+      "phone": "(11) 4654-3004",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "assis",
+      "name": "ASSIS",
+      "address": "RUA JOSE NOGUEIRA MARMONTEL 306, Assis - SP",
+      "city": "Assis",
+      "uf": "SP",
+      "phone": "(18) 3321-7479",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "auriflama",
+      "name": "AURIFLAMA",
+      "address": "RUA JOSE BARBOSA 54-61, Auriflama - SP",
+      "city": "Auriflama",
+      "uf": "SP",
+      "phone": "(17) 3482-4478",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "avare",
+      "name": "AVARÉ",
+      "address": "SAO PAULO 928, Avaré - SP",
+      "city": "Avaré",
+      "uf": "SP",
+      "phone": "(14) 37335-0000",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "baraogeraldo",
+      "name": "BARÃO GERALDO",
+      "address": "R DOUTOR ANTONIO AUGUSTO DE ALMEIDA 1044, CAMPINAS - SP",
+      "city": "CAMPINAS",
+      "uf": "SP",
+      "phone": "(19) 3289 6199",
+      "lat": -22.824524,
+      "lng": -47.071574
+    },
+    {
+      "slug": "barretos",
+      "name": "BARRETOS",
+      "address": "Av. Trinta e Um, 989 - Centro, Barretos - SP, 14780-360",
+      "city": "14780-360",
+      "uf": "SP",
+      "phone": "(17) 3322-0505",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "baruericentro",
+      "name": "BARUERI CENTRO",
+      "address": "RUA CAMPOS SALES 629, Barueri - SP",
+      "city": "Barueri",
+      "uf": "SP",
+      "phone": "(11) 4163-2948",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "jardimpaulista",
+      "name": "BARUERI JD PAULISTA",
+      "address": "AVENIDA BATATAIS 735, Barueri - SP",
+      "city": "Barueri",
+      "uf": "SP",
+      "phone": "(11) 4194-6922",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "bauruamerica",
+      "name": "BAURU AMÉRICA",
+      "address": "AV NOSSA SENHORA DE FATIMA 18-49, Bauru - SP",
+      "city": "Bauru",
+      "uf": "SP",
+      "phone": "(14) 3234-1682",
+      "lat": -22.3524366,
+      "lng": -49.0532801
+    },
+    {
+      "slug": "baurumarydotta",
+      "name": "BAURU MARY DOTTA",
+      "address": "MANOEL VICTORINO RELLO DE ARAUJO QD 5-131, Bauru - SP",
+      "city": "Bauru",
+      "uf": "SP",
+      "phone": "(14) 3237-5484",
+      "lat": -22.2956841,
+      "lng": -49.0465318
+    },
+    {
+      "slug": "bebedouro",
+      "name": "BEBEDOURO",
+      "address": "Rua GENERAL OSORIO 25, Bebedouro - SP",
+      "city": "Bebedouro",
+      "uf": "SP",
+      "phone": "(17) 33131-895",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "belem",
+      "name": "BELÉM",
+      "address": "RUA TUIUTI 1248, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2090-0200",
+      "lat": -23.5363647,
+      "lng": -46.5756961
+    },
+    {
+      "slug": "bertioga",
+      "name": "BERTIOGA",
+      "address": "RUA RAFAEL COSTABILE 476, BERTIOGA - SP",
+      "city": "BERTIOGA",
+      "uf": "SP",
+      "phone": "(13) 3317 7416",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "biriguicentro",
+      "name": "BIRIGUI",
+      "address": "RUA RIBEIRO DE BARROS 196, Birigui - SP",
+      "city": "Birigui",
+      "uf": "SP",
+      "phone": "(18) 3641-1000",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "boissucanga",
+      "name": "BOISSUCANGA",
+      "address": "AVENIDA WALKIR VERGANI 499, São Sebastião - SP",
+      "city": "São Sebastião",
+      "uf": "SP",
+      "phone": "(12) 3865 2277",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "bomretiro",
+      "name": "BOM RETIRO",
+      "address": "R PRATES 741, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 96631 5444",
+      "lat": -23.527546,
+      "lng": -46.635346
+    },
+    {
+      "slug": "bonfiglioli",
+      "name": "BONFIGLIOLI",
+      "address": "R JOAO GOMES JUNIOR 100, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3735-6390",
+      "lat": -23.577451,
+      "lng": -46.740079
+    },
+    {
+      "slug": "botucatucentro",
+      "name": "BOTUCATU CENTRO",
+      "address": "R PREFEITO TONICO DE BARROS 621, Botucatu - SP",
+      "city": "Botucatu",
+      "uf": "SP",
+      "phone": "(14) 3881-1122",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "bragancapaulista",
+      "name": "BRAGANÇA PAULISTA",
+      "address": "RUA CORONEL LEME 87, Bragança Paulista - SP",
+      "city": "Bragança Paulista",
+      "uf": "SP",
+      "phone": "(11) 4033-7043",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "brascubasmogidascruzes",
+      "name": "BRÁS CUBAS MOGI DAS CRUZES",
+      "address": "AV FRANCISCO FERREIRA LOPES 2424, MOGI DAS CRUZES - SP",
+      "city": "MOGI DAS CRUZES",
+      "uf": "SP",
+      "phone": "(13) 3427 7214",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "brooklin",
+      "name": "BROOKLIN",
+      "address": "R GUARAIUVA 875, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5531-2000",
+      "lat": -23.608441,
+      "lng": -46.686662
+    },
+    {
+      "slug": "cacapava",
+      "name": "CAÇAPAVA",
+      "address": "LD SAO JOSE 94, Caçapava - SP",
+      "city": "Caçapava",
+      "uf": "SP",
+      "phone": "(12) 3224-8200",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "caieirassp",
+      "name": "CAIEIRAS SP",
+      "address": "R JOAO XXIII 12, Caieiras - SP",
+      "city": "Caieiras",
+      "uf": "SP",
+      "phone": "(11) 5555-2378",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "campinascastelo2",
+      "name": "CAMPINAS CASTELO",
+      "address": "AVENIDA ANDRADE NEVES 2448, CAMPINAS - SP",
+      "city": "CAMPINAS",
+      "uf": "SP",
+      "phone": "(19) 3243-0744",
+      "lat": -22.8883866,
+      "lng": -47.0774262
+    },
+    {
+      "slug": "campolimpo",
+      "name": "CAMPO LIMPO SP",
+      "address": "EST DO CAMPO LIMPO 3394, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5846-0000",
+      "lat": -23.6325,
+      "lng": -46.77122
+    },
+    {
+      "slug": "cangaiba",
+      "name": "CANGAÍBA",
+      "address": "AV CANGAIBA 2604, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2791-8810",
+      "lat": -23.5064273,
+      "lng": -46.530683
+    },
+    {
+      "slug": "capaoredondo",
+      "name": "CAPÃO REDONDO",
+      "address": "AV ELLIS MAAS",
+      "city": null,
+      "uf": "SP",
+      "phone": "(11) 5511-4605",
+      "lat": -23.6612538,
+      "lng": -46.7682578
+    },
+    {
+      "slug": "capao-redondo",
+      "name": "CAPÃO REDONDO",
+      "address": "AV ELLIS MAAS",
+      "city": null,
+      "uf": "SP",
+      "phone": "(11) 5511-4605",
+      "lat": -23.661493,
+      "lng": -46.768561
+    },
+    {
+      "slug": "capivari",
+      "name": "CAPIVARI",
+      "address": "R BARAO DO RIO BRANCO 1259, CAPIVARI - SP",
+      "city": "CAPIVARI",
+      "uf": "SP",
+      "phone": "(19) 3491 2133",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "caraguatatuba",
+      "name": "CARAGUATATUBA",
+      "address": "AV PRESIDENTE CASTELO BRANCO 555, Caraguatatuba - SP",
+      "city": "Caraguatatuba",
+      "uf": "SP",
+      "phone": "(12) 3883-4040",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "carapicuibacentro",
+      "name": "CARAPICUÍBA CENTRO",
+      "address": "AV FERNANDA 9, Carapicuíba - SP",
+      "city": "Carapicuíba",
+      "uf": "SP",
+      "phone": "(11) 4164-4658",
+      "lat": -23.523669,
+      "lng": -46.834277
+    },
+    {
+      "slug": "carapicuibaoportunidade",
+      "name": "CARAPICUÍBA OPORTUNIDADE",
+      "address": "ESTRADA DO COPIUVA 2329, Carapicuíba - SP",
+      "city": "Carapicuíba",
+      "uf": "SP",
+      "phone": "(11) 4146-9535",
+      "lat": -23.56124,
+      "lng": -46.8313498
+    },
+    {
+      "slug": "casabranca",
+      "name": "CASA BRANCA",
+      "address": "R CORONEL JOSE JULIO 198, Casa Branca - SP",
+      "city": "Casa Branca",
+      "uf": "SP",
+      "phone": "(19) 3671-7083",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "casaverde",
+      "name": "CASA VERDE",
+      "address": "RUA JAGUARETE 424, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3857-5999",
+      "lat": -23.5106512,
+      "lng": -46.6587472
+    },
+    {
+      "slug": "catanduva",
+      "name": "CATANDUVA",
+      "address": "R MOGI MIRIM 05, CATANDUVA - SP",
+      "city": "CATANDUVA",
+      "uf": "SP",
+      "phone": "(17) 3521-2166",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "caucaiadoalto",
+      "name": "CAUCAIA DO ALTO",
+      "address": "AV IVO MARIO ISAAC PIRES 3547, Cotia - SP",
+      "city": "Cotia",
+      "uf": "SP",
+      "phone": "(11) 41482-613",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "centrobrotas",
+      "name": "CENTRO BROTAS",
+      "address": "R QUINTINO BOCAIUVA 727, Brotas - SP",
+      "city": "Brotas",
+      "uf": "SP",
+      "phone": "(14) 99859-5550",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "centrojandira",
+      "name": "CENTRO JANDIRA",
+      "address": "AV CARMINE GRAGNANO 77, Jandira - SP",
+      "city": "Jandira",
+      "uf": "SP",
+      "phone": "(11) 4789-1529",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "centrolimeira",
+      "name": "CENTRO LIMEIRA",
+      "address": "R SENADOR VERGUEIRO 1240, Limeira - SP",
+      "city": "Limeira",
+      "uf": "SP",
+      "phone": "(19) 3495-5838",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "centro-salto",
+      "name": "CENTRO SALTO",
+      "address": "AV DOM PEDRO II 295, SALTO - SP",
+      "city": "SALTO",
+      "uf": "SP",
+      "phone": "(11) 4022 0161",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "centrosaovicente",
+      "name": "CENTRO SÃO VICENTE",
+      "address": "AV PRESIDENTE WILSON 976, Praia Grande - SP",
+      "city": "Praia Grande",
+      "uf": "SP",
+      "phone": "(13) 3474-4177",
+      "lat": -23.967338,
+      "lng": -46.377806
+    },
+    {
+      "slug": "centrosumare",
+      "name": "CENTRO SUMARÉ",
+      "address": "PC MANOEL DE VASCONCELLOS 521, Sumaré - SP",
+      "city": "Sumaré",
+      "uf": "SP",
+      "phone": "(19) 3903-3110",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "taubate",
+      "name": "CENTRO TAUBATÉ",
+      "address": "PC SANTA TEREZINHA 122, Taubaté - SP",
+      "city": "Taubaté",
+      "uf": "SP",
+      "phone": "(12) 3631-8862",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "tremembe",
+      "name": "CENTRO TREMEMBÉ",
+      "address": "R ALBUQUERQUE LINS 67, Tremembé - SP",
+      "city": "Tremembé",
+      "uf": "SP",
+      "phone": "(12) 97407-6555",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "chacaraprimavera",
+      "name": "CHÁCARA PRIMAVERA",
+      "address": "R DAS CAMELIAS 910, Campinas - SP",
+      "city": "Campinas",
+      "uf": "SP",
+      "phone": "(19) 3256-0575",
+      "lat": -22.855461,
+      "lng": -47.049477
+    },
+    {
+      "slug": "chile",
+      "name": "CHILE",
+      "address": "AVENIDA DOUTOR DURVAL NICOLAU 996, São João da Boa Vista - SP",
+      "city": "São João da Boa Vista",
+      "uf": "SP",
+      "phone": "(19) 3651-1067",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "cidadeaecarvalho",
+      "name": "CIDADE A.E CARVALHO",
+      "address": "AVENIDA AGUIA DE HAIA 3522, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3756-2000",
+      "lat": -23.5150416,
+      "lng": -46.4763596
+    },
+    {
+      "slug": "cidadearistonestelaazevedo",
+      "name": "CIDADE ARISTON ESTELA AZEVEDO",
+      "address": "AVENIDA COMENDADOR DANTE CARRARO 819, Carapicuíba - SP",
+      "city": "Carapicuíba",
+      "uf": "SP",
+      "phone": "(11) 4202-7659",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "socorrocidadedutra",
+      "name": "CIDADE DUTRA SP",
+      "address": "AVENIDA INTERLAGOS 6914, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5666-8011",
+      "lat": -23.7066039,
+      "lng": -46.7031557
+    },
+    {
+      "slug": "cidadetiradentes",
+      "name": "CIDADE TIRADENTES",
+      "address": "RUA ARNALDO BOAVENTURA 495, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2558-6477",
+      "lat": -23.58894,
+      "lng": -46.40828
+    },
+    {
+      "slug": "conchascentro",
+      "name": "CONCHAS",
+      "address": "Rua Maranhao 531, Conchas - SP",
+      "city": "Conchas",
+      "uf": "SP",
+      "phone": "(14) 38454-661",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "cordeiropolis",
+      "name": "CORDEIRÓPOLIS",
+      "address": "AV PRESIDENTE VARGAS 283, Cordeirópolis - SP",
+      "city": "Cordeirópolis",
+      "uf": "SP",
+      "phone": "(19) 3546-5511",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "cosmopolis",
+      "name": "COSMÓPOLIS",
+      "address": "RUA CAMPINAS 327, COSMÓPOLIS - SP",
+      "city": "COSMÓPOLIS",
+      "uf": "SP",
+      "phone": "(19) 3872-3593",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "costa-rica",
+      "name": "COSTA RICA",
+      "address": "AVENIDA DOUTOR DURVAL NICOLAU 996, São João da Boa Vista - SP",
+      "city": "São João da Boa Vista",
+      "uf": "SP",
+      "phone": "(19) 3651-1067",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "cotiacentro",
+      "name": "COTIA CENTRO",
+      "address": "AV ROTARY 6, COTIA - SP",
+      "city": "COTIA",
+      "uf": "SP",
+      "phone": "(11) 4615-8900",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "cubatao",
+      "name": "CUBATÃO",
+      "address": "AV. JOAQUIM MIGUEL COUTO 718, Cubatão - SP",
+      "city": "Cubatão",
+      "uf": "SP",
+      "phone": "(13) 3372-1606",
+      "lat": -23.8848203,
+      "lng": -46.4227334
+    },
+    {
+      "slug": "capuce",
+      "name": "CUPECÊ",
+      "address": "AVENIDA CUPECE 2362, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5563-1212",
+      "lat": -23.6632092,
+      "lng": -46.66195
+    },
+    {
+      "slug": "diademacentro",
+      "name": "DIADEMA CENTRO",
+      "address": "PRACA ANGELINA DE MELLO 32, Diadema - SP",
+      "city": "Diadema",
+      "uf": "SP",
+      "phone": "(11) 4043-1344",
+      "lat": -23.6850306,
+      "lng": -46.6255209
+    },
+    {
+      "slug": "doiscorregos",
+      "name": "DOIS CÓRREGOS",
+      "address": "AV FERNANDO COSTA 264, Dois Córregos - SP",
+      "city": "Dois Córregos",
+      "uf": "SP",
+      "phone": "(14) 3652-5444",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "embudasartes",
+      "name": "EMBU DAS ARTES",
+      "address": "BELO HORIZONTE 203, Embu das Artes - SP",
+      "city": "Embu das Artes",
+      "uf": "SP",
+      "phone": "(11) 4704-1366",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "embudasartesdomjose",
+      "name": "EMBU DAS ARTES DOM JOSÉ",
+      "address": "LORENA 294, Embu das Artes - SP",
+      "city": "Embu das Artes",
+      "uf": "SP",
+      "phone": "(11) 4385-2230",
+      "lat": -23.6694398,
+      "lng": -46.8033506
+    },
+    {
+      "slug": "espiritosantodopinhal",
+      "name": "ESPIRITO SANTO DO PINHAL",
+      "address": "RUA XV DE NOVEMBRO 36, Espírito Santo do Pinhal - SP",
+      "city": "Espírito Santo do Pinhal",
+      "uf": "SP",
+      "phone": "(19) 3651-7768",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "fernandopolis",
+      "name": "FERNANDÓPOLIS",
+      "address": "RUA RIO GRANDE DO SUL 1842, Fernandópolis - SP",
+      "city": "Fernandópolis",
+      "uf": "SP",
+      "phone": "(17) 3442-7728",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "ferrazdevasconcelos",
+      "name": "FERRAZ DE VASCONCELOS",
+      "address": "RUA SUD MENUCCI 131, Ferraz de Vasconcelos - SP",
+      "city": "Ferraz de Vasconcelos",
+      "uf": "SP",
+      "phone": "(11) 4676-5450",
+      "lat": -23.5432012,
+      "lng": -46.3679797
+    },
+    {
+      "slug": "francacidadenova",
+      "name": "FRANCA CIDADE NOVA",
+      "address": "AVENIDA MAJOR NICACIO 2135, Franca - SP",
+      "city": "Franca",
+      "uf": "SP",
+      "phone": "(16) 3723-8811",
+      "lat": -20.5355461,
+      "lng": -47.3926508
+    },
+    {
+      "slug": "franciscomorato",
+      "name": "FRANCISCO MORATO",
+      "address": "R PROGRESSO 204, FRANCISCO MORATO - SP",
+      "city": "FRANCISCO MORATO",
+      "uf": "SP",
+      "phone": "(11) 4881-3084",
+      "lat": -23.281905,
+      "lng": -46.7440524
+    },
+    {
+      "slug": "freguesiadooii",
+      "name": "FREGUESIA DO O II",
+      "address": "AVENIDA ITABERABA 980, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 96647 4943",
+      "lat": -23.4929476,
+      "lng": -46.69629
+    },
+    {
+      "slug": "generalsalgado",
+      "name": "GENERAL SALGADO",
+      "address": "RUA EUFLAUZINO THEODORO CASTILHO 690, General Salgado - SP",
+      "city": "General Salgado",
+      "uf": "SP",
+      "phone": "(17) 99649-0556",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "grajausp",
+      "name": "GRAJAÚ SP",
+      "address": "AV DONA BELMIRA MARIN 463, SAO PAULO - SP",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "phone": "(11) 5928 6391",
+      "lat": -23.735433,
+      "lng": -46.695319
+    },
+    {
+      "slug": "granjaviana",
+      "name": "GRANJA VIANA",
+      "address": "AV SAO CAMILO 929, Cotia - SP",
+      "city": "Cotia",
+      "uf": "SP",
+      "phone": "(11) 4613-1111",
+      "lat": -23.584065,
+      "lng": -46.83618
+    },
+    {
+      "slug": "granjavianakids",
+      "name": "GRANJA VIANA KIDS",
+      "address": "AV SAO CAMILO 929, Cotia - SP",
+      "city": "Cotia",
+      "uf": "SP",
+      "phone": "(11) 4613-1111",
+      "lat": -23.584048,
+      "lng": -46.836196
+    },
+    {
+      "slug": "guaianazes",
+      "name": "GUAIANAZES",
+      "address": "RUA PROFESSOR FRANCISCO PINHEIRO 315, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2552-9666",
+      "lat": -23.5451551,
+      "lng": -46.4141067
+    },
+    {
+      "slug": "guarapiranga",
+      "name": "GUARAPIRANGA",
+      "address": "AV GUARAPIRANGA 1973, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5518-1512",
+      "lat": -23.667896,
+      "lng": -46.731516
+    },
+    {
+      "slug": "guararapes",
+      "name": "GUARARAPES",
+      "address": "R DUQUE DE CAXIAS 569, Guararapes - SP",
+      "city": "Guararapes",
+      "uf": "SP",
+      "phone": "(18) 99618 3173",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "guararema",
+      "name": "GUARAREMA",
+      "address": "AVENIDA LUCAS NOGUEIRA GARCEZ 29, Guararema - SP",
+      "city": "Guararema",
+      "uf": "SP",
+      "phone": "(11) 4695-5353",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "guaratingueta",
+      "name": "GUARATINGUETA",
+      "address": "AVENIDA PEDRO TOLEDO 360, Guaratinguetá - SP",
+      "city": "Guaratinguetá",
+      "uf": "SP",
+      "phone": "(12) 3125-4582",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "guariba",
+      "name": "GUARIBA",
+      "address": "RUA JOSE MISSALLI 609, Guariba - SP",
+      "city": "Guariba",
+      "uf": "SP",
+      "phone": "(16) 32512-120",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "guarujacentro",
+      "name": "GUARUJA CENTRO",
+      "address": "RUA WASHINGTON 88, Guarujá - SP",
+      "city": "Guarujá",
+      "uf": "SP",
+      "phone": "(13) 3384-7490",
+      "lat": -23.992364,
+      "lng": -46.2554239
+    },
+    {
+      "slug": "guarujasantamaria",
+      "name": "GUARUJÁ SANTA MARIA",
+      "address": "AV ADHEMAR DE BARROS 1566, Guarujá - SP",
+      "city": "Guarujá",
+      "uf": "SP",
+      "phone": "(13) 38781-989",
+      "lat": -23.9915109,
+      "lng": -46.2750852
+    },
+    {
+      "slug": "guarujavicentedecarvalho",
+      "name": "GUARUJÁ VICENTE DE CARVALHO",
+      "address": "R SAO JOSE 605, Guarujá - SP",
+      "city": "Guarujá",
+      "uf": "SP",
+      "phone": "(13) 3342-3799",
+      "lat": -23.9497475,
+      "lng": -46.2960311
+    },
+    {
+      "slug": "guarulhosbonsucesso",
+      "name": "GUARULHOS BONSUCESSO",
+      "address": "EST PRESIDENTE JUSCELINO KUBITSCHEK DE OLIVEIRA",
+      "city": null,
+      "uf": "SP",
+      "phone": "(11) 24844-818",
+      "lat": -23.434963,
+      "lng": -46.405651
+    },
+    {
+      "slug": "guarulhosbonsucessoii",
+      "name": "GUARULHOS BONSUCESSO",
+      "address": "EST PRESIDENTE JUSCELINO KUBITSCHEK DE OLIVEIRA 5127, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 2484-4818",
+      "lat": -23.434963,
+      "lng": -46.405651
+    },
+    {
+      "slug": "guarulhoscentro",
+      "name": "GUARULHOS CENTRO",
+      "address": "RUA SAO PAULO 238, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 2461-0633",
+      "lat": -23.468179,
+      "lng": -46.5399498
+    },
+    {
+      "slug": "guarulhoscentrokids",
+      "name": "GUARULHOS CENTRO KIDS",
+      "address": "SAO PAULO 334, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 24721188",
+      "lat": -23.468973,
+      "lng": -46.5401325
+    },
+    {
+      "slug": "guarulhoscumbica",
+      "name": "GUARULHOS CUMBICA",
+      "address": "R JUAZEIRO DO NORTE 249, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 2412-5188",
+      "lat": -23.451054,
+      "lng": -46.475012
+    },
+    {
+      "slug": "guarulhosjardimparaiso",
+      "name": "GUARULHOS JARDIM PARAÍSO",
+      "address": "Rua Porto Velho, 501 - Jardim Cumbica, Guarulhos",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 4803-7330",
+      "lat": -23.447656,
+      "lng": -46.438038
+    },
+    {
+      "slug": "guarulhosjdpicanco",
+      "name": "GUARULHOS JD PICANÇO",
+      "address": "AVENIDA ANDRE LUIS 390, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 2458-8999",
+      "lat": -23.4405948,
+      "lng": -46.5459229
+    },
+    {
+      "slug": "guarulhossaojoao",
+      "name": "GUARULHOS SÃO JOÃO",
+      "address": "AVENIDA FLORIANOPOLIS 608, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 2229-3745",
+      "lat": -23.4087138,
+      "lng": -46.4539322
+    },
+    {
+      "slug": "guarulhostaboao",
+      "name": "GUARULHOS TABOÃO",
+      "address": "AVENIDA NOVA TABOÃO 373, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 2401-8282",
+      "lat": -23.4325754,
+      "lng": -46.5054781
+    },
+    {
+      "slug": "higienopolis",
+      "name": "HIGIENÓPOLIS",
+      "address": "RUA ROSA E SILVA 285, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 96082 0125",
+      "lat": -23.5332247,
+      "lng": -46.6578647
+    },
+    {
+      "slug": "ilhasolteira",
+      "name": "ILHA SOLTEIRA",
+      "address": "PASSEIO CORUMBA 107, Ilha Solteira - SP",
+      "city": "Ilha Solteira",
+      "uf": "SP",
+      "phone": "(18) 3743-5940",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "ilhabela-2",
+      "name": "ILHABELA",
+      "address": "AV PRINCESA ISABEL 1231, ILHABELA - SP",
+      "city": "ILHABELA",
+      "uf": "SP",
+      "phone": "(12) 3896-5656",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "imirim",
+      "name": "IMIRIM",
+      "address": "RUA PADRE JOAO GUALBERTO 1, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3628-3555",
+      "lat": -23.49302,
+      "lng": -46.648259
+    },
+    {
+      "slug": "indaiatuba",
+      "name": "INDAIATUBA",
+      "address": "RUA PEDRO GONGALVES 961, Indaiatuba - SP",
+      "city": "Indaiatuba",
+      "uf": "SP",
+      "phone": "(19) 3318-0002",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "interlagos",
+      "name": "INTERLAGOS",
+      "address": "AVENIDA INTERLAGOS 1399, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5631-3578",
+      "lat": -23.6657643,
+      "lng": -46.677804
+    },
+    {
+      "slug": "ipaussu",
+      "name": "IPAUSSU",
+      "address": "PC DR RAFAEL DE SOUZA 80, Ipaussu - SP",
+      "city": "Ipaussu",
+      "uf": "SP",
+      "phone": "(14) 3344-2217",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itai",
+      "name": "ITAÍ",
+      "address": "AVENIDA SANTO ANTONIO 1388, Itaí - SP",
+      "city": "Itaí",
+      "uf": "SP",
+      "phone": "(14) 3761-2070",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itaimpaulista",
+      "name": "ITAIM PAULISTA",
+      "address": "AV MARECHAL TITO 4028, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2571 1536",
+      "lat": -23.4952588,
+      "lng": -46.4052904
+    },
+    {
+      "slug": "itajobi",
+      "name": "ITAJOBI",
+      "address": "RUA DOUTOR PEDRO DE TOLEDO 1010, Itajobi - SP",
+      "city": "Itajobi",
+      "uf": "SP",
+      "phone": "(17) 3546-2442",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itanhaem",
+      "name": "ITANHAÉM",
+      "address": "RUA JOAQUIM MEIRA 65, Itanhaém - SP",
+      "city": "Itanhaém",
+      "uf": "SP",
+      "phone": "(13) 3422-6673",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itapeva",
+      "name": "ITAPEVA",
+      "address": "RUA EPITACIO PIEDADE 59, Itapeva - SP",
+      "city": "Itapeva",
+      "uf": "SP",
+      "phone": "(15) 3522-4695",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itapevi",
+      "name": "ITAPEVI",
+      "address": "AVENIDA BRASIL 170, Itapevi - SP",
+      "city": "Itapevi",
+      "uf": "SP",
+      "phone": "(11) 4143-3452",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itapevisaojoao",
+      "name": "ITAPEVI SÃO JOÃO",
+      "address": "ROD ENGENHEIRO RENE BENEDITO DA SILVA 200, Itapevi - SP",
+      "city": "Itapevi",
+      "uf": "SP",
+      "phone": "(11) 4142-3208",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itapira",
+      "name": "ITAPIRA",
+      "address": "AV SIQUEIRA CAMPOS 129, ITAPIRA - SP",
+      "city": "ITAPIRA",
+      "uf": "SP",
+      "phone": "(19) 99632-7640",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itapolis",
+      "name": "ITÁPOLIS",
+      "address": "R JOSE TREVISAN 137, Itápolis - SP",
+      "city": "Itápolis",
+      "uf": "SP",
+      "phone": "(16) 32628-966",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itaquaquecetuba",
+      "name": "ITAQUAQUECETUBA",
+      "address": "AVENIDA VEREADOR JOAO FERNANDES DA SILVA 410, Itaquaquecetuba - SP",
+      "city": "Itaquaquecetuba",
+      "uf": "SP",
+      "phone": "(11) 4754-1300",
+      "lat": -23.4873056,
+      "lng": -46.3522352
+    },
+    {
+      "slug": "itaquera",
+      "name": "ITAQUERA",
+      "address": "R KEN SUGAYA 285, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2079-4500",
+      "lat": -23.539398,
+      "lng": -46.453255
+    },
+    {
+      "slug": "itariri",
+      "name": "ITARIRI",
+      "address": "RUA LAVINIA CLEOMAR SOARES 210, Itariri - SP",
+      "city": "Itariri",
+      "uf": "SP",
+      "phone": "(13) 3418-6653",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itatiba",
+      "name": "ITATIBA",
+      "address": "EUGENIO PASSOS 244, Itatiba - SP",
+      "city": "Itatiba",
+      "uf": "SP",
+      "phone": "(11) 4538-5464",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itobi",
+      "name": "ITOBI",
+      "address": "RUA XV DE NOVEMBRO 564, Itobi - SP",
+      "city": "Itobi",
+      "uf": "SP",
+      "phone": "(19) 3647-1272",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "ituii",
+      "name": "ITU",
+      "address": "AL BARAO DO RIO BRANCO 7, ITU - SP",
+      "city": "ITU",
+      "uf": "SP",
+      "phone": "(11) 4022 0161",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "itupeva",
+      "name": "ITUPEVA",
+      "address": "AVENIDA BRASIL 510, ITUPEVA - SP",
+      "city": "ITUPEVA",
+      "uf": "SP",
+      "phone": "(11) 4591 2993",
+      "lat": -23.1564452,
+      "lng": -47.0563443
+    },
+    {
+      "slug": "jabaquara",
+      "name": "JABAQUARA",
+      "address": "RUA GAL MANUEL VARGAS 243, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5588-1755",
+      "lat": -23.645726,
+      "lng": -46.6393285
+    },
+    {
+      "slug": "jaboticabal",
+      "name": "JABOTICABAL",
+      "address": "RUA RUI BARBOSA 134, Jaboticabal - SP",
+      "city": "Jaboticabal",
+      "uf": "SP",
+      "phone": "(16) 3202-4772",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "jacana",
+      "name": "JACANÃ",
+      "address": "AVENIDA PAULO LINCOLN DO VALLE PONTIN 225, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 99260 4881",
+      "lat": -23.4633957,
+      "lng": -46.5853321
+    },
+    {
+      "slug": "jacarei",
+      "name": "JACAREÍ",
+      "address": "AVENIDA AVAREI 68, Jacareí - SP",
+      "city": "Jacareí",
+      "uf": "SP",
+      "phone": "(12) 3959-1656",
+      "lat": -23.2975766,
+      "lng": -45.9670056
+    },
+    {
+      "slug": "jaguariuna",
+      "name": "JAGUARIÚNA",
+      "address": "RUA ALFREDO BUENO 483, Jaguariúna - SP",
+      "city": "Jaguariúna",
+      "uf": "SP",
+      "phone": "(19) 3867-4191",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "jaragua",
+      "name": "JARAGUÁ",
+      "address": "ESTRADA DAS TAIPAS 175, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3945-0052",
+      "lat": -23.4534832,
+      "lng": -46.7375551
+    },
+    {
+      "slug": "jardimnovaeuropaii",
+      "name": "JARDIM NOVA EUROPA",
+      "address": "AV ESTADOS UNIDOS 219, CAMPINAS - SP",
+      "city": "CAMPINAS",
+      "uf": "SP",
+      "phone": "(19) 3277 0369",
+      "lat": -22.9312675,
+      "lng": -47.0633784
+    },
+    {
+      "slug": "jardimsaodimas",
+      "name": "JARDIM SÃO DIMAS",
+      "address": "AV DOUTOR NELSON D&#039;AVILA 1202, São José dos Campos - SP",
+      "city": "São José dos Campos",
+      "uf": "SP",
+      "phone": "(12) 3133-6416",
+      "lat": -23.196794,
+      "lng": -45.886421
+    },
+    {
+      "slug": "jardimsaudejarinu",
+      "name": "JARDIM SAÚDE JARINU",
+      "address": "AV DOUTOR ANTENOR SOARES GANDRA 450, JARINU - SP",
+      "city": "JARINU",
+      "uf": "SP",
+      "phone": "(11) 96324-4906",
+      "lat": -23.102593,
+      "lng": -46.733907
+    },
+    {
+      "slug": "jau",
+      "name": "JAÚ",
+      "address": "R TENENTE LOPES 826, Jaú - SP",
+      "city": "Jaú",
+      "uf": "SP",
+      "phone": "(14) 3411 9999",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "jdcasqueiro",
+      "name": "JD CASQUEIRO",
+      "address": "AVENIDA BRASIL 562, Cubatão - SP",
+      "city": "Cubatão",
+      "uf": "SP",
+      "phone": "(13) 3329-0323",
+      "lat": -23.929467,
+      "lng": -46.410141
+    },
+    {
+      "slug": "jundiaichacaraurbana",
+      "name": "JUNDIAÍ CHÁCARA URBANA",
+      "address": "RUA MARIO BORIN 223, Jundiaí - SP",
+      "city": "Jundiaí",
+      "uf": "SP",
+      "phone": "(11) 45865-277",
+      "lat": -23.1860525,
+      "lng": -46.8936809
+    },
+    {
+      "slug": "jundiaieloychaves",
+      "name": "JUNDIAÍ ELOY CHAVES",
+      "address": "AV LUIZ JOSE SERENO 1213, Jundiaí - SP",
+      "city": "Jundiaí",
+      "uf": "SP",
+      "phone": "(11) 45829-183",
+      "lat": -23.19242,
+      "lng": -46.96188
+    },
+    {
+      "slug": "juquia",
+      "name": "JUQUIÁ",
+      "address": "ANTONIO FERREIRA DE AGUIAR 132, Juquiá - SP",
+      "city": "Juquiá",
+      "uf": "SP",
+      "phone": "(13) 3844-1340",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "laranjalpaulista",
+      "name": "LARANJAL PAULISTA",
+      "address": "RUA BARAO DO RIO BRANCO 68, Laranjal Paulista - SP",
+      "city": "Laranjal Paulista",
+      "uf": "SP",
+      "phone": "(15) 3283-5757",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "cachoeirinha-2",
+      "name": "LARGO DO JAPONÊS",
+      "address": "AV IMIRIM 4683, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2309-3527",
+      "lat": -23.474379,
+      "lng": -46.666971
+    },
+    {
+      "slug": "lemecentro",
+      "name": "LEME CENTRO",
+      "address": "RUA JOAQUIM MOURAO 710, Leme - SP",
+      "city": "Leme",
+      "uf": "SP",
+      "phone": "(19) 3571-5295",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "lencoispaulista",
+      "name": "LENÇÓIS PAULISTA",
+      "address": "RUA GERALDO PEREIRA DE BARROS 962, Lençóis Paulista - SP",
+      "city": "Lençóis Paulista",
+      "uf": "SP",
+      "phone": "(14) 32611-147",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "limao",
+      "name": "LIMÃO",
+      "address": "RUA ROQUE DE MORAES 86, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 96637 9026",
+      "lat": -23.5027131,
+      "lng": -46.6731935
+    },
+    {
+      "slug": "lins",
+      "name": "LINS",
+      "address": "RUA PEDRO DE TOLEDO 910, Lins - SP",
+      "city": "Lins",
+      "uf": "SP",
+      "phone": "(14) 3523-5666",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "louveiravilanova",
+      "name": "LOUVEIRA VILA NOVA",
+      "address": "RUA ERCILIA MARTINS CRUZ 230, Louveira - SP",
+      "city": "Louveira",
+      "uf": "SP",
+      "phone": "(19) 3878-2995",
+      "lat": -23.0877238,
+      "lng": -46.9499466
+    },
+    {
+      "slug": "mairipora",
+      "name": "MAIRIPORÃ",
+      "address": "AV LEONOR DE OLIVEIRA 62, Mairiporã - SP",
+      "city": "Mairiporã",
+      "uf": "SP",
+      "phone": "(11) 46046624",
+      "lat": -23.3196303,
+      "lng": -46.5910596
+    },
+    {
+      "slug": "mandaquisaopaulo",
+      "name": "MANDAQUI SÃO PAULO",
+      "address": "AV SANTA INES 6, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3294-1571",
+      "lat": -23.478391,
+      "lng": -46.632531
+    },
+    {
+      "slug": "mansoes",
+      "name": "MANSÕES",
+      "address": "R OLGA DI GIORGIO GERACCI 220, CAMPINAS - SP",
+      "city": "CAMPINAS",
+      "uf": "SP",
+      "phone": "(19) 91924 4122",
+      "lat": -22.847156,
+      "lng": -47.051956
+    },
+    {
+      "slug": "mariliacentro",
+      "name": "MARÍLIA CENTRO",
+      "address": "AV VICENTE FERREIRA 1440, MARILIA - SP",
+      "city": "MARILIA",
+      "uf": "SP",
+      "phone": "(14) 99781-1529",
+      "lat": -22.207547,
+      "lng": -49.938663
+    },
+    {
+      "slug": "matao",
+      "name": "MATÃO",
+      "address": "AV CAMPOS SALLES 182, Matão - SP",
+      "city": "Matão",
+      "uf": "SP",
+      "phone": "(16) 3382 5277",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "maua",
+      "name": "MAUÁ",
+      "address": "RUA ALONSO DE VASCONCELOS PACHECO 221, Mauá - SP",
+      "city": "Mauá",
+      "uf": "SP",
+      "phone": "(11) 4544-3333",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "mauacentro",
+      "name": "MAUÁ CENTRO",
+      "address": "AVENIDA GOVERNADOR MARIO COVAS JUNIOR 1, Mauá - SP",
+      "city": "Mauá",
+      "uf": "SP",
+      "phone": "(11) 4518-5566",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "mococa",
+      "name": "MOCOCA",
+      "address": "R CORONEL DIOGO 1481, Mococa - SP",
+      "city": "Mococa",
+      "uf": "SP",
+      "phone": "(19) 3651-7768",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "moema",
+      "name": "MOEMA",
+      "address": "ALAMEDA DOS ARAPANES 1298, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5543-3272",
+      "lat": -23.60802,
+      "lng": -46.668349
+    },
+    {
+      "slug": "mogidascruzescentro",
+      "name": "MOGI DAS CRUZES I",
+      "address": "RUA FRANCISCO FRANCO 154, Mogi das Cruzes - SP",
+      "city": "Mogi das Cruzes",
+      "uf": "SP",
+      "phone": "(11) 4723-4500",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "mogiguacucidadenova",
+      "name": "MOGI GUAÇU CIDADE NOVA",
+      "address": "AVENIDA JULIO XAVIER DA SILVA 812, Mogi Guaçu - SP",
+      "city": "Mogi Guaçu",
+      "uf": "SP",
+      "phone": "(19) 3569-3003",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "mogiguacukids",
+      "name": "MOGI GUAÇU KIDS",
+      "address": "AV JULIO XAVIER DA SILVA 750, Mogi Guaçu - SP",
+      "city": "Mogi Guaçu",
+      "uf": "SP",
+      "phone": "(19) 3569-1517",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "mogimirim",
+      "name": "MOGI MIRIM",
+      "address": "PADRE ROQUE 600, Mogi Mirim - SP",
+      "city": "Mogi Mirim",
+      "uf": "SP",
+      "phone": "(19) 3806-3611",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "mongagua",
+      "name": "MONGAGUÁ",
+      "address": "RUA SÃO PAULO 740, Mongaguá - SP",
+      "city": "Mongaguá",
+      "uf": "SP",
+      "phone": "(13) 3507-1515",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "mooca",
+      "name": "MOOCA",
+      "address": "R MADRE DE DEUS 78, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 99142 4727",
+      "lat": -23.558088,
+      "lng": -46.59986
+    },
+    {
+      "slug": "morroagudo",
+      "name": "MORRO AGUDO",
+      "address": "AV CAP. FRANCISCO MARCOLINO JUNQUEIRA 126, Morro Agudo - SP",
+      "city": "Morro Agudo",
+      "uf": "SP",
+      "phone": "(16) 3851-2254",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "morumbi",
+      "name": "MORUMBI",
+      "address": "R CHARLES SPENCER CHAPLIN 315, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3771-5235",
+      "lat": -23.62313,
+      "lng": -46.73677
+    },
+    {
+      "slug": "nhandeara",
+      "name": "NHANDEARA",
+      "address": "RUA EDMILSON PESSOA CAVALCANTI 997, Nhandeara - SP",
+      "city": "Nhandeara",
+      "uf": "SP",
+      "phone": "(17) 3472-0866",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "nossasenhoradefatima",
+      "name": "NOSSA SENHORA DE FÁTIMA",
+      "address": "AVENIDA PAULISTA 630, Americana - SP",
+      "city": "Americana",
+      "uf": "SP",
+      "phone": "(19) 3478-0999",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "novaitapevi",
+      "name": "NOVA ITAPEVI",
+      "address": "IZOLA BELLI LEONARDI 36, Itapevi - SP",
+      "city": "Itapevi",
+      "uf": "SP",
+      "phone": "(11) 4141-4869",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "novohorizonteii",
+      "name": "NOVO HORIZONTE",
+      "address": "R TRAJANO MACHADO 386, NOVO HORIZONTE - SP",
+      "city": "NOVO HORIZONTE",
+      "uf": "SP",
+      "phone": "(17) 98133 8579",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "olimpia",
+      "name": "OLÍMPIA",
+      "address": "R. Floriano Peixoto, 1250 - Centro, Olímpia - SP, 15400-077",
+      "city": "15400-077",
+      "uf": "SP",
+      "phone": "(17) 3281-8000",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "oratorio",
+      "name": "ORATÓRIO",
+      "address": "AVENIDA DO ORATORIO 3569, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2024-1313",
+      "lat": -23.5985821,
+      "lng": -46.5382756
+    },
+    {
+      "slug": "osascocentro",
+      "name": "OSASCO CENTRO",
+      "address": "RUA NOSSA SENHORA DE FATIMA 138, Osasco - SP",
+      "city": "Osasco",
+      "uf": "SP",
+      "phone": "(11) 3685-3527",
+      "lat": -23.5375184,
+      "lng": -46.7800393
+    },
+    {
+      "slug": "osascojardimdasflores",
+      "name": "OSASCO JARDIM DAS FLORES",
+      "address": "AVENIDA CRISANTEMO 516, Osasco - SP",
+      "city": "Osasco",
+      "uf": "SP",
+      "phone": "(11) 3654-5908",
+      "lat": -23.5359224,
+      "lng": -46.7936415
+    },
+    {
+      "slug": "osascojardimsantoantonio",
+      "name": "OSASCO JARDIM SANTO ANTONIO",
+      "address": "AVENIDA INTERNACIONAL 462, Osasco - SP",
+      "city": "Osasco",
+      "uf": "SP",
+      "phone": "(11) 4624-3798",
+      "lat": -23.555993,
+      "lng": -46.797895
+    },
+    {
+      "slug": "viladosremedios",
+      "name": "OSASCO VILA DOS REMEDIOS",
+      "address": "AVENIDA NOSSA SENHORA DOS REMEDIOS 317, Osasco - SP",
+      "city": "Osasco",
+      "uf": "SP",
+      "phone": "(11) 4575-0148",
+      "lat": -23.5196833,
+      "lng": -46.7538288
+    },
+    {
+      "slug": "ourinhos",
+      "name": "OURINHOS",
+      "address": "R DOUTOR ARLINDO LUZ 839, OURINHOS - SP",
+      "city": "OURINHOS",
+      "uf": "SP",
+      "phone": "(14) 3324-3110",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "campinasouroverde",
+      "name": "OURO VERDE",
+      "address": "RUA ARMANDO FREDERICO RENGANESCHI 112, CAMPINAS - SP",
+      "city": "CAMPINAS",
+      "uf": "SP",
+      "phone": "(19) 3266-1110",
+      "lat": -22.9656004,
+      "lng": -47.1333382
+    },
+    {
+      "slug": "paradainglesa",
+      "name": "PARADA INGLESA",
+      "address": "AVENIDA GENERAL ATALIBA LEONEL 2973, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 99382 8813",
+      "lat": -23.4932536,
+      "lng": -46.6110229
+    },
+    {
+      "slug": "paraguacupaulista",
+      "name": "PARAGUAÇU PAULISTA",
+      "address": "AVENIDA PARAGUACU 850, Paraguaçu Paulista - SP",
+      "city": "Paraguaçu Paulista",
+      "uf": "SP",
+      "phone": "(18) 3361-5855",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "parelheiros2",
+      "name": "PARELHEIROS",
+      "address": "EST DA COLONIA MARIO REIMBERG CHRISTE 7, SAO PAULO - SP",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "phone": "(11) 5926-0550",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "parqueindustrial",
+      "name": "PARQUE INDUSTRIAL",
+      "address": "RUA BENEDITO FERREIRA MARQUES 376, Campinas - SP",
+      "city": "Campinas",
+      "uf": "SP",
+      "phone": "(19) 3272-7589",
+      "lat": -22.919696,
+      "lng": -47.086224
+    },
+    {
+      "slug": "parquesaorafael",
+      "name": "PARQUE SÃO RAFAEL",
+      "address": "AVENIDA BARONESA DE MURITIBA 79, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2019-4172",
+      "lat": -23.6232187,
+      "lng": -46.4717586
+    },
+    {
+      "slug": "paulinia-jd-america-3",
+      "name": "PAULÍNIA JD. AMÉRICA",
+      "address": "AV JOSE PEDRO DE OLIVEIRA 252, Paulínia - SP",
+      "city": "Paulínia",
+      "uf": "SP",
+      "phone": "(19) 3277 0369",
+      "lat": -22.7732429,
+      "lng": -47.1488727
+    },
+    {
+      "slug": "penapoliscentro",
+      "name": "PENÁPOLIS",
+      "address": "AVENIDA CUNHA CINTRA 794, Penápolis - SP",
+      "city": "Penápolis",
+      "uf": "SP",
+      "phone": "(18) 3653-1699",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "penha",
+      "name": "PENHA",
+      "address": "PRAÇA NOSSA SENHORA DA PENHA 137, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2647-2000",
+      "lat": -23.5265863,
+      "lng": -46.5495537
+    },
+    {
+      "slug": "perdizesii",
+      "name": "PERDIZES II",
+      "address": "RUA AIMBERE 477, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3672-0007",
+      "lat": -23.5348655,
+      "lng": -46.6793907
+    },
+    {
+      "slug": "peruibe",
+      "name": "PERUÍBE",
+      "address": "AV PADRE ANCHIETA 2186, Peruíbe - SP",
+      "city": "Peruíbe",
+      "uf": "SP",
+      "phone": "(13) 3455-9273",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "pindamonhangaba",
+      "name": "PINDAMONHANGABA",
+      "address": "RUA ARCEBISPO DOM JOSÉ MARCONDES DE MELLO 62, Pindamonhangaba - SP",
+      "city": "Pindamonhangaba",
+      "uf": "SP",
+      "phone": "(12) 3642-1999",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "pinheiros",
+      "name": "PINHEIROS",
+      "address": "AVENIDA PEDROSO DE MORAIS 415, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3032-4848",
+      "lat": -23.5662944,
+      "lng": -46.6899083
+    },
+    {
+      "slug": "piracicabacentro",
+      "name": "PIRACICABA CENTRO",
+      "address": "RUA ALFERES JOSE CAETANO 1460, Piracicaba - SP",
+      "city": "Piracicaba",
+      "uf": "SP",
+      "phone": "(19) 3371-3005",
+      "lat": -22.7285992,
+      "lng": -47.6527755
+    },
+    {
+      "slug": "piracicabaindependencia",
+      "name": "PIRACICABA INDEPENDÊNCIA",
+      "address": "AV INDEPENDENCIA 3432, Piracicaba - SP",
+      "city": "Piracicaba",
+      "uf": "SP",
+      "phone": "(19) 3412-7266",
+      "lat": -22.719518,
+      "lng": -47.632762
+    },
+    {
+      "slug": "piraju",
+      "name": "PIRAJU",
+      "address": "RUA NENE FREITAS 308, Piraju - SP",
+      "city": "Piraju",
+      "uf": "SP",
+      "phone": "(14) 3351-1764",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "piraporinhakids",
+      "name": "PIRAPORINHA",
+      "address": "AV CASA GRANDE 2549, Diadema - SP",
+      "city": "Diadema",
+      "uf": "SP",
+      "phone": "(11) 4066-4440",
+      "lat": -23.692209,
+      "lng": -46.584499
+    },
+    {
+      "slug": "pirassununga",
+      "name": "PIRASSUNUNGA",
+      "address": "QUINZE DE NOVEMBRO 1021, Pirassununga - SP",
+      "city": "Pirassununga",
+      "uf": "SP",
+      "phone": "(19) 3561-2638",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "piritubaparquesaodomingos",
+      "name": "PIRITUBA PARQUE SAO DOMINGOS",
+      "address": "R EURIPEDES TORRES 188, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3901-9999",
+      "lat": -23.50106,
+      "lng": -46.7386
+    },
+    {
+      "slug": "pompeia",
+      "name": "POMPÉIA",
+      "address": "R FABIA 22, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3875-3500",
+      "lat": -23.527073,
+      "lng": -46.69137
+    },
+    {
+      "slug": "ponterasa",
+      "name": "PONTE RASA",
+      "address": "AVENIDA BOTURUSSU 222, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2546-2080",
+      "lat": -23.5053417,
+      "lng": -46.4882318
+    },
+    {
+      "slug": "portoferreiracentro",
+      "name": "PORTO FERREIRA CENTRO",
+      "address": "R JOAO MUTINELLI 206, Porto Ferreira - SP",
+      "city": "Porto Ferreira",
+      "uf": "SP",
+      "phone": "(19) 99723-3441",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "potirendaba",
+      "name": "POTIRENDABA",
+      "address": "AVENIDA MAESTRO ANTONIO AMATO 713, Potirendaba - SP",
+      "city": "Potirendaba",
+      "uf": "SP",
+      "phone": "(17) 99195-0539",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "pradopolis",
+      "name": "PRADÓPOLIS",
+      "address": "R PEREIRA BARRETO 576, Pradópolis - SP",
+      "city": "Pradópolis",
+      "uf": "SP",
+      "phone": "(16) 99620-2046",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "praiagrandeboqueirao",
+      "name": "PRAIA GRANDE BOQUEIRÃO",
+      "address": "Rua CAMPINAS 294, Praia Grande - SP",
+      "city": "Praia Grande",
+      "uf": "SP",
+      "phone": "(13) 34744-177",
+      "lat": -24.008809,
+      "lng": -46.415205
+    },
+    {
+      "slug": "presidentedutra",
+      "name": "PRESIDENTE DUTRA",
+      "address": "AV BOA NOVA 71, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 2431 2290",
+      "lat": -23.42512,
+      "lng": -46.432553
+    },
+    {
+      "slug": "presidenteprudente",
+      "name": "PRESIDENTE PRUDENTE",
+      "address": "AV WASHINGTON LUIZ 1064, Presidente Prudente - SP",
+      "city": "Presidente Prudente",
+      "uf": "SP",
+      "phone": "(18) 3222-0800",
+      "lat": -22.1187158,
+      "lng": -51.3913304
+    },
+    {
+      "slug": "registro",
+      "name": "REGISTRO",
+      "address": "RUA RIO BRANCO 120, Registro - SP",
+      "city": "Registro",
+      "uf": "SP",
+      "phone": "(13) 3821-4905",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "remansocampineiro",
+      "name": "REMANSO CAMPINEIRO",
+      "address": "BENEDITO MANDUCA DE SOUSA 156, Hortolândia - SP",
+      "city": "Hortolândia",
+      "uf": "SP",
+      "phone": "(19) 98310-1858",
+      "lat": -22.86218,
+      "lng": -47.21532
+    },
+    {
+      "slug": "ribeiraopires",
+      "name": "RIBEIRÃO PIRES",
+      "address": "AVENIDA FORTUNA 336, Ribeirão Pires - SP",
+      "city": "Ribeirão Pires",
+      "uf": "SP",
+      "phone": "(11) 4823-4088",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "ribeiraopretocentro2",
+      "name": "RIBEIRÃO PRETO CENTRO",
+      "address": "R CAMPOS SALLES 385, RIBEIRAO PRETO - SP",
+      "city": "RIBEIRAO PRETO",
+      "uf": "SP",
+      "phone": "(16) 3931-4245",
+      "lat": -21.179881,
+      "lng": -47.812495
+    },
+    {
+      "slug": "ribeiraopretojardimcanada",
+      "name": "RIBEIRÃO PRETO JARDIM CANADÁ",
+      "address": "AV PROFESSOR JOAO FIUSA 2420, Ribeirão Preto - SP",
+      "city": "Ribeirão Preto",
+      "uf": "SP",
+      "phone": "(16) 3442-4305",
+      "lat": -21.216181,
+      "lng": -47.805452
+    },
+    {
+      "slug": "ribeiraopretoribeirania",
+      "name": "RIBEIRÃO PRETO RIBEIRÂNIA",
+      "address": "AV COSTABILE ROMANO 2675, Ribeirão Preto - SP",
+      "city": "Ribeirão Preto",
+      "uf": "SP",
+      "phone": "(16) 3931-4472",
+      "lat": -21.204174,
+      "lng": -47.77558
+    },
+    {
+      "slug": "rioclarovilabela",
+      "name": "RIO CLARO VILA BELA",
+      "address": "AV 9 160, Rio Claro - SP",
+      "city": "Rio Claro",
+      "uf": "SP",
+      "phone": "(19) 3557-3010",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "riodaspedras",
+      "name": "RIO DAS PEDRAS",
+      "address": "AVENIDA DOUTOR DARWIN AMARAL VEIGAS 143, Rio das Pedras - SP",
+      "city": "Rio das Pedras",
+      "uf": "SP",
+      "phone": "(19) 3493-6211",
+      "lat": -22.840881,
+      "lng": -47.609183
+    },
+    {
+      "slug": "sacoma",
+      "name": "SACOMÃ",
+      "address": "RUA SAO JOAO CLIMACO 367, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2969 5773",
+      "lat": -23.624866,
+      "lng": -46.594605
+    },
+    {
+      "slug": "santaadelia",
+      "name": "SANTA ADÉLIA",
+      "address": "AVENIDA DR. LUIZ DUMONT 522, Santa Adélia - SP",
+      "city": "Santa Adélia",
+      "uf": "SP",
+      "phone": "(17) 3571-4311",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "santacruzdaspalmeiras",
+      "name": "SANTA CRUZ DAS PALMEIRAS",
+      "address": "RUA SANTA CRUZ 465, Santa Cruz das Palmeiras - SP",
+      "city": "Santa Cruz das Palmeiras",
+      "uf": "SP",
+      "phone": "(19) 3672-3812",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "santacruzdoriopardo",
+      "name": "SANTA CRUZ DO RIO PARDO",
+      "address": "AV  CLEMENTINO GONCALVES 521, Santa Cruz do Rio Pardo - SP",
+      "city": "Santa Cruz do Rio Pardo",
+      "uf": "SP",
+      "phone": "(14) 3372-4103",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "santafedosul",
+      "name": "SANTA FE DO SUL",
+      "address": "RUA 10 645, Santa Fé do Sul - SP",
+      "city": "Santa Fé do Sul",
+      "uf": "SP",
+      "phone": null,
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "santagertrudes",
+      "name": "SANTA GERTRUDES",
+      "address": "AVENIDA UM 298, Santa Gertrudes - SP",
+      "city": "Santa Gertrudes",
+      "uf": "SP",
+      "phone": "(19) 3545-1039",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "santana",
+      "name": "SANTANA",
+      "address": "PEDRO DOLL 35, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2979-4219",
+      "lat": -23.4914576,
+      "lng": -46.6269695
+    },
+    {
+      "slug": "santoamaro2",
+      "name": "SANTO AMARO",
+      "address": "RUA VERBO DIVINO 597, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 97669-2791",
+      "lat": -23.6354774,
+      "lng": -46.7010042
+    },
+    {
+      "slug": "santoandreparquedasnacoes",
+      "name": "SANTO ANDRÉ PARQUE DAS NAÇÕES",
+      "address": "RUA ARAGUAIA 46, Santo André - SP",
+      "city": "Santo André",
+      "uf": "SP",
+      "phone": "(11) 4975-8494",
+      "lat": -23.6434248,
+      "lng": -46.5223736
+    },
+    {
+      "slug": "santoandresantateresinha",
+      "name": "SANTO ANDRÉ SANTA TERESINHA",
+      "address": "ALAMEDA VIEIRA DE CARVALHO 193, Santo André - SP",
+      "city": "Santo André",
+      "uf": "SP",
+      "phone": "(11) 4997-2788",
+      "lat": -23.633773,
+      "lng": -46.53166
+    },
+    {
+      "slug": "vilagilda",
+      "name": "SANTO ANDRÉ VILA BASTOS",
+      "address": "AVENIDA GILDA 193, Santo André - SP",
+      "city": "Santo André",
+      "uf": "SP",
+      "phone": "(11) 4992-1111",
+      "lat": -23.6759468,
+      "lng": -46.5384355
+    },
+    {
+      "slug": "santoandrevilaluzita",
+      "name": "SANTO ANDRÉ VILA LUZITA",
+      "address": "AV DOM PEDRO I 3671, Santo André - SP",
+      "city": "Santo André",
+      "uf": "SP",
+      "phone": "(11) 4992-2099",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "santoscanalii",
+      "name": "SANTOS CANAL II",
+      "address": "AVENIDA BERNARDINO DE CAMPOS 133, Santos - SP",
+      "city": "Santos",
+      "uf": "SP",
+      "phone": "(13) 3221-1422",
+      "lat": -23.9521716,
+      "lng": -46.3369004
+    },
+    {
+      "slug": "santosembare",
+      "name": "SANTOS EMBARÉ",
+      "address": "RUA CONSELHEIRO RIBAS 389, Santos - SP",
+      "city": "Santos",
+      "uf": "SP",
+      "phone": "(13) 3877-7333",
+      "lat": -23.9750542,
+      "lng": -46.3144502
+    },
+    {
+      "slug": "santosgonzaga",
+      "name": "SANTOS GONZAGA",
+      "address": "RUA DOUTOR LUIS SUPLICY 74, Santos - SP",
+      "city": "Santos",
+      "uf": "SP",
+      "phone": "(13) 3224-8443",
+      "lat": -23.9616926,
+      "lng": -46.3314939
+    },
+    {
+      "slug": "saocaetanodosul",
+      "name": "SÃO CAETANO DO SUL",
+      "address": "RUA OSVALDO CRUZ 562, São Caetano do Sul - SP",
+      "city": "São Caetano do Sul",
+      "uf": "SP",
+      "phone": "(11) 4227-5655",
+      "lat": -23.62143,
+      "lng": -46.56801
+    },
+    {
+      "slug": "saocarlos",
+      "name": "SÃO CARLOS",
+      "address": "AVENIDA SAO CARLOS 2417, São Carlos - SP",
+      "city": "São Carlos",
+      "uf": "SP",
+      "phone": "(16) 3375-7575",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "saofrancisco",
+      "name": "SÃO FRANCISCO",
+      "address": "R PROF HERBERT BALDUS 209, SAO PAULO - SP",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "phone": "(11) 3729-9140",
+      "lat": -23.557417,
+      "lng": -46.755823
+    },
+    {
+      "slug": "saojoaodaboavista",
+      "name": "SÃO JOÃO DA BOA VISTA",
+      "address": "AVENIDA DOUTOR DURVAL NICOLAU 996, São João da Boa Vista - SP",
+      "city": "São João da Boa Vista",
+      "uf": "SP",
+      "phone": "(19) 3651-1067",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "saojoaquimdabarra",
+      "name": "SÃO JOAQUIM DA BARRA",
+      "address": "R HILSDOR COTTAS DE AZEVEDO 160, São Joaquim da Barra - SP",
+      "city": "São Joaquim da Barra",
+      "uf": "SP",
+      "phone": "(16) 3818 1214",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "saojosedoriopardocentro",
+      "name": "SÃO JOSÉ DO RIO PARDO",
+      "address": "R BENJAMIN CONSTANT 344, São José do Rio Pardo - SP",
+      "city": "São José do Rio Pardo",
+      "uf": "SP",
+      "phone": "(19) 3608-3155",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "saojosedoriopreto",
+      "name": "SÃO JOSÉ DO RIO PRETO",
+      "address": "AV MURCHID HOMSI 450, São José do Rio Preto - SP",
+      "city": "São José do Rio Preto",
+      "uf": "SP",
+      "phone": "(17) 3231-1144",
+      "lat": -20.814835,
+      "lng": -49.366954
+    },
+    {
+      "slug": "saomateus",
+      "name": "SÃO MATEUS",
+      "address": "AV CLAUDIO AUGUSTO FERNANDES 190, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2010-9635",
+      "lat": -23.606277,
+      "lng": -46.480631
+    },
+    {
+      "slug": "saomiguelpaulista",
+      "name": "SÃO MIGUEL PAULISTA",
+      "address": "AVENIDA SAO MIGUEL 9159, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2956-2121",
+      "lat": -23.4937026,
+      "lng": -46.4506137
+    },
+    {
+      "slug": "saopedrosantacruz",
+      "name": "SÃO PEDRO SANTA CRUZ",
+      "address": "R JOAO TEIXEIRA DA FROTA 864, São Pedro - SP",
+      "city": "São Pedro",
+      "uf": "SP",
+      "phone": "(19) 3481 5236",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "saosebastiao",
+      "name": "SÃO SEBASTIÃO",
+      "address": "AVENIDA GUARDA MOR LOBO VIANA 89, São Sebastião - SP",
+      "city": "São Sebastião",
+      "uf": "SP",
+      "phone": "(12) 3893-1676",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "sapopemba",
+      "name": "SAPOPEMBA",
+      "address": "AVENIDA SAPOPEMBA 8596, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2143-8384",
+      "lat": -23.5989929,
+      "lng": -46.5174428
+    },
+    {
+      "slug": "saude",
+      "name": "SAÚDE",
+      "address": "R DECIO 66, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2737-3773",
+      "lat": -23.619071,
+      "lng": -46.640184
+    },
+    {
+      "slug": "sbcassuncao",
+      "name": "SBC ASSUNÇÃO",
+      "address": "RUA OURO PRETO 12, São Bernardo do Campo - SP",
+      "city": "São Bernardo do Campo",
+      "uf": "SP",
+      "phone": "(11) 4355-7000",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "sbcdemarchi",
+      "name": "SBC DEMARCHI",
+      "address": "AV MARIA SERVIDEI DEMARCHI 2168, São Bernardo do Campo - SP",
+      "city": "São Bernardo do Campo",
+      "uf": "SP",
+      "phone": "(11) 4396-1380",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "sbcrudgeramos",
+      "name": "SBC RUDGE RAMOS",
+      "address": "HARMONIA 42, São Bernardo do Campo - SP",
+      "city": "São Bernardo do Campo",
+      "uf": "SP",
+      "phone": "(11) 4362-4661",
+      "lat": -23.6582847,
+      "lng": -46.5708839
+    },
+    {
+      "slug": "serranegra",
+      "name": "SERRA NEGRA",
+      "address": "R PAULINA 27, SERRA NEGRA - SP",
+      "city": "SERRA NEGRA",
+      "uf": "SP",
+      "phone": "(19) 3892 5886",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "sertaozinho",
+      "name": "SERTÃOZINHO",
+      "address": "AV. ANTONIO PASCOAL 707, Sertãozinho - SP",
+      "city": "Sertãozinho",
+      "uf": "SP",
+      "phone": "(16) 3945-7772",
+      "lat": -21.1382575,
+      "lng": -47.9956485
+    },
+    {
+      "slug": "shoppingaricanduva",
+      "name": "SHOPPING ARICANDUVA",
+      "address": "AVENIDA ARICANDUVA 5555, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3444-2444",
+      "lat": -23.558842,
+      "lng": -46.513294
+    },
+    {
+      "slug": "sjcjardimaquarius",
+      "name": "SJC AQUARIUS",
+      "address": "AV CASSIANO RICARDO 1290, São José dos Campos - SP",
+      "city": "São José dos Campos",
+      "uf": "SP",
+      "phone": "(12) 3931 5004",
+      "lat": -23.2236334,
+      "lng": -45.9118143
+    },
+    {
+      "slug": "sjcjardimamerica",
+      "name": "SJC JARDIM AMÉRICA",
+      "address": "AV GUADALUPE 530, SAO JOSE DOS CAMPOS - SP",
+      "city": "SAO JOSE DOS CAMPOS",
+      "uf": "SP",
+      "phone": "(12) 99707 0640",
+      "lat": -23.23176,
+      "lng": -45.899428
+    },
+    {
+      "slug": "sjcsantana",
+      "name": "SJC SANTANA",
+      "address": "RUA ALEXANDRINO JOSE DE SOUZA 157, São José dos Campos - SP",
+      "city": "São José dos Campos",
+      "uf": "SP",
+      "phone": "(12) 3942-4625",
+      "lat": -23.1629369,
+      "lng": -45.8930148
+    },
+    {
+      "slug": "sjcsatelite",
+      "name": "SJC SATÉLITE",
+      "address": "AV ANDROMEDA 2750, São José dos Campos - SP",
+      "city": "São José dos Campos",
+      "uf": "SP",
+      "phone": "(12) 3933-2034",
+      "lat": -23.236824,
+      "lng": -45.884951
+    },
+    {
+      "slug": "cidadevistaverde",
+      "name": "SJC VISTA VERDE",
+      "address": "R DAS PEONIAS 203, São José dos Campos - SP",
+      "city": "São José dos Campos",
+      "uf": "SP",
+      "phone": "(12) 3341-4041",
+      "lat": -23.17561,
+      "lng": -45.82746
+    },
+    {
+      "slug": "socorro",
+      "name": "SOCORRO",
+      "address": "AV DR. RENATO SILVA 207, Socorro - SP",
+      "city": "Socorro",
+      "uf": "SP",
+      "phone": "(19) 3895-8287",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "sorocabaarvoregrande",
+      "name": "SOROCABA ÁRVORE GRANDE",
+      "address": "AVENIDA SAO PAULO 1775, Sorocaba - SP",
+      "city": "Sorocaba",
+      "uf": "SP",
+      "phone": "(15) 3329-8788",
+      "lat": -23.5042706,
+      "lng": -47.4566433
+    },
+    {
+      "slug": "sorocabacampolim",
+      "name": "SOROCABA CAMPOLIM",
+      "address": "AV WASHINTON LUIZ 1231, SOROCABA - SP",
+      "city": "SOROCABA",
+      "uf": "SP",
+      "phone": "(15) 3224-3303",
+      "lat": -23.516295,
+      "lng": -47.467013
+    },
+    {
+      "slug": "sorocabajardimsaopaulo",
+      "name": "SOROCABA JARDIM SÃO PAULO",
+      "address": "AVENIDA DOUTOR LUIZ MENDES ALMEIDA 790, Sorocaba - SP",
+      "city": "Sorocaba",
+      "uf": "SP",
+      "phone": "(15) 3411-8543",
+      "lat": -23.5186087,
+      "lng": -47.493892
+    },
+    {
+      "slug": "suzanocentro",
+      "name": "SUZANO CENTRO",
+      "address": "RUA GENERAL FRANCISCO GLICERIO 1145, Suzano - SP",
+      "city": "Suzano",
+      "uf": "SP",
+      "phone": "(11) 47470-001",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "tabapua",
+      "name": "TABAPUÃ",
+      "address": "RUA ANTONIO DECRESCENZO 1152, Tabapuã - SP",
+      "city": "Tabapuã",
+      "uf": "SP",
+      "phone": "(17) 3562 1786",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "taboaodaserra",
+      "name": "TABOÃO DA SERRA",
+      "address": "AV DOUTOR JOSE MACIEL 341, Taboão da Serra - SP",
+      "city": "Taboão da Serra",
+      "uf": "SP",
+      "phone": "(11) 4787-8289",
+      "lat": -23.611155,
+      "lng": -46.76053
+    },
+    {
+      "slug": "alphavilleindustrial",
+      "name": "TAMBORÉ",
+      "address": "AL ARAGUAIA 885, Barueri - SP",
+      "city": "Barueri",
+      "uf": "SP",
+      "phone": "(11) 41917-481",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "taquarituba",
+      "name": "TAQUARITUBA",
+      "address": "RUA MARECHAL FLORIANO PEIXOTO 739, Taquarituba - SP",
+      "city": "Taquarituba",
+      "uf": "SP",
+      "phone": "(14) 3762-3421",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "tatuape",
+      "name": "TATUAPÉ",
+      "address": "RUA EUCLIDES PACHECO 528, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 97120-6936",
+      "lat": -23.5487163,
+      "lng": -46.5695214
+    },
+    {
+      "slug": "tatui",
+      "name": "TATUÍ CENTRO",
+      "address": "R JUVENAL DE CAMPOS 91, Tatuí - SP",
+      "city": "Tatuí",
+      "uf": "SP",
+      "phone": "(15) 32517-400",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "taubateindependencia",
+      "name": "TAUBATÉ INDEPENDÊNCIA",
+      "address": "AV ITALIA 533, Taubaté - SP",
+      "city": "Taubaté",
+      "uf": "SP",
+      "phone": "(12) 3025-6606",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "terminalpirituba",
+      "name": "TERMINAL PIRITUBA",
+      "address": "RUA ARCANGELICA 141, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 3456-2947",
+      "lat": -23.4860477,
+      "lng": -46.7267148
+    },
+    {
+      "slug": "tucuruvi",
+      "name": "TUCURUVI SP",
+      "address": "AVENIDA CEL SEZEFREDO FAGUNDES 836, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2204-9009",
+      "lat": -23.470972,
+      "lng": -46.605903
+    },
+    {
+      "slug": "ubatuba",
+      "name": "UBATUBA",
+      "address": "RUA DOUTOR ESTEVES DA SILVA 31, Ubatuba - SP",
+      "city": "Ubatuba",
+      "uf": "SP",
+      "phone": "(12) 3833-5724",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "valinhos",
+      "name": "VALINHOS",
+      "address": "R ANA LEONIZIA DO AMARAL CAMARGO 206, VALINHOS - SP",
+      "city": "VALINHOS",
+      "uf": "SP",
+      "phone": "(19) 99194-9109",
+      "lat": -22.97096,
+      "lng": -46.998245
+    },
+    {
+      "slug": "vargemgrandedosul",
+      "name": "VARGEM GRANDE DO SUL",
+      "address": "RUA JOSÉ BONIFÁCIO 561, Vargem Grande do Sul - SP",
+      "city": "Vargem Grande do Sul",
+      "uf": "SP",
+      "phone": "(19) 3641- 3625",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "vargemgrandepaulista",
+      "name": "VARGEM GRANDE PAULISTA",
+      "address": "AV PRESIDENTE TANCREDO NEVES 388, VARGEM GRANDE PAULISTA - SP",
+      "city": "VARGEM GRANDE PAULISTA",
+      "uf": "SP",
+      "phone": "(11) 98698-8819",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "varzeapaulista",
+      "name": "VARZEA PAULISTA",
+      "address": "AV DUQUE DE CAXIAS 2225, Várzea Paulista - SP",
+      "city": "Várzea Paulista",
+      "uf": "SP",
+      "phone": "(11) 4595-6017",
+      "lat": -23.2130883,
+      "lng": -46.8412922
+    },
+    {
+      "slug": "vilacarrao",
+      "name": "VILA CARRÃO",
+      "address": "AVENIDA CONSELHEIRO CARRÃO 2952, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2091-7758",
+      "lat": -23.5519167,
+      "lng": -46.530667
+    },
+    {
+      "slug": "vilanovacuruca",
+      "name": "VILA CURUÇA",
+      "address": "AVENIDA FLAMINGO 1603, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2153-2200",
+      "lat": -23.5218387,
+      "lng": -46.4180958
+    },
+    {
+      "slug": "merces",
+      "name": "VILA DAS MERCÊS",
+      "address": "RUA NOSSA SENHORA DAS MERCES 949, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2947-0073",
+      "lat": -23.6258554,
+      "lng": -46.6066381
+    },
+    {
+      "slug": "vilaformosa",
+      "name": "VILA FORMOSA",
+      "address": "AVENIDA JOAO XXIII 681, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2154-4435",
+      "lat": -23.5726532,
+      "lng": -46.5340527
+    },
+    {
+      "slug": "vilagalvao",
+      "name": "VILA GALVÃO",
+      "address": "RUA NOSSA SENHORA DE LOURDES 108, Guarulhos - SP",
+      "city": "Guarulhos",
+      "uf": "SP",
+      "phone": "(11) 2453-8896",
+      "lat": -23.4569203,
+      "lng": -46.5639313
+    },
+    {
+      "slug": "vilaguilherme",
+      "name": "VILA GUILHERME",
+      "address": "R DAS PALMAS 36, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 97606 0766",
+      "lat": -23.507818,
+      "lng": -46.597609
+    },
+    {
+      "slug": "vilamatilde",
+      "name": "VILA MATILDE",
+      "address": "R CEL PEDRO DIAS DE CAMPOS 1240, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2082-8096",
+      "lat": -23.5350283,
+      "lng": -46.5260299
+    },
+    {
+      "slug": "vilamedeiros",
+      "name": "VILA MEDEIROS",
+      "address": "AV JULIO BUONO 2277, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2987-8877",
+      "lat": -23.481513,
+      "lng": -46.587894
+    },
+    {
+      "slug": "vilanovacachoeirinha",
+      "name": "VILA NOVA CACHOEIRINHA",
+      "address": "Av Parada Pinto 1940, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 22356563",
+      "lat": -23.471192,
+      "lng": -46.651959
+    },
+    {
+      "slug": "vilaprel",
+      "name": "VILA PREL",
+      "address": "PRACA DOS CARTOGRAFOS 236, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5510-1100",
+      "lat": -23.6483319,
+      "lng": -46.753178
+    },
+    {
+      "slug": "vilare",
+      "name": "VILA RÉ",
+      "address": "R ITINGUCU 936, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 2682-4000",
+      "lat": -23.524738,
+      "lng": -46.505786
+    },
+    {
+      "slug": "vilasaojose",
+      "name": "VILA SÃO JOSÉ",
+      "address": "AV SEN TEOTONIO VILELA 5171, São Paulo - SP",
+      "city": "São Paulo",
+      "uf": "SP",
+      "phone": "(11) 5939 5990",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "slug": "votorantim",
+      "name": "VOTORANTIM",
+      "address": "AV MATHEUS CONEGERO 507, Votorantim - SP",
+      "city": "Votorantim",
+      "uf": "SP",
+      "phone": "(15) 3343-3063",
+      "lat": -23.5433998,
+      "lng": -47.4492121
+    }
+  ]
+}

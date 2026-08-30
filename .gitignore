@@ -10,3 +10,4 @@ crash.log
 # Editor
 .vscode/
 .idea/
+.claude/

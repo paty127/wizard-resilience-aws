@@ -1,14 +1,63 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/LayoutProposta.astro';
+import { Image } from 'astro:assets';
+import heroPhoto from '../assets/photo-hero.png';
+import appPhoto from '../assets/hero-photo.jpg';
+import modalidadesPhoto from '../assets/photo-modalidades.jpg';
+import certificacaoPhoto from '../assets/photo-certificacao.jpg';
+import logoWizard from '../assets/logo-wizard.webp';
+import logoWizardColor from '../assets/logo-wizard-color.webp';
+import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 ---
 
 <Layout>
-  <header>
+  <header class="site-header">
     <div class="wrap header-row">
-      <div class="logo"><span class="mark">W</span> WIZARD</div>
-      <span class="badge-live">Página de teste — Case B</span>
+      <a class="logo" href="#top"><Image src={logoWizard} alt="Wizard by Pearson" width={160} /></a>
+      <nav class="nav-desktop" aria-label="Navegação principal">
+        <a href="#app-wizme">Diferenciais</a>
+        <a href="#unidades">Unidades</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary btn-sm" href="#form">Quero minha vaga</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+  <aside class="nav-mobile" id="navMobile" aria-label="Menu">
+    <button class="nav-close" id="navClose" aria-label="Fechar menu">&times;</button>
+    <div class="nav-mobile-logo"><Image src={logoWizardColor} alt="Wizard by Pearson" width={160} /></div>
+    <nav class="nav-mobile-links">
+      <a href="#app-wizme">Diferenciais</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary nav-mobile-cta" href="#form">Quero minha vaga</a>
+    <div class="nav-mobile-footer">
+      <Image src={logoPearsonWhite} alt="Pearson" width={110} class="pearson-logo" />
+      <p>Acompanhe nossas redes sociais:</p>
+      <div class="social-row">
+        <a href="https://www.facebook.com/wizard.oficial" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8.2h2.75l.41-3.2h-3.16V7.5c0-.93.26-1.56 1.59-1.56h1.7V3.1C15.98 3.07 15 3 13.85 3 11.44 3 9.8 4.46 9.8 7.2v2.4H7v3.2h2.8V21h3.7Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/wizardbrasil.oficial/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="https://www.youtube.com/c/WizardbyPearson" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7c-.24-.86-.9-1.53-1.76-1.77C18.3 5.1 12 5.1 12 5.1s-6.3 0-7.84.43c-.86.24-1.52.9-1.76 1.77C2 8.8 2 12 2 12s0 3.2.4 4.7c.24.86.9 1.5 1.76 1.75C5.7 18.9 12 18.9 12 18.9s6.3 0 7.84-.44c.86-.24 1.52-.9 1.76-1.76.4-1.5.4-4.7.4-4.7ZM10 15.2V8.8l5.5 3.2-5.5 3.2Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/wizard" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3c-1.15 0-1.9.76-1.9 1.76 0 .98.73 1.76 1.86 1.76h.02c1.17 0 1.9-.78 1.9-1.76C7.11 3.76 6.4 3 5.25 3ZM20.5 20h-3.38v-6.15c0-1.5-.54-2.52-1.88-2.52-1.03 0-1.64.7-1.91 1.36-.1.24-.12.57-.12.9V20H9.83s.05-10.36 0-11.5h3.38v1.63c.45-.7 1.25-1.68 3.04-1.68 2.22 0 3.88 1.45 3.88 4.56V20Z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@wizardbypearson" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3h-3v12.4a2.6 2.6 0 1 1-1.9-2.5V9.4a5.9 5.9 0 1 0 4.9 5.8V9.1a6.8 6.8 0 0 0 4 1.3V7.3a3.9 3.9 0 0 1-4-4.3Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </aside>
 
   <section class="hero">
     <div class="wrap">
@@ -18,46 +67,167 @@ import Layout from '../layouts/Layout.astro';
         <p class="lead">Garanta sua vaga na Wizard com condições exclusivas de Volta às Aulas. Aulas práticas, professores nativos e um método que já formou milhões de alunos no Brasil.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#form">Quero minha vaga</a>
-          <a class="btn btn-ghost" href="#beneficios">Ver benefícios</a>
+          <a class="btn btn-ghost" href="#unidades">Ver benefícios</a>
         </div>
-        <div class="stat-row">
-          <div class="stat"><b>1.200+</b><span>unidades no Brasil</span></div>
-          <div class="stat"><b>40+</b><span>anos de experiência</span></div>
-          <div class="stat"><b>8</b><span>idiomas disponíveis</span></div>
+        <div class="stat-row" id="statRow">
+          <div class="stat"><b class="counter" data-target="1200" data-prefix="+">0</b><span>unidades<br>no Brasil</span></div>
+          <div class="stat"><b class="counter" data-target="40" data-prefix="+">0</b><span>anos de<br>experiência</span></div>
+          <div class="stat"><b class="counter" data-target="8">0</b><span>idiomas<br>disponíveis</span></div>
         </div>
       </div>
-      <div class="flight-motif">
-        <svg viewBox="0 0 300 420" fill="none">
-          <path d="M40 380 C 90 280, 60 180, 150 90 C 200 45, 240 30, 270 20" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="6 8"/>
-          <circle cx="270" cy="20" r="6" fill="#ff8a90"/>
-        </svg>
-        <div class="flight-card">
-          <div class="num">30%</div>
-          <div class="cap">de desconto na matrícula<br>por tempo limitado</div>
+      <div class="hero-visual">
+        <Image src={heroPhoto} alt="Aluna sorrindo enquanto estuda com um tablet" width={520} height={620} class="hero-photo" />
+        <div class="discount-chip">
+          <span class="num"><b class="counter" data-target="30" data-prefix="-" data-suffix="%">0</b></span>
+          <span class="cap">na matrícula<br>por pouco tempo</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="benefits" id="beneficios">
+  <section class="locator" id="unidades">
     <div class="wrap">
-      <div class="benefit-grid">
-        <div class="benefit-card">
-          <div class="icon">🗣️</div>
-          <h3>Método comunicativo</h3>
-          <p>Você fala inglês desde a primeira aula, com foco em situações reais do dia a dia.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">👩‍🏫</div>
-          <h3>Professores certificados</h3>
-          <p>Corpo docente treinado e acompanhamento pedagógico contínuo em todas as turmas.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">📱</div>
-          <h3>Plataforma híbrida</h3>
-          <p>Aulas presenciais e online, com material didático integrado ao seu ritmo de estudo.</p>
+      <span class="kicker">Encontre sua unidade</span>
+      <h2>Tem uma Wizard perto de você</h2>
+      <p class="locator-intro">Mais de 1.200 unidades no Brasil — descubra a mais próxima usando sua localização ou o CEP, sem precisar procurar em uma lista gigante.</p>
+
+      <div class="locator-box">
+        <button class="btn btn-primary" id="btnGeo" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Usar minha localização
+        </button>
+        <span class="locator-or">ou digite seu CEP</span>
+        <div class="locator-cep">
+          <input type="text" id="cepInput" placeholder="00000-000" inputmode="numeric" maxlength="9" aria-label="CEP">
+          <button class="btn btn-ghost-dark" id="btnCep" type="button">Buscar</button>
         </div>
       </div>
+
+      <p class="locator-msg" id="locatorMsg" role="status"></p>
+      <div class="locator-results" id="locatorResults" hidden></div>
+
+      <a class="btn btn-primary locator-cta" id="locatorCta" href="#form">Já sei minha unidade, quero me matricular</a>
+    </div>
+  </section>
+
+  <section class="diff-section" id="app-wizme">
+    <div class="wrap diff-grid">
+      <div class="diff-photo-wrap">
+        <Image src={appPhoto} alt="Aluno sorrindo enquanto pratica inglês pelo app da Wizard no celular" width={640} height={640} class="diff-photo" />
+      </div>
+      <div>
+        <span class="kicker">App Wiz.me</span>
+        <h2>Pratique todo santo dia, mesmo fora da sala</h2>
+        <p>O aplicativo da Wizard usa reconhecimento de voz pra avaliar sua pronúncia na hora, funciona offline e sincroniza com o conteúdo das suas aulas.</p>
+        <ul class="diff-list">
+          <li><span class="tick">✓</span> Correção de pronúncia em tempo real</li>
+          <li><span class="tick">✓</span> Funciona offline — pratique onde estiver</li>
+          <li><span class="tick">✓</span> Cobre fala, escuta, leitura e escrita</li>
+        </ul>
+        <p class="diff-objection">"Não vou ter disciplina pra praticar sozinho." É exatamente pra isso que o app existe: atividades curtas e lembretes, sem depender só da sua memória.</p>
+        <a class="scroll-next" href="#modalidades">Ver próximo diferencial ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <a class="btn btn-primary btn-glow" href="#leadForm">Já estou pronto, quero conversar com a equipe</a>
+    </div>
+  </section>
+
+  <section class="diff-section diff-alt" id="modalidades">
+    <div class="wrap diff-grid">
+      <div class="diff-photo-wrap">
+        <Image src={modalidadesPhoto} alt="Professora orientando um grupo de alunos com notebooks em sala" width={640} height={640} class="diff-photo" />
+      </div>
+      <div>
+        <span class="kicker">Como você quer aprender</span>
+        <h2>Presencial, no seu ritmo ou 100% online</h2>
+        <p>A mesma metodologia Wizard, em três formatos — você escolhe o que combina com sua rotina.</p>
+        <ul class="diff-list">
+          <li><span class="tick">✓</span> <b>Connections:</b> turma, professor conduz o ritmo, ninguém fica pra trás</li>
+          <li><span class="tick">✓</span> <b>Interactive:</b> ritmo definido por você, com mentor e tecnologia de apoio</li>
+          <li><span class="tick">✓</span> <b>Wizard ON:</b> 100% online e ao vivo, com professores dedicados</li>
+        </ul>
+        <p class="diff-objection">"Não sei qual formato combina comigo." Um consultor te ajuda a escolher — e você pode trocar de modalidade depois, se precisar.</p>
+        <a class="scroll-next" href="#certificacao">Ver próximo diferencial ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band on-white">
+    <div class="wrap">
+      <a class="btn btn-primary btn-glow" href="#leadForm">Já estou pronto, quero conversar com a equipe</a>
+    </div>
+  </section>
+
+  <section class="diff-section" id="certificacao">
+    <div class="wrap diff-grid">
+      <div class="diff-photo-wrap">
+        <Image src={certificacaoPhoto} alt="Professor confiante sorrindo em sala de aula" width={640} height={640} class="diff-photo" />
+      </div>
+      <div>
+        <span class="kicker">Certificação internacional</span>
+        <h2>Um diploma que vale fora da sala de aula</h2>
+        <p>Exames Pearson (PEIC, Versant, Benchmark), baseados nos padrões internacionais GSE e CEFR — aceitos por universidades, empresas e processos de visto ao redor do mundo.</p>
+        <ul class="diff-list">
+          <li><span class="tick">✓</span> Avalia as 4 habilidades: fala, escuta, leitura e escrita</li>
+          <li><span class="tick">✓</span> Reconhecimento internacional, da Pearson</li>
+          <li><span class="tick">✓</span> Alunos Wizard têm oportunidades de certificação ao longo do curso</li>
+        </ul>
+        <p class="diff-objection">"Isso vale alguma coisa formalmente?" Sim — é reconhecido por instituições e empregadores fora do Brasil, não só um certificado de curso.</p>
+        <a class="scroll-next" href="#faq">Ver dúvidas frequentes ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <a class="btn btn-primary btn-glow" href="#leadForm">Já estou pronto, quero conversar com a equipe</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <span class="kicker">Dúvidas frequentes</span>
+      <h2>Ainda com alguma pergunta?</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Quais são as diferenças entre as modalidades de ensino?</summary>
+          <p>No modelo <b>Connections</b> você estuda em turma, com o professor conduzindo o ritmo da aula — ideal para quem gosta de aprender interagindo com outras pessoas. No <b>Interactive</b> o ritmo é definido por você, com acompanhamento individual do professor e apoio de tecnologia. Também há o <b>Wizard ON</b>, 100% online e ao vivo, para quem precisa de flexibilidade de horário.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Como funciona o desconto de matrícula?</summary>
+          <p>A condição de 30% de desconto é válida por tempo limitado para novas matrículas e pode variar conforme a unidade escolhida. Um consultor confirma o valor exato e as condições de pagamento para você durante o contato.</p>
+        </details>
+        <details class="faq-item">
+          <summary>O material didático está incluso no curso?</summary>
+          <p>Sim. O conteúdo é desenvolvido pela própria Wizard e acompanha sua jornada em todas as modalidades, além de se integrar ao aplicativo Wiz.me para prática fora da sala de aula.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Preciso já saber inglês para começar?</summary>
+          <p>Não. As turmas são organizadas por nível, incluindo turmas para quem está começando do zero. Um teste de nivelamento gratuito indica o ponto ideal para você iniciar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Como funciona a aula experimental gratuita?</summary>
+          <p>Ao preencher o formulário, um consultor Wizard agenda uma aula experimental sem custo na unidade de sua preferência, para você conhecer o método antes de decidir.</p>
+        </details>
+        <details class="faq-item">
+          <summary>As aulas são só presenciais?</summary>
+          <p>Não. Além das modalidades presenciais (Connections e Interactive), a Wizard também oferece o Wizard ON, com aulas ao vivo 100% online — você escolhe o formato que faz mais sentido pra sua rotina.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Não encontrei minha dúvida. Com quem falo?</summary>
+          <p>Preencha o formulário abaixo com seu contato — um consultor Wizard responde qualquer dúvida antes de você decidir se matricular.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band on-white">
+    <div class="wrap">
+      <a class="btn btn-primary btn-glow" href="#leadForm">Já estou pronto, quero conversar com a equipe</a>
     </div>
   </section>
 
@@ -72,35 +242,37 @@ import Layout from '../layouts/Layout.astro';
           <li><span class="tick">✓</span> Aula experimental gratuita</li>
           <li><span class="tick">✓</span> Condições especiais só para quem se inscrever agora</li>
         </ul>
+        <p class="privacy-note">Ao enviar, você concorda em ser contatado pela Wizard sobre matrículas e promoções. Seus dados são tratados com segurança em infraestrutura AWS resiliente e criptografada.</p>
       </div>
 
       <div class="card-form">
         <h3>Garanta sua condição especial</h3>
-        <p class="sub">Leva menos de 1 minuto</p>
+        <p class="sub">Leva menos de 1 minuto <span class="required-note">* Campos obrigatórios</span></p>
 
         <form id="leadForm" novalidate>
           <div class="field">
-            <label for="name">Nome completo</label>
+            <label for="name">Nome completo <span class="required-mark">*</span></label>
             <input id="name" name="name" type="text" placeholder="Como podemos te chamar?" required minlength="2">
           </div>
           <div class="field">
-            <label for="email">E-mail</label>
+            <label for="email">Seu melhor E-mail <span class="required-mark">*</span></label>
             <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" required>
           </div>
           <div class="field">
-            <label for="phone">Telefone / WhatsApp</label>
+            <label for="phone">Telefone / WhatsApp <span class="required-mark">*</span></label>
             <input id="phone" name="phone" type="tel" placeholder="(11) 99999-9999" required minlength="8">
           </div>
-          <div class="field">
-            <label for="unit">Unidade de interesse / Cidade</label>
-            <input id="unit" name="unit" type="text" placeholder="Ex: Unidade Paulista ou sua cidade" required minlength="2">
+          <div class="field autocomplete" id="unitField">
+            <label for="unit">Unidade de interesse</label>
+            <input id="unit" name="unit" type="text" placeholder="Digite o nome da unidade ou a cidade" autocomplete="off">
+            <div class="autocomplete-list" id="unitSuggestions" hidden></div>
           </div>
+          <input type="hidden" name="unit_slug" id="unitSlug" value="">
           <input type="hidden" name="campaign" value="volta-as-aulas">
 
           <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">Quero minha vaga</button>
 
           <div class="form-msg" id="formMsg"></div>
-          <p class="privacy-note">Ao enviar, você concorda em ser contatado pela Wizard sobre matrículas e promoções. Seus dados são tratados com segurança em infraestrutura AWS resiliente e criptografada.</p>
         </form>
       </div>
     </div>
@@ -108,10 +280,312 @@ import Layout from '../layouts/Layout.astro';
 
   <footer>
     <div class="wrap">
-      Wizard — Landing page de teste (Case B, Hackathon Future Builders). Não é o site oficial.
+      <span class="badge-live">Equipe BRUMA</span>
+      <p>Wizard — Landing page de teste (Case B, Hackathon Future Builders). Não é o site oficial.</p>
     </div>
   </footer>
 </Layout>
+
+<script>
+  const navToggle = document.getElementById("navToggle") as HTMLButtonElement;
+  const navClose = document.getElementById("navClose") as HTMLButtonElement;
+  const navMobile = document.getElementById("navMobile") as HTMLElement;
+  const navOverlay = document.getElementById("navOverlay") as HTMLDivElement;
+
+  function openNav() {
+    navMobile.classList.add("open");
+    navOverlay.classList.add("open");
+    navToggle.setAttribute("aria-expanded", "true");
+  }
+
+  function closeNav() {
+    navMobile.classList.remove("open");
+    navOverlay.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+  }
+
+  navToggle.addEventListener("click", openNav);
+  navClose.addEventListener("click", closeNav);
+  navOverlay.addEventListener("click", closeNav);
+  navMobile.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNav));
+</script>
+
+<script>
+  // Contador animado das estatísticas do hero: conta de 0 até o alvo quando a
+  // seção entra na tela, com uma pequena "pulsada" (escala) ao terminar.
+  const statRow = document.getElementById("statRow");
+  const counters = document.querySelectorAll<HTMLElement>(".counter");
+
+  function animateCounter(el: HTMLElement) {
+    const target = Number(el.dataset.target || "0");
+    const prefix = el.dataset.prefix || "";
+    const suffix = el.dataset.suffix || "";
+    const duration = 1200;
+    const start = performance.now();
+
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(target * eased);
+      el.textContent = prefix + value.toLocaleString("pt-BR") + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.classList.add("pop");
+        setTimeout(() => el.classList.remove("pop"), 250);
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if (statRow && counters.length) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          counters.forEach((el) => animateCounter(el));
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(statRow);
+  }
+</script>
+
+<script>
+  // Unidades: dataset estático (só SP, ver lp/scripts/refresh-units.mjs), gerado
+  // no deploy a partir da API da Wizard. Localizador e autocomplete do form
+  // rodam 100% no navegador a partir desse JSON — nunca chamam a API da Wizard
+  // em produção (só o CEP é geocodificado, via BrasilAPI, que não é da Wizard).
+
+  type Unit = {
+    slug: string | null;
+    name: string;
+    address: string;
+    city: string | null;
+    uf: string;
+    phone: string | null;
+    lat: number | null;
+    lng: number | null;
+  };
+
+  const BASE_URL = import.meta.env.BASE_URL;
+
+  let unitsPromise: Promise<Unit[]> | null = null;
+  function loadUnits(): Promise<Unit[]> {
+    if (!unitsPromise) {
+      unitsPromise = fetch(`${BASE_URL}data/units-sp.json`)
+        .then((r) => r.json())
+        .then((data) => data.units as Unit[])
+        .catch(() => []);
+    }
+    return unitsPromise;
+  }
+
+  function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number) {
+    const R = 6371;
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLng = ((lng2 - lng1) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
+    return R * 2 * Math.asin(Math.sqrt(a));
+  }
+
+  function normalize(s: string) {
+    return s
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase();
+  }
+
+  // ---------- Preenchimento do campo "unidade" no form final ----------
+  const unitInput = document.getElementById("unit") as HTMLInputElement;
+  const unitSlugInput = document.getElementById("unitSlug") as HTMLInputElement;
+  let lastConfirmedText = "";
+
+  function setUnit(unit: Unit) {
+    const label = `${unit.name} — ${unit.city}`;
+    unitInput.value = label;
+    unitSlugInput.value = unit.slug || "";
+    lastConfirmedText = label;
+  }
+
+  // Se o texto foi editado depois de escolher (ou nunca bateu com nada), o
+  // campo vai vazio no envio — sem alerta, sem travar o formulário.
+  document.getElementById("leadForm")?.addEventListener(
+    "submit",
+    () => {
+      if (unitInput.value !== lastConfirmedText) {
+        unitInput.value = "";
+        unitSlugInput.value = "";
+      }
+    },
+    { capture: true }
+  );
+
+  // ---------- Autocomplete ----------
+  const unitSuggestions = document.getElementById("unitSuggestions") as HTMLDivElement;
+
+  function renderSuggestions(matches: Unit[]) {
+    if (!matches.length) {
+      unitSuggestions.hidden = true;
+      unitSuggestions.innerHTML = "";
+      return;
+    }
+    unitSuggestions.innerHTML = matches
+      .slice(0, 8)
+      .map(
+        (u, i) =>
+          `<button type="button" class="autocomplete-item" data-idx="${i}">${u.name} <span>— ${u.city}</span></button>`
+      )
+      .join("");
+    unitSuggestions.hidden = false;
+
+    unitSuggestions.querySelectorAll<HTMLButtonElement>(".autocomplete-item").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const idx = Number(btn.dataset.idx);
+        setUnit(matches[idx]);
+        unitSuggestions.hidden = true;
+      });
+    });
+  }
+
+  let debounceTimer: ReturnType<typeof setTimeout>;
+  unitInput?.addEventListener("input", () => {
+    clearTimeout(debounceTimer);
+    const query = normalize(unitInput.value.trim());
+    if (query.length < 2) {
+      unitSuggestions.hidden = true;
+      return;
+    }
+    debounceTimer = setTimeout(async () => {
+      const units = await loadUnits();
+      const matches = units.filter(
+        (u) => normalize(u.name).includes(query) || normalize(u.city || "").includes(query)
+      );
+      renderSuggestions(matches);
+    }, 150);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!(e.target instanceof Node)) return;
+    if (!document.getElementById("unitField")?.contains(e.target)) {
+      unitSuggestions.hidden = true;
+    }
+  });
+
+  // ---------- Localizador (seção #unidades) ----------
+  const btnGeo = document.getElementById("btnGeo") as HTMLButtonElement;
+  const btnCep = document.getElementById("btnCep") as HTMLButtonElement;
+  const cepInput = document.getElementById("cepInput") as HTMLInputElement;
+  const locatorMsg = document.getElementById("locatorMsg") as HTMLParagraphElement;
+  const locatorResults = document.getElementById("locatorResults") as HTMLDivElement;
+
+  function renderLocatorResults(units: Unit[], withDistance: boolean, originLat?: number, originLng?: number) {
+    if (!units.length) {
+      locatorResults.hidden = true;
+      locatorResults.innerHTML = "";
+      return;
+    }
+    locatorResults.innerHTML = units
+      .slice(0, 3)
+      .map((u, i) => {
+        const dist =
+          withDistance && originLat != null && originLng != null && u.lat != null && u.lng != null
+            ? `<span class="unit-distance">${haversineKm(originLat, originLng, u.lat, u.lng).toFixed(1)} km</span>`
+            : "";
+        return `
+        <div class="unit-result">
+          <div class="unit-result-head">
+            <h4>${u.name}</h4>
+            ${dist}
+          </div>
+          <p>${u.address}</p>
+          <div class="unit-result-actions">
+            ${u.phone ? `<a href="https://wa.me/55${u.phone.replace(/\D/g, "")}" target="_blank" rel="noopener">WhatsApp</a>` : ""}
+            <button type="button" class="pick-unit" data-idx="${i}">Escolher esta unidade</button>
+          </div>
+        </div>`;
+      })
+      .join("");
+    locatorResults.hidden = false;
+
+    locatorResults.querySelectorAll<HTMLButtonElement>(".pick-unit").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const idx = Number(btn.dataset.idx);
+        setUnit(units[idx]);
+        locatorMsg.textContent = `Unidade selecionada: ${units[idx].name}. Role até o final da página pra se matricular.`;
+        const locatorCta = document.getElementById("locatorCta");
+        if (locatorCta) locatorCta.textContent = "Quero me matricular";
+      });
+    });
+  }
+
+  btnGeo?.addEventListener("click", () => {
+    if (!navigator.geolocation) {
+      locatorMsg.textContent = "Seu navegador não suporta localização automática. Tente digitar seu CEP.";
+      return;
+    }
+    locatorMsg.textContent = "Buscando sua localização...";
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        const units = (await loadUnits()).filter((u) => u.lat != null && u.lng != null);
+        const sorted = units
+          .map((u) => ({ u, d: haversineKm(latitude, longitude, u.lat as number, u.lng as number) }))
+          .sort((a, b) => a.d - b.d)
+          .map((x) => x.u);
+        locatorMsg.textContent = sorted.length
+          ? "Unidades mais próximas de você:"
+          : "Não encontramos unidades próximas com dados de localização.";
+        renderLocatorResults(sorted, true, latitude, longitude);
+      },
+      () => {
+        locatorMsg.textContent = "Não conseguimos acessar sua localização. Tente digitar seu CEP.";
+      },
+      { timeout: 8000 }
+    );
+  });
+
+  btnCep?.addEventListener("click", async () => {
+    const cep = cepInput.value.replace(/\D/g, "");
+    if (cep.length !== 8) {
+      locatorMsg.textContent = "Digite um CEP válido (8 dígitos).";
+      return;
+    }
+    locatorMsg.textContent = "Buscando...";
+    try {
+      const res = await fetch(`https://brasilapi.com.br/api/cep/v2/${cep}`);
+      if (!res.ok) throw new Error("CEP não encontrado");
+      const data = await res.json();
+      const lat = data?.location?.coordinates?.latitude;
+      const lng = data?.location?.coordinates?.longitude;
+      const units = await loadUnits();
+
+      if (lat && lng) {
+        const withCoords = units.filter((u) => u.lat != null && u.lng != null);
+        const sorted = withCoords
+          .map((u) => ({ u, d: haversineKm(Number(lat), Number(lng), u.lat as number, u.lng as number) }))
+          .sort((a, b) => a.d - b.d)
+          .map((x) => x.u);
+        locatorMsg.textContent = "Unidades mais próximas do seu CEP:";
+        renderLocatorResults(sorted, true, Number(lat), Number(lng));
+      } else {
+        const city = normalize(data?.city || "");
+        const sameCity = units.filter((u) => normalize(u.city || "") === city);
+        locatorMsg.textContent = sameCity.length
+          ? `Unidades em ${data?.city}:`
+          : "Não encontramos unidades na cidade desse CEP.";
+        renderLocatorResults(sameCity, false);
+      }
+    } catch {
+      locatorMsg.textContent = "Não encontramos esse CEP. Confira e tente de novo.";
+      locatorResults.hidden = true;
+    }
+  });
+
+</script>
 
 <script>
   // Saídas "leads_api_url" (primária) e "leads_api_url_secondary" do Terraform.
@@ -119,7 +593,7 @@ import Layout from '../layouts/Layout.astro';
   // campo "unit" é enviado mesmo assim (a API ignora chaves que não conhece,
   // não gera erro) até a Lambda ser atualizada para persisti-lo.
   const PRIMARY_API = "https://azgerdpbbf.execute-api.us-east-1.amazonaws.com/lead";
-  const SECONDARY_API = "SUBSTITUIR_PELO_OUTPUT_leads_api_url_secondary";
+  const SECONDARY_API = "https://d6vyxkv0ue.execute-api.sa-east-1.amazonaws.com/lead";
 
   const form = document.getElementById("leadForm") as HTMLFormElement;
   const msg = document.getElementById("formMsg") as HTMLDivElement;
@@ -151,6 +625,7 @@ import Layout from '../layouts/Layout.astro';
       email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value.trim(),
       unit: (form.elements.namedItem("unit") as HTMLInputElement).value.trim(),
+      unit_slug: (form.elements.namedItem("unit_slug") as HTMLInputElement).value.trim(),
       campaign: (form.elements.namedItem("campaign") as HTMLInputElement).value,
     };
 

@@ -44,8 +44,23 @@ output "health_check_id" {
 }
 
 output "leads_api_url" {
-  description = "URL do endpoint de captura de leads (POST /lead)"
+  description = "URL do endpoint de captura de leads (POST /lead) - região primária"
   value       = "${aws_apigatewayv2_stage.default.invoke_url}lead"
+}
+
+output "leads_api_url_secondary" {
+  description = "URL do endpoint de captura de leads (POST /lead) - região secundária (failover)"
+  value       = "${aws_apigatewayv2_stage.default_secondary.invoke_url}lead"
+}
+
+output "leads_queue_url" {
+  description = "URL da fila SQS de leads (região primária)"
+  value       = aws_sqs_queue.leads.url
+}
+
+output "leads_dlq_url" {
+  description = "URL da Dead Letter Queue de leads (região primária)"
+  value       = aws_sqs_queue.leads_dlq.url
 }
 
 output "leads_table_name" {

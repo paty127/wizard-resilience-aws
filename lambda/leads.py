@@ -5,8 +5,8 @@ import uuid
 import time
 import boto3
 
-dynamodb = boto3.resource("dynamodb")
-table = dynamodb.Table(os.environ["TABLE_NAME"])
+sqs = boto3.client("sqs")
+QUEUE_URL = os.environ["QUEUE_URL"]
 
 EMAIL_REGEX = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
@@ -26,6 +26,7 @@ def response(status_code, body_dict):
 
 
 def handler(event, context):
+    # API Gateway HTTP API (payload v2) manda o corpo em event["body"]
     try:
         body = json.loads(event.get("body") or "{}")
     except json.JSONDecodeError:
@@ -36,6 +37,7 @@ def handler(event, context):
     phone = (body.get("phone") or "").strip()
     campaign = (body.get("campaign") or "site-institucional").strip()
 
+    # --- Validação de payload ---
     errors = []
     if not name or len(name) < 2:
         errors.append("nome invalido")
@@ -57,10 +59,15 @@ def handler(event, context):
         "created_at": int(time.time()),
     }
 
+    # Não grava direto no DynamoDB: manda pra fila SQS. Um processador
+    # separado (lambda-processor) consome a fila e grava no banco. Isso
+    # desacopla a recepção do lead da gravação, e se o processamento falhar
+    # repetidamente a mensagem cai automaticamente na Dead Letter Queue
+    # (DLQ) pra investigação, sem perder o lead.
     try:
-        table.put_item(Item=item)
-    except Exception as exc:
-        print(f"Erro ao gravar no DynamoDB: {exc}")
-        return response(500, {"error": "erro interno ao salvar o lead"})
+        sqs.send_message(QueueUrl=QUEUE_URL, MessageBody=json.dumps(item, ensure_ascii=False))
+    except Exception as exc:  # noqa: BLE001 - queremos responder 500 controlado
+        print(f"Erro ao enviar para a fila SQS: {exc}")
+        return response(500, {"error": "erro interno ao processar o lead"})
 
     return response(201, {"message": "lead recebido com sucesso", "lead_id": lead_id})

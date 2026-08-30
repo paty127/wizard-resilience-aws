@@ -25,6 +25,18 @@ resource "aws_cloudfront_distribution" "site" {
     origin_access_control_id = aws_cloudfront_origin_access_control.site.id
   }
 
+  origin {
+    domain_name = "${aws_apigatewayv2_api.leads.id}.execute-api.${var.primary_region}.amazonaws.com"
+    origin_id   = "api-primary"
+
+    custom_origin_config {
+      http_port              = 80
+      https_port              = 443
+      origin_protocol_policy  = "https-only"
+      origin_ssl_protocols    = ["TLSv1.2"]
+    }
+  }
+
   origin_group {
     origin_id = "s3-failover-group"
 
@@ -58,6 +70,27 @@ resource "aws_cloudfront_distribution" "site" {
     min_ttl     = 0
     default_ttl = 3600
     max_ttl     = 86400
+  }
+
+  ordered_cache_behavior {
+    path_pattern           = "/lead"
+    target_origin_id       = "api-primary"
+    viewer_protocol_policy = "https-only"
+    allowed_methods         = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+    cached_methods          = ["GET", "HEAD"]
+    compress                = true
+
+    forwarded_values {
+      query_string = true
+      headers      = ["Content-Type"]
+      cookies {
+        forward = "none"
+      }
+    }
+
+    min_ttl     = 0
+    default_ttl = 0
+    max_ttl     = 0
   }
 
   restrictions {

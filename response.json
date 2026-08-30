@@ -1,0 +1,1 @@
+{"errorMessage": "Syntax error in module 'leads': unexpected indent (leads.py, line 40)", "errorType": "Runtime.UserCodeSyntaxError", "requestId": "", "stackTrace": ["  File \"/var/task/leads.py\" Line 40\n            name = (body.get(\"name\") or \"\").strip()\n"]}

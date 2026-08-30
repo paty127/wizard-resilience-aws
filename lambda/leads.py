@@ -35,11 +35,6 @@ def handler(event, context):
     name = (body.get("name") or "").strip()
     email = (body.get("email") or "").strip()
     phone = (body.get("phone") or "").strip()
-    campaign = (body.get("campaign") or "site-institucional").strip()
-
-        name = (body.get("name") or "").strip()
-    email = (body.get("email") or "").strip()
-    phone = (body.get("phone") or "").strip()
     unit = (body.get("unit") or "").strip()
     campaign = (body.get("campaign") or "site-institucional").strip()
 
@@ -67,6 +62,7 @@ def handler(event, context):
         "campaign": campaign,
         "created_at": int(time.time()),
     }
+
     # Não grava direto no DynamoDB: manda pra fila SQS. Um processador
     # separado (lambda-processor) consome a fila e grava no banco. Isso
     # desacopla a recepção do lead da gravação, e se o processamento falhar

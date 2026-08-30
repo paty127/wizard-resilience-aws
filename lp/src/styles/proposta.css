@@ -14,7 +14,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 
 body {
   margin: 0;
@@ -154,6 +154,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   border: 1.5px solid var(--wz-red);
   border-radius: 999px;
   padding: 14px 18px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.nav-mobile-links a:hover {
+  background: var(--wz-red);
+  transform: translateY(-1px);
 }
 
 .nav-mobile-cta {

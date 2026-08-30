@@ -308,12 +308,20 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   navClose.addEventListener("click", closeNav);
   navOverlay.addEventListener("click", closeNav);
   navMobile.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNav));
+
+  // Se a janela voltar pro tamanho desktop com o menu mobile aberto, fecha
+  // (o header desktop já mostra os links, não faz sentido manter o overlay).
+  const desktopQuery = window.matchMedia("(min-width: 861px)");
+  desktopQuery.addEventListener("change", (e) => {
+    if (e.matches) closeNav();
+  });
 </script>
 
 <script>
-  // Contador animado das estatísticas do hero: conta de 0 até o alvo quando a
-  // seção entra na tela, com uma pequena "pulsada" (escala) ao terminar.
-  const statRow = document.getElementById("statRow");
+  // Contador animado das estatísticas do hero e do chip de desconto: conta de
+  // 0 até o alvo assim que a página carrega (o hero já aparece na tela sem
+  // precisar rolar, então dispara direto — nada de esperar IntersectionObserver
+  // aqui, senão fica zerado até o usuário rolar).
   const counters = document.querySelectorAll<HTMLElement>(".counter");
 
   function animateCounter(el: HTMLElement) {
@@ -338,18 +346,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     requestAnimationFrame(tick);
   }
 
-  if (statRow && counters.length) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          counters.forEach((el) => animateCounter(el));
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.4 }
-    );
-    observer.observe(statRow);
-  }
+  counters.forEach((el) => animateCounter(el));
 </script>
 
 <script>

@@ -264,8 +264,8 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
             <input id="phone" name="phone" type="tel" placeholder="(11) 99999-9999" required maxlength="15" pattern="\(\d{2}\) \d{4,5}-\d{4}" inputmode="numeric">
           </div>
           <div class="field autocomplete" id="unitField">
-            <label for="unit">Unidade de interesse</label>
-            <input id="unit" name="unit" type="text" placeholder="Digite o nome da unidade ou a cidade" autocomplete="off">
+            <label for="unit">Unidade de interesse <span class="required-mark">*</span></label>
+            <input id="unit" name="unit" type="text" placeholder="Digite o nome da unidade ou a cidade" autocomplete="off" required minlength="2">
             <div class="autocomplete-list" id="unitSuggestions" hidden></div>
           </div>
           <input type="hidden" name="unit_slug" id="unitSlug" value="">
@@ -624,9 +624,8 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 
 <script>
   // Saídas "leads_api_url" (primária) e "leads_api_url_secondary" do Terraform.
-  // O backend hoje só grava name/email/phone/campaign (lambda/leads.py) — o
-  // campo "unit" é enviado mesmo assim (a API ignora chaves que não conhece,
-  // não gera erro) até a Lambda ser atualizada para persisti-lo.
+  // A Lambda (lambda/leads.py) exige name/email/phone/unit — "unit" passou a
+  // ser obrigatório no backend, por isso o campo também é obrigatório aqui.
   const PRIMARY_API = "https://azgerdpbbf.execute-api.us-east-1.amazonaws.com/lead";
   const SECONDARY_API = "https://d6vyxkv0ue.execute-api.sa-east-1.amazonaws.com/lead";
 
@@ -635,6 +634,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   const nameInput = document.getElementById("name") as HTMLInputElement;
   const emailInput = document.getElementById("email") as HTMLInputElement;
   const phoneInput = document.getElementById("phone") as HTMLInputElement;
+  const unitInput = document.getElementById("unit") as HTMLInputElement;
 
   // ---------- Máscara de telefone: (11) 99999-9999 / (11) 9999-9999 ----------
   function formatPhoneBR(raw: string) {
@@ -708,6 +708,9 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         ? "Informe um telefone com DDD pra gente te chamar."
         : "Esse telefone não ficou completo — confira o DDD e o número.";
     }
+    if (input === unitInput) {
+      return "Escolha uma unidade na lista de sugestões pra continuar.";
+    }
     return "Confira esse campo e tente de novo.";
   }
 
@@ -730,7 +733,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    for (const input of [nameInput, emailInput, phoneInput]) {
+    for (const input of [nameInput, emailInput, phoneInput, unitInput]) {
       if (!input.checkValidity()) {
         showFormAlert("error", "Confira esse campo", fieldErrorMessage(input), input);
         return;

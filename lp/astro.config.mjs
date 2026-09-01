@@ -9,5 +9,9 @@ export default defineConfig({
   // exemplo.html / dossie.html e funcionam sem tocar na distribuição.
   build: {
     format: 'file',
+    // O CSS da LP e pequeno (~4 KiB) e compartilhado por todas as paginas;
+    // como <link> externo ele vira uma requisicao bloqueando a renderizacao.
+    // Inline sempre elimina essa requisicao (PageSpeed: render-blocking).
+    inlineStylesheets: 'always',
   },
 });

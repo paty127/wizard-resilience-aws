@@ -18,7 +18,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         <a href="#app-wizme">Diferenciais</a>
         <a href="#unidades">Unidades</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" href="#form">Quero minha vaga</a>
+        <a class="btn btn-primary btn-sm" href="#form-card">Quero minha vaga</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
@@ -35,7 +35,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       <a href="#unidades">Unidades</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary nav-mobile-cta" href="#form">Quero minha vaga</a>
+    <a class="btn btn-primary nav-mobile-cta" href="#form-card">Quero minha vaga</a>
     <div class="nav-mobile-footer">
       <Image src={logoPearsonWhite} alt="Pearson" width={110} class="pearson-logo" />
       <p>Acompanhe nossas redes sociais:</p>
@@ -59,6 +59,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     </div>
   </aside>
 
+  <main>
   <section class="hero">
     <div class="wrap">
       <div>
@@ -66,7 +67,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         <h1>Fale inglês com <span>confiança</span> no ano que começa</h1>
         <p class="lead">Garanta sua vaga na Wizard com condições exclusivas de Volta às Aulas. Aulas práticas, professores nativos e um método que já formou milhões de alunos no Brasil.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#form">Quero minha vaga</a>
+          <a class="btn btn-primary" href="#form-card">Quero minha vaga</a>
           <a class="btn btn-ghost" href="#unidades">Ver benefícios</a>
         </div>
         <div class="stat-row" id="statRow">
@@ -79,7 +80,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         <Image src={heroPhoto} alt="Aluna sorrindo enquanto estuda com um tablet" width={520} height={620} class="hero-photo" />
         <div class="discount-chip">
           <span class="num"><b class="counter" data-target="30" data-prefix="-" data-suffix="%">0</b></span>
-          <span class="cap">na matrícula<br>por pouco tempo</span>
+          <span class="cap">na matrícula<br>por pouco<br>tempo</span>
         </div>
       </div>
     </div>
@@ -106,14 +107,14 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       <p class="locator-msg" id="locatorMsg" role="status"></p>
       <div class="locator-results" id="locatorResults" hidden></div>
 
-      <a class="btn btn-primary locator-cta" id="locatorCta" href="#form">Já sei minha unidade, quero me matricular</a>
+      <a class="btn btn-primary locator-cta" id="locatorCta" href="#form-card">Já sei minha unidade, quero matricular</a>
     </div>
   </section>
 
   <section class="diff-section" id="app-wizme">
     <div class="wrap diff-grid">
       <div class="diff-photo-wrap">
-        <Image src={appPhoto} alt="Aluno sorrindo enquanto pratica inglês pelo app da Wizard no celular" width={640} height={640} class="diff-photo" />
+        <Image src={appPhoto} alt="Aluno sorrindo enquanto pratica inglês pelo app da Wizard no celular" width={430} height={543} class="diff-photo diff-photo-tall" />
       </div>
       <div>
         <span class="kicker">App Wiz.me</span>
@@ -130,16 +131,16 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     </div>
   </section>
 
-  <section class="cta-band">
+  <div class="cta-band">
     <div class="wrap">
-      <a class="btn btn-primary btn-glow" href="#leadForm">Já estou pronto, quero conversar com a equipe</a>
+      <a class="btn btn-primary btn-glow" href="#form-card">Quero conversar com a equipe</a>
     </div>
-  </section>
+  </div>
 
   <section class="diff-section diff-alt" id="modalidades">
     <div class="wrap diff-grid">
       <div class="diff-photo-wrap">
-        <Image src={modalidadesPhoto} alt="Professora orientando um grupo de alunos com notebooks em sala" width={640} height={640} class="diff-photo" />
+        <Image src={modalidadesPhoto} alt="Professora orientando um grupo de alunos com notebooks em sala" width={640} height={640} quality={68} class="diff-photo" />
       </div>
       <div>
         <span class="kicker">Como você quer aprender</span>
@@ -156,11 +157,11 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     </div>
   </section>
 
-  <section class="cta-band on-white">
+  <div class="cta-band on-white">
     <div class="wrap">
-      <a class="btn btn-primary btn-glow" href="#leadForm">Já estou pronto, quero conversar com a equipe</a>
+      <a class="btn btn-primary btn-glow" href="#form-card">Quero conversar com a equipe</a>
     </div>
-  </section>
+  </div>
 
   <section class="diff-section" id="certificacao">
     <div class="wrap diff-grid">
@@ -182,11 +183,11 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     </div>
   </section>
 
-  <section class="cta-band">
+  <div class="cta-band">
     <div class="wrap">
-      <a class="btn btn-primary btn-glow" href="#leadForm">Já estou pronto, quero conversar com a equipe</a>
+      <a class="btn btn-primary btn-glow" href="#form-card">Quero conversar com a equipe</a>
     </div>
-  </section>
+  </div>
 
   <section class="faq" id="faq">
     <div class="wrap">
@@ -225,11 +226,11 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     </div>
   </section>
 
-  <section class="cta-band on-white">
+  <div class="cta-band on-white">
     <div class="wrap">
-      <a class="btn btn-primary btn-glow" href="#leadForm">Já estou pronto, quero conversar com a equipe</a>
+      <a class="btn btn-primary btn-glow" href="#form-card">Quero conversar com a equipe</a>
     </div>
-  </section>
+  </div>
 
   <section class="form-section" id="form">
     <div class="wrap">
@@ -245,7 +246,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         <p class="privacy-note">Ao enviar, você concorda em ser contatado pela Wizard sobre matrículas e promoções. Seus dados são tratados com segurança em infraestrutura AWS resiliente e criptografada.</p>
       </div>
 
-      <div class="card-form">
+      <div class="card-form" id="form-card">
         <h3>Garanta sua condição especial</h3>
         <p class="sub">Leva menos de 1 minuto <span class="required-note">* Campos obrigatórios</span></p>
 
@@ -277,6 +278,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       </div>
     </div>
   </section>
+  </main>
 
   <footer>
     <div class="wrap">
@@ -284,9 +286,8 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       <p>Wizard — Landing page de teste (Case B, Hackathon Future Builders). Não é o site oficial.</p>
     </div>
   </footer>
-</Layout>
 
-<script>
+  <script>
   const navToggle = document.getElementById("navToggle") as HTMLButtonElement;
   const navClose = document.getElementById("navClose") as HTMLButtonElement;
   const navMobile = document.getElementById("navMobile") as HTMLElement;
@@ -315,6 +316,17 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   desktopQuery.addEventListener("change", (e) => {
     if (e.matches) closeNav();
   });
+
+  // Efeito "luzes de cinema" no selo de desconto: no desktop o :hover do CSS
+  // já resolve, mas :active não é confiável em toque (iOS só dispara em
+  // elemento com handler de touch/click), então alterna a classe no touch.
+  const heroVisual = document.querySelector<HTMLElement>(".hero-visual");
+  if (heroVisual) {
+    heroVisual.addEventListener("touchstart", () => heroVisual.classList.add("marquee-active"), { passive: true });
+    const clearMarquee = () => heroVisual.classList.remove("marquee-active");
+    heroVisual.addEventListener("touchend", clearMarquee);
+    heroVisual.addEventListener("touchcancel", clearMarquee);
+  }
 </script>
 
 <script>
@@ -479,6 +491,17 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   const locatorMsg = document.getElementById("locatorMsg") as HTMLParagraphElement;
   const locatorResults = document.getElementById("locatorResults") as HTMLDivElement;
 
+  // Só deixa dígito passar (max 8) e aplica a máscara 00000-000 enquanto digita.
+  cepInput.addEventListener("input", () => {
+    const digits = cepInput.value.replace(/\D/g, "").slice(0, 8);
+    cepInput.value = digits.length > 5 ? `${digits.slice(0, 5)}-${digits.slice(5)}` : digits;
+  });
+
+  function setLocatorMsg(text: string, loading = false) {
+    locatorMsg.textContent = text;
+    locatorMsg.classList.toggle("is-loading", loading);
+  }
+
   function renderLocatorResults(units: Unit[], withDistance: boolean, originLat?: number, originLng?: number) {
     if (!units.length) {
       locatorResults.hidden = true;
@@ -512,7 +535,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       btn.addEventListener("click", () => {
         const idx = Number(btn.dataset.idx);
         setUnit(units[idx]);
-        locatorMsg.textContent = `Unidade selecionada: ${units[idx].name}. Role até o final da página pra se matricular.`;
+        setLocatorMsg(`Unidade selecionada: ${units[idx].name}. Role até o final da página pra se matricular.`);
         const locatorCta = document.getElementById("locatorCta");
         if (locatorCta) locatorCta.textContent = "Quero me matricular";
       });
@@ -521,10 +544,10 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 
   btnGeo?.addEventListener("click", () => {
     if (!navigator.geolocation) {
-      locatorMsg.textContent = "Seu navegador não suporta localização automática. Tente digitar seu CEP.";
+      setLocatorMsg("Seu navegador não suporta localização automática. Tente digitar seu CEP.");
       return;
     }
-    locatorMsg.textContent = "Buscando sua localização...";
+    setLocatorMsg("Buscando sua localização...", true);
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         const { latitude, longitude } = pos.coords;
@@ -533,13 +556,15 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
           .map((u) => ({ u, d: haversineKm(latitude, longitude, u.lat as number, u.lng as number) }))
           .sort((a, b) => a.d - b.d)
           .map((x) => x.u);
-        locatorMsg.textContent = sorted.length
-          ? "Unidades mais próximas de você:"
-          : "Não encontramos unidades próximas com dados de localização.";
+        setLocatorMsg(
+          sorted.length
+            ? "Unidades mais próximas de você:"
+            : "Não encontramos unidades próximas com dados de localização."
+        );
         renderLocatorResults(sorted, true, latitude, longitude);
       },
       () => {
-        locatorMsg.textContent = "Não conseguimos acessar sua localização. Tente digitar seu CEP.";
+        setLocatorMsg("Não conseguimos acessar sua localização. Tente digitar seu CEP.");
       },
       { timeout: 8000 }
     );
@@ -548,10 +573,10 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   btnCep?.addEventListener("click", async () => {
     const cep = cepInput.value.replace(/\D/g, "");
     if (cep.length !== 8) {
-      locatorMsg.textContent = "Digite um CEP válido (8 dígitos).";
+      setLocatorMsg("Digite um CEP válido (8 dígitos).");
       return;
     }
-    locatorMsg.textContent = "Buscando...";
+    setLocatorMsg("Buscando...", true);
     try {
       const res = await fetch(`https://brasilapi.com.br/api/cep/v2/${cep}`);
       if (!res.ok) throw new Error("CEP não encontrado");
@@ -566,18 +591,20 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
           .map((u) => ({ u, d: haversineKm(Number(lat), Number(lng), u.lat as number, u.lng as number) }))
           .sort((a, b) => a.d - b.d)
           .map((x) => x.u);
-        locatorMsg.textContent = "Unidades mais próximas do seu CEP:";
+        setLocatorMsg("Unidades mais próximas do seu CEP:");
         renderLocatorResults(sorted, true, Number(lat), Number(lng));
       } else {
         const city = normalize(data?.city || "");
         const sameCity = units.filter((u) => normalize(u.city || "") === city);
-        locatorMsg.textContent = sameCity.length
-          ? `Unidades em ${data?.city}:`
-          : "Não encontramos unidades na cidade desse CEP.";
+        setLocatorMsg(
+          sameCity.length
+            ? `Unidades em ${data?.city}:`
+            : "Não encontramos unidades na cidade desse CEP."
+        );
         renderLocatorResults(sameCity, false);
       }
     } catch {
-      locatorMsg.textContent = "Não encontramos esse CEP. Confira e tente de novo.";
+      setLocatorMsg("Não encontramos esse CEP. Confira e tente de novo.");
       locatorResults.hidden = true;
     }
   });
@@ -667,4 +694,5 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       btn.textContent = "Quero minha vaga";
     }
   });
-</script>
+  </script>
+</Layout>

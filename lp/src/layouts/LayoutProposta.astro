@@ -3,9 +3,13 @@ import '../styles/proposta.css';
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = 'Wizard | Volta às Aulas — Garanta sua vaga' } = Astro.props;
+const {
+  title = 'Wizard | Volta às Aulas — Garanta sua vaga',
+  description = 'Garanta sua vaga na Wizard com condições exclusivas de Volta às Aulas: aulas práticas, professores nativos, app Wiz.me e certificação internacional Pearson.',
+} = Astro.props;
 ---
 
 <html lang="pt-br">
@@ -13,6 +17,7 @@ const { title = 'Wizard | Volta às Aulas — Garanta sua vaga' } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
     <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} sizes="any" />
     <title>{title}</title>
   </head>

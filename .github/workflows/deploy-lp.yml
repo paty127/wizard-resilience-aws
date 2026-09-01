@@ -102,17 +102,36 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      # _astro/* tem nome de arquivo com hash de conteudo (ex.: index.BqjtigO6.css)
+      # entao pode cachear por 1 ano no navegador: qualquer mudanca gera um nome
+      # novo. O resto (HTML, favicon, data/*.json) pode mudar sem trocar de nome,
+      # entao usa revalidacao a cada visita. Sem isso o PageSpeed reclama de
+      # "ciclo de vida de cache" (sem Cache-Control, o navegador nao guarda nada).
       - name: Publicar no bucket primario (us-east-1)
         run: |
           aws s3 sync lp/dist/ "s3://${BUCKET_PRIMARY}/" \
             --no-progress \
-            --region us-east-1
+            --region us-east-1 \
+            --cache-control "public,max-age=31536000,immutable" \
+            --exclude "*" --include "_astro/*"
+          aws s3 sync lp/dist/ "s3://${BUCKET_PRIMARY}/" \
+            --no-progress \
+            --region us-east-1 \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --exclude "_astro/*"
 
       - name: Publicar no bucket secundario (sa-east-1)
         run: |
           aws s3 sync lp/dist/ "s3://${BUCKET_SECONDARY}/" \
             --no-progress \
-            --region sa-east-1
+            --region sa-east-1 \
+            --cache-control "public,max-age=31536000,immutable" \
+            --exclude "*" --include "_astro/*"
+          aws s3 sync lp/dist/ "s3://${BUCKET_SECONDARY}/" \
+            --no-progress \
+            --region sa-east-1 \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --exclude "_astro/*"
 
       - name: Invalidar cache do CloudFront
         run: |

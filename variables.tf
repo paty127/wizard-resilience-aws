@@ -57,3 +57,9 @@ variable "enable_custom_domain" {
   type        = bool
   default     = false
 }
+
+variable "ses_notification_email" {
+  description = "E-mail verificado no SES, usado como remetente e como destinatário das notificações internas de novo lead."
+  type        = string
+  default     = "bruma3237@gmail.com"
+}

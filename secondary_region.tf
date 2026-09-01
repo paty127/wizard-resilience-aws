@@ -66,7 +66,10 @@ resource "aws_lambda_function" "leads_processor_secondary" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.leads.name
+      TABLE_NAME              = aws_dynamodb_table.leads.name
+      SES_REGION               = var.primary_region
+      SES_SENDER_EMAIL          = var.ses_notification_email
+      TEAM_NOTIFICATION_EMAIL   = var.ses_notification_email
     }
   }
 }

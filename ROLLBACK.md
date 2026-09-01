@@ -120,21 +120,50 @@ ou nos buckets em si. A infra do case fica intacta.
 
 ---
 
-## Pendencia — dois recursos orfaos da tentativa com OIDC
+## Pendencias conhecidas
 
-Antes de chegar no usuario IAM, tentamos autenticar via OIDC. Nao funciona
-nesta conta (detalhes no cabecalho de `.github/workflows/deploy-lp.yml` e em
-`github_ci_user.tf`). Ficaram dois recursos que **nao sao usados por nada** e
-podem ser apagados a qualquer momento:
+### 1. `terraform destroy` nao completa hoje
+
+Nenhum dos tres buckets (`origin_primary`, `origin_secondary`, `fallback`) tem
+`force_destroy = true`, e os tres estao com versionamento ligado e com objetos
+dentro. O `terraform destroy` — e portanto o `teardown.sh` — falha com
+`BucketNotEmpty`.
+
+Como a regra 5 do hackathon avalia a facilidade do teardown, vale corrigir. Sao
+tres linhas, uma em cada recurso:
+
+```hcl
+resource "aws_s3_bucket" "origin_primary" {
+  bucket        = "${var.project_tag}-origin-primary-${random_id.bucket_suffix.hex}"
+  force_destroy = true
+}
+```
+
+Idem em `aws_s3_bucket.origin_secondary` (s3.tf) e `aws_s3_bucket.fallback`
+(route53.tf). Precisa de um `terraform apply` de quem tem o tfstate.
+
+> Alternativa sem alterar o codigo: esvaziar os tres buckets pelo console
+> (incluindo as versoes antigas) logo antes de rodar o teardown.
+
+### 2. Recursos do OIDC mantidos de proposito
+
+A role `bruma-lp-deploy` e o provedor `token.actions.githubusercontent.com`
+existem mas estao parados — a autenticacao real e pelo usuario IAM. Nao foram
+apagados porque a coordenacao do hackathon esta avaliando liberar
+`sts:AssumeRoleWithWebIdentity`. Contexto completo em `github_oidc.tf`.
+
+Se a resposta for negativa, apague nesta ordem (a role depende do provedor):
 
 1. IAM > Funcoes > `bruma-lp-deploy` > Excluir
 2. IAM > Provedores de identidade > `token.actions.githubusercontent.com` > Excluir
 
-Apague nesta ordem — a role depende do provedor.
+> Enquanto ficarem: a role esta com a condicao do `sub` afrouxada
+> (`repo:paty127/wizard-resilience-aws:*`), sobra do teste de diagnostico. O
+> valor correto ja esta em `github_oidc.tf` e volta ao lugar no primeiro apply
+> depois do import. Hoje e inofensivo, porque a federacao esta bloqueada de
+> qualquer forma.
 
-> Se voces conseguirem liberar `sts:AssumeRoleWithWebIdentity` com quem
-> administra a organizacao AWS, vale manter os dois e voltar para OIDC: e mais
-> seguro que chave de longa duracao. Nesse caso a role precisa ter a condicao
-> do `sub` apertada de volta para
-> `repo:paty127/wizard-resilience-aws:ref:refs/heads/site-frontend` — ela ficou
-> com `repo:paty127/wizard-resilience-aws:*` por causa do teste de diagnostico.
+### 3. O tfstate e local
+
+Nao ha backend remoto configurado, entao o state vive na maquina de quem
+aplicou. Na pratica, so essa pessoa consegue executar o teardown.

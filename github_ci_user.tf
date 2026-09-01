@@ -39,8 +39,10 @@
 
 resource "aws_iam_user" "lp_deploy_ci" {
   name = "bruma-lp-deploy-ci"
-  path = "/ci/"
 
+  # As tags obrigatorias de team/project/environment vem do `default_tags` do
+  # provider (providers.tf). O usuario foi criado a mao sem elas; o primeiro
+  # apply depois do import corrige isso e remove a tag malformada que sobrou.
   tags = {
     component = "lp-deploy"
     descricao = "Usado pelo workflow .github/workflows/deploy-lp.yml"

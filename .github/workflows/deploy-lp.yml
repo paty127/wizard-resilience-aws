@@ -21,11 +21,18 @@
 #   sts:AssumeRoleWithWebIdentity. Repetimos o teste com a condicao do `sub`
 #   totalmente aberta (`repo:paty127/wizard-resilience-aws:*`) e o erro
 #   persistiu, o que descarta a trust policy e aponta para restricao da
-#   organizacao AWS acima desta conta - coerente com o CloudShell tambem estar
-#   bloqueado e com a policy Hackathon-FullAccess-Workshop ser uma lista branca
-#   de servicos que nao inclui `sts:`.
-#   Se o `sts:` for liberado, da para voltar ao OIDC trocando so o passo de
-#   autenticacao e removendo os dois secrets.
+#   organizacao AWS acima desta conta.
+#
+#   RETESTE EM 01/09/2026: a coordenacao liberou o CloudShell, que estava
+#   bloqueado pelo mesmo tipo de restricao. Aproveitamos para apertar a
+#   condicao do `sub` de volta na branch e rodar o pipeline por OIDC de novo
+#   (run "Deploy LP #8", commit 2456752): AccessDenied identico. Ou seja, o
+#   CloudShell foi liberado mas `sts:AssumeRoleWithWebIdentity` NAO. O commit
+#   foi revertido e o deploy voltou para a chave de acesso.
+#
+#   Se um dia o `sts:` for liberado, voltar ao OIDC e trocar so o passo de
+#   autenticacao e remover os dois secrets. A trust policy da role ja esta
+#   correta - travada na branch - entao nao precisa mexer nela.
 #
 # Infra IAM correspondente: github_ci_user.tf (na raiz do repo).
 # =============================================================================

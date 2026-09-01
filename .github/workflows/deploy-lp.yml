@@ -5,14 +5,29 @@
 # ESCOPO DESTE WORKFLOW - leia antes de mexer:
 #   - Dispara APENAS em push na branch `site-frontend` e APENAS quando algo
 #     dentro de lp/ muda. Nao roda na main.
-#   - Autentica via OIDC (sem chave estatica no repositorio). A role assumida
-#     tem a confianca travada nesta branch: de qualquer outra a AWS recusa.
-#   - Usa `aws s3 sync` SEM `--delete` e a role NAO tem `s3:DeleteObject`.
+#   - Autentica como o usuario IAM `bruma-lp-deploy-ci`, cujas credenciais
+#     estao nos secrets do repositorio.
+#   - Usa `aws s3 sync` SEM `--delete` e esse usuario NAO tem `s3:DeleteObject`.
 #     O pipeline e incapaz de apagar objeto no bucket.
+#   - As permissoes dele listam so os dois buckets de origem e so a distribuicao
+#     E11LVFDZKEUA69. Nenhum outro recurso da conta e alcancavel.
 #   - Versionamento esta ligado nos dois buckets: toda sobrescrita e reversivel.
 #     Passo a passo em ROLLBACK.md.
 #
-# Infra IAM correspondente: github_oidc.tf (na raiz do repo).
+# HISTORICO - por que nao OIDC, que seria a pratica recomendada:
+#   A primeira versao usava OIDC e nao funciona nesta conta. O provedor e a role
+#   foram criados corretamente e o CloudTrail confirmou que o `sub` e o `aud` do
+#   token batiam com a trust policy; ainda assim a AWS respondeu AccessDenied em
+#   sts:AssumeRoleWithWebIdentity. Repetimos o teste com a condicao do `sub`
+#   totalmente aberta (`repo:paty127/wizard-resilience-aws:*`) e o erro
+#   persistiu, o que descarta a trust policy e aponta para restricao da
+#   organizacao AWS acima desta conta - coerente com o CloudShell tambem estar
+#   bloqueado e com a policy Hackathon-FullAccess-Workshop ser uma lista branca
+#   de servicos que nao inclui `sts:`.
+#   Se o `sts:` for liberado, da para voltar ao OIDC trocando so o passo de
+#   autenticacao e removendo os dois secrets.
+#
+# Infra IAM correspondente: github_ci_user.tf (na raiz do repo).
 # =============================================================================
 
 name: Deploy LP
@@ -25,7 +40,6 @@ on:
       - '.github/workflows/deploy-lp.yml'
   workflow_dispatch:
 
-# Necessario para o OIDC emitir o token que a AWS valida.
 permissions:
   contents: read
 

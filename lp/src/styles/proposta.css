@@ -835,25 +835,57 @@ input:focus { border-color: var(--wz-blue-500); background: white; }
 }
 .submit-btn:disabled { opacity: 0.65; cursor: progress; }
 
-.form-msg {
-  margin-top: 14px;
-  font-size: 0.9rem;
-  border-radius: 10px;
-  padding: 12px 14px;
-  display: none;
+/* ---------- ALERTA FANCY (validação / sucesso do formulário) ---------- */
+.alert-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10,17,32,0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
-.form-msg.ok {
-  display: block;
-  background: #e9f8ee;
-  color: #1c6b3a;
-  border: 1px solid #bfe8cd;
+.alert-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
 }
-.form-msg.err {
-  display: block;
-  background: #fdeceb;
-  color: #a3241f;
-  border: 1px solid #f5c6c2;
+.alert-box {
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  border-radius: 18px;
+  border-top: 5px solid var(--wz-red);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+  padding: 34px 28px 28px;
+  text-align: center;
+  transform: translateY(16px) scale(0.96);
+  transition: transform 0.3s ease;
 }
+.alert-overlay.open .alert-box { transform: translateY(0) scale(1); }
+.alert-box.success { border-top-color: var(--wz-blue-500); }
+.alert-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--wz-red);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alert-box.success .alert-icon { background: var(--wz-blue-500); }
+.alert-box h4 { font-size: 1.15rem; color: var(--wz-blue-900); margin-bottom: 10px; }
+.alert-box p { font-size: 0.95rem; color: #45526b; line-height: 1.55; margin: 0 0 26px; }
+.alert-ok { width: 100%; justify-content: center; }
 .autocomplete { position: relative; }
 .autocomplete-list {
   position: absolute;

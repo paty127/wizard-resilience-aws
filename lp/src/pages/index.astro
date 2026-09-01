@@ -261,7 +261,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
           </div>
           <div class="field">
             <label for="phone">Telefone / WhatsApp <span class="required-mark">*</span></label>
-            <input id="phone" name="phone" type="tel" placeholder="(11) 99999-9999" required minlength="8">
+            <input id="phone" name="phone" type="tel" placeholder="(11) 99999-9999" required maxlength="15" pattern="\(\d{2}\) \d{4,5}-\d{4}" inputmode="numeric">
           </div>
           <div class="field autocomplete" id="unitField">
             <label for="unit">Unidade de interesse</label>
@@ -272,12 +272,19 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
           <input type="hidden" name="campaign" value="volta-as-aulas">
 
           <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">Quero minha vaga</button>
-
-          <div class="form-msg" id="formMsg"></div>
         </form>
       </div>
     </div>
   </section>
+
+  <div class="alert-overlay" id="formAlert" aria-hidden="true">
+    <div class="alert-box" id="formAlertBox" role="alertdialog" aria-modal="true" aria-labelledby="formAlertTitle" aria-describedby="formAlertMsg">
+      <div class="alert-icon" id="formAlertIcon" aria-hidden="true">!</div>
+      <h4 id="formAlertTitle"></h4>
+      <p id="formAlertMsg"></p>
+      <button type="button" class="btn btn-primary alert-ok" id="formAlertOk">Entendi</button>
+    </div>
+  </div>
   </main>
 
   <footer>
@@ -420,18 +427,22 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     lastConfirmedText = label;
   }
 
-  // Se o texto foi editado depois de escolher (ou nunca bateu com nada), o
-  // campo vai vazio no envio — sem alerta, sem travar o formulário.
-  document.getElementById("leadForm")?.addEventListener(
-    "submit",
-    () => {
-      if (unitInput.value !== lastConfirmedText) {
-        unitInput.value = "";
-        unitSlugInput.value = "";
-      }
-    },
-    { capture: true }
-  );
+  // Campo opcional: só fica preenchido se bater com uma unidade escolhida no
+  // autocomplete. Texto digitado sem selecionar sugestão é limpo ao sair do
+  // campo — sem alerta, sem travar o formulário, já que é opcional.
+  function clearUnitIfUnconfirmed() {
+    if (unitInput.value !== lastConfirmedText) {
+      unitInput.value = "";
+      unitSlugInput.value = "";
+    }
+  }
+  unitInput.addEventListener("blur", () => {
+    // atraso pra dar tempo do click numa sugestão (que chama setUnit) rodar
+    // antes da checagem — clicar num botão da lista tira o foco do input.
+    window.setTimeout(clearUnitIfUnconfirmed, 150);
+  });
+  // Rede de segurança: cobre o caso raro de enviar sem o input perder o foco.
+  document.getElementById("leadForm")?.addEventListener("submit", clearUnitIfUnconfirmed, { capture: true });
 
   // ---------- Autocomplete ----------
   const unitSuggestions = document.getElementById("unitSuggestions") as HTMLDivElement;
@@ -620,8 +631,85 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   const SECONDARY_API = "https://d6vyxkv0ue.execute-api.sa-east-1.amazonaws.com/lead";
 
   const form = document.getElementById("leadForm") as HTMLFormElement;
-  const msg = document.getElementById("formMsg") as HTMLDivElement;
   const btn = document.getElementById("submitBtn") as HTMLButtonElement;
+  const nameInput = document.getElementById("name") as HTMLInputElement;
+  const emailInput = document.getElementById("email") as HTMLInputElement;
+  const phoneInput = document.getElementById("phone") as HTMLInputElement;
+
+  // ---------- Máscara de telefone: (11) 99999-9999 / (11) 9999-9999 ----------
+  function formatPhoneBR(raw: string) {
+    const digits = raw.replace(/\D/g, "").slice(0, 11);
+    const len = digits.length;
+    if (len === 0) return "";
+    if (len <= 2) return `(${digits}`;
+    if (len <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    if (len <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+  }
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = formatPhoneBR(phoneInput.value);
+  });
+
+  // ---------- Alerta fancy (valida campo a campo e avisa de sucesso) ----------
+  const formAlert = document.getElementById("formAlert") as HTMLDivElement;
+  const formAlertBox = document.getElementById("formAlertBox") as HTMLDivElement;
+  const formAlertIcon = document.getElementById("formAlertIcon") as HTMLDivElement;
+  const formAlertTitle = document.getElementById("formAlertTitle") as HTMLHeadingElement;
+  const formAlertMsg = document.getElementById("formAlertMsg") as HTMLParagraphElement;
+  const formAlertOk = document.getElementById("formAlertOk") as HTMLButtonElement;
+
+  let alertFocusTarget: HTMLInputElement | null = null;
+
+  function showFormAlert(
+    kind: "error" | "success",
+    title: string,
+    message: string,
+    focusEl: HTMLInputElement | null = null,
+    okLabel = "Entendi"
+  ) {
+    formAlertBox.classList.toggle("success", kind === "success");
+    formAlertIcon.textContent = kind === "success" ? "✓" : "!";
+    formAlertTitle.textContent = title;
+    formAlertMsg.textContent = message;
+    formAlertOk.textContent = okLabel;
+    alertFocusTarget = focusEl;
+    formAlert.classList.add("open");
+    formAlert.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeFormAlert() {
+    formAlert.classList.remove("open");
+    formAlert.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    const target = alertFocusTarget;
+    alertFocusTarget = null;
+    if (target) {
+      // espera a transição de fechar (0.3s) terminar antes de levar o
+      // cursor pro campo, senão o foco rola a página no meio da animação.
+      setTimeout(() => target.focus(), 280);
+    }
+  }
+  formAlertOk.addEventListener("click", closeFormAlert);
+
+  function fieldErrorMessage(input: HTMLInputElement): string {
+    if (input === nameInput) {
+      return input.validity.valueMissing
+        ? "Conta pra gente seu nome completo pra continuar."
+        : "Digite seu nome completo (pelo menos 2 letras).";
+    }
+    if (input === emailInput) {
+      return input.validity.valueMissing
+        ? "Informe seu melhor e-mail pra gente entrar em contato."
+        : "Esse e-mail não parece válido — confira e tente de novo.";
+    }
+    if (input === phoneInput) {
+      return input.validity.valueMissing
+        ? "Informe um telefone com DDD pra gente te chamar."
+        : "Esse telefone não ficou completo — confira o DDD e o número.";
+    }
+    return "Confira esse campo e tente de novo.";
+  }
 
   async function postLead(url: string, payload: Record<string, string>, timeoutMs = 4000) {
     const controller = new AbortController();
@@ -641,13 +729,18 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    msg.className = "form-msg";
-    msg.textContent = "";
+
+    for (const input of [nameInput, emailInput, phoneInput]) {
+      if (!input.checkValidity()) {
+        showFormAlert("error", "Confira esse campo", fieldErrorMessage(input), input);
+        return;
+      }
+    }
 
     const payload = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
-      email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
-      phone: (form.elements.namedItem("phone") as HTMLInputElement).value.trim(),
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      phone: phoneInput.value.trim(),
       unit: (form.elements.namedItem("unit") as HTMLInputElement).value.trim(),
       unit_slug: (form.elements.namedItem("unit_slug") as HTMLInputElement).value.trim(),
       campaign: (form.elements.namedItem("campaign") as HTMLInputElement).value,
@@ -666,8 +759,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       try {
         res = await postLead(SECONDARY_API, payload);
       } catch (secondaryErr) {
-        msg.className = "form-msg err";
-        msg.textContent = "Erro de conexão em ambas as regiões. Tente novamente em instantes.";
+        showFormAlert("error", "Não conseguimos enviar", "Erro de conexão em ambas as regiões. Tente novamente em instantes.");
         btn.disabled = false;
         btn.textContent = "Quero minha vaga";
         return;
@@ -677,18 +769,25 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     try {
       const data = await res.json();
       if (res.ok) {
-        msg.className = "form-msg ok";
-        msg.textContent = usedFallback
-          ? "Recebemos seus dados via nossa região de contingência! Em breve entraremos em contato."
-          : "Recebemos seus dados! Em breve um consultor Wizard vai entrar em contato.";
+        showFormAlert(
+          "success",
+          "Recebemos sua solicitação!",
+          usedFallback
+            ? "Obrigado pelo contato! Seus dados chegaram via nossa região de contingência — em breve um consultor Wizard fala com você."
+            : "Obrigado pelo contato! Em breve um consultor Wizard vai falar com você.",
+          null,
+          "Fechar"
+        );
         form.reset();
       } else {
-        msg.className = "form-msg err";
-        msg.textContent = (data.details && data.details.join(", ")) || "Não foi possível enviar. Confira os dados e tente de novo.";
+        showFormAlert(
+          "error",
+          "Não foi possível enviar",
+          (data.details && data.details.join(", ")) || "Confira os dados e tente de novo."
+        );
       }
     } catch (err) {
-      msg.className = "form-msg err";
-      msg.textContent = "Erro de conexão. Tente novamente em instantes.";
+      showFormAlert("error", "Erro de conexão", "Tente novamente em instantes.");
     } finally {
       btn.disabled = false;
       btn.textContent = "Quero minha vaga";

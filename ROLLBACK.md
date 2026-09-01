@@ -1,0 +1,115 @@
+# Rollback do deploy da Landing Page
+
+Este documento cobre como desfazer, no todo ou em parte, a publicacao
+automatica da LP feita pelo workflow `.github/workflows/deploy-lp.yml`.
+
+Nada aqui e urgente ou perigoso: **o versionamento esta ligado nos dois buckets
+de origem** (`s3.tf`, `aws_s3_bucket_versioning`), entao nenhuma versao anterior
+foi perdida.
+
+---
+
+## O que o deploy alterou
+
+| Bucket | Regiao |
+|---|---|
+| `case-b-resilience-origin-primary-9efb5828` | us-east-1 |
+| `case-b-resilience-origin-secondary-9efb5828` | sa-east-1 |
+
+Em cada um deles:
+
+- **`index.html`** — objeto que ja existia (versao de 29/08/2026, 14.895 bytes),
+  foi **sobrescrito** pela LP nova. A versao antiga continua guardada.
+- **15 objetos novos** — `exemplo.html`, `dossie.html`, `favicon.ico`,
+  `favicon.svg`, `data/units-sp.json` e `_astro/*` (CSS, JS e imagens webp).
+
+O pipeline roda `aws s3 sync` **sem `--delete`**, e a role de deploy **nao tem
+permissao de `s3:DeleteObject`**. Nenhum objeto foi ou pode ser apagado por ele.
+
+---
+
+## Cenario 1 — voltar o site para a versao anterior
+
+### Pelo console (mais simples)
+
+1. S3 > `case-b-resilience-origin-primary-9efb5828`
+2. Ligue o toggle **"Mostrar versoes"**
+3. Clique em `index.html` e localize a versao de **29/08/2026 22:42** (14,5 KB)
+4. Selecione essa versao > **Acoes** > **Restaurar** (ou baixe e reenvie)
+5. Repita no bucket `case-b-resilience-origin-secondary-9efb5828` (regiao sa-east-1)
+6. Invalide o cache: CloudFront > `E11LVFDZKEUA69` > **Invalidacoes** > criar com o path `/*`
+
+### Pela CLI
+
+```bash
+# Descobrir o VersionId antigo do index.html
+aws s3api list-object-versions \
+  --bucket case-b-resilience-origin-primary-9efb5828 \
+  --prefix index.html \
+  --query 'Versions[].{Id:VersionId,Data:LastModified,Tam:Size}' --output table
+
+# Restaurar copiando a versao antiga por cima da atual
+aws s3api copy-object \
+  --bucket case-b-resilience-origin-primary-9efb5828 \
+  --key index.html \
+  --copy-source "case-b-resilience-origin-primary-9efb5828/index.html?versionId=COLE_O_VERSION_ID"
+
+# Idem no secundario (trocar o nome do bucket e usar --region sa-east-1)
+
+# Limpar o cache
+aws cloudfront create-invalidation --distribution-id E11LVFDZKEUA69 --paths "/*"
+```
+
+Os 15 arquivos novos continuam la, mas ficam orfaos: ninguem os acessa se o
+`index.html` antigo voltar. Custam menos de um centavo por mes. Se quiser
+limpar mesmo assim, veja o cenario 3.
+
+---
+
+## Cenario 2 — parar o deploy automatico, mantendo o que ja esta no ar
+
+Apague o arquivo do workflow na branch `site-frontend`:
+
+```bash
+git rm .github/workflows/deploy-lp.yml && git commit -m "Desativa deploy automatico da LP" && git push
+```
+
+Sem o arquivo, o GitHub Actions nao tem o que executar. O site continua no ar
+exatamente como esta.
+
+---
+
+## Cenario 3 — remover tudo que foi adicionado
+
+**1. Apagar os objetos novos** (precisa de credencial com permissao de delete —
+a role do pipeline nao tem):
+
+```bash
+for B in case-b-resilience-origin-primary-9efb5828 case-b-resilience-origin-secondary-9efb5828; do
+  aws s3 rm "s3://$B/_astro/" --recursive
+  aws s3 rm "s3://$B/data/" --recursive
+  aws s3 rm "s3://$B/exemplo.html"
+  aws s3 rm "s3://$B/dossie.html"
+  aws s3 rm "s3://$B/favicon.ico"
+  aws s3 rm "s3://$B/favicon.svg"
+done
+```
+
+**2. Remover a infra de CI/CD.** Duas opcoes:
+
+- **Se voce ja adotou no Terraform** (rodou os `terraform import` descritos em
+  `github_oidc.tf`): apague o arquivo `github_oidc.tf` e rode `terraform apply`.
+  Ou, para derrubar tudo, `terraform destroy` ja leva junto.
+
+- **Se ainda nao adotou:** apague pelo console, nesta ordem:
+  1. IAM > Funcoes > `bruma-lp-deploy` > Excluir
+  2. IAM > Provedores de identidade > `token.actions.githubusercontent.com` > Excluir
+
+  > Atencao: o provedor OIDC e um recurso de conta, compartilhado. So apague se
+  > nenhum outro pipeline estiver usando. Hoje (31/08/2026) so a role
+  > `bruma-lp-deploy` depende dele.
+
+**3. Apagar o workflow** — cenario 2 acima.
+
+Nenhum desses passos toca em CloudFront, WAF, Route 53, Lambda, SQS, DynamoDB
+ou nos buckets em si. A infra do case fica intacta.

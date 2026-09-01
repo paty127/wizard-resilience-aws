@@ -1,0 +1,1134 @@
+---
+// Dossiê interno de pesquisa — EQUIPE BRUMA
+// Case B · Hackathon Future Builders · evento 08/09/2026
+// Página não linkada da LP. Uso interno. Feita para impressão A4 / PDF.
+const hoje = '31 de agosto de 2026';
+---
+
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Dossiê de Budget — Infra de LP de Captação · EQUIPE BRUMA</title>
+
+    <!--
+      is:inline é obrigatório aqui. Sem ele o Astro extrai este CSS para um
+      arquivo externo com caminho absoluto (/_astro/*.css), e o HTML deixa de
+      funcionar quando aberto solto do disco (file://) ou enviado por e-mail.
+      Este documento precisa ser um arquivo único e autossuficiente.
+    -->
+    <style is:inline>
+      /* =========================================================
+         DOSSIÊ BRUMA — folha de estilo autossuficiente
+         Sem dependência da LP, sem fonte externa, sem asset remoto.
+         Otimizada para leitura em tela e para exportação em PDF A4.
+         ========================================================= */
+
+      :root {
+        --blue-900: #0a2a5e;
+        --blue-700: #123a7a;
+        --blue-500: #1f4fa0;
+        --blue-100: #e8eefa;
+        --red: #d81e2c;
+        --ink: #10203a;
+        --ink-soft: #4a5a72;
+        --mist: #f4f6fb;
+        --paper: #ffffff;
+        --line: #dbe3f0;
+        --ok: #0f7b4f;
+        --warn: #b3541e;
+        --gold: #e0a800;
+      }
+
+      /* Faz o Chrome imprimir os fundos coloridos. Sem isto, os selos de
+         confiança e os cabeçalhos das tabelas saem brancos no PDF e o
+         código de cores do documento inteiro se perde. */
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html { -webkit-text-size-adjust: 100%; }
+
+      body {
+        margin: 0;
+        background: var(--mist);
+        color: var(--ink);
+        font-family: "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.62;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      .doc {
+        max-width: 210mm;
+        margin: 0 auto;
+        background: var(--paper);
+        padding: 20mm 17mm;
+        box-shadow: 0 2px 30px rgba(10, 42, 94, 0.12);
+      }
+
+      h1, h2, h3, h4 {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0;
+        color: var(--blue-900);
+        line-height: 1.2;
+      }
+      p { margin: 0 0 10px; }
+      b, strong { font-weight: 700; }
+
+      /* ---------- CAPA ---------- */
+      .capa {
+        border-bottom: 5px solid var(--red);
+        padding-bottom: 22px;
+        margin-bottom: 30px;
+      }
+      .capa-tag {
+        display: inline-block;
+        background: var(--red);
+        color: #fff;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 6px 13px;
+        border-radius: 4px;
+        margin-bottom: 18px;
+      }
+      .capa h1 { font-size: 2.15rem; line-height: 1.14; }
+      .capa .sub {
+        font-size: 1.05rem;
+        color: var(--blue-700);
+        margin: 12px 0 22px;
+        font-weight: 600;
+      }
+      .capa-meta {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 30px;
+        margin: 0;
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+      }
+      .capa-meta dt {
+        font-size: 0.66rem;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--blue-500);
+        font-weight: 800;
+      }
+      .capa-meta dd { margin: 3px 0 0; font-size: 0.88rem; }
+
+      /* ---------- SUMÁRIO ---------- */
+      .toc {
+        background: var(--mist);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 18px 22px;
+        margin-bottom: 32px;
+      }
+      .toc h2 {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--blue-500);
+        margin-bottom: 12px;
+      }
+      .toc ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        columns: 2;
+        column-gap: 30px;
+      }
+      .toc li {
+        break-inside: avoid;
+        margin-bottom: 6px;
+        font-size: 0.84rem;
+        display: flex;
+        gap: 9px;
+        align-items: baseline;
+      }
+      .toc .tn {
+        flex: none;
+        width: 20px;
+        height: 20px;
+        background: var(--blue-900);
+        color: #fff;
+        border-radius: 4px;
+        font-size: 0.68rem;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .toc a { color: var(--ink); text-decoration: none; }
+      .toc a:hover { color: var(--red); text-decoration: underline; }
+
+      /* ---------- BLOCOS ---------- */
+      .bloco { margin: 0 0 36px; }
+      .bloco h2 {
+        font-size: 1.34rem;
+        border-bottom: 2px solid var(--line);
+        padding-bottom: 9px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: baseline;
+        gap: 11px;
+      }
+      .bloco h3 {
+        font-size: 1.02rem;
+        margin: 24px 0 8px;
+        color: var(--blue-700);
+      }
+      .bloco h4 { font-size: 0.94rem; margin: 0 0 7px; }
+
+      .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 27px;
+        height: 27px;
+        background: var(--blue-900);
+        color: #fff;
+        border-radius: 6px;
+        font-size: 0.86rem;
+        flex: none;
+      }
+
+      .destaque {
+        background: var(--blue-100);
+        border: 1px solid #c9d8f0;
+        border-left: 5px solid var(--blue-900);
+        border-radius: 10px;
+        padding: 20px 22px;
+      }
+      .limites {
+        background: #fff8f2;
+        border: 1px solid #f0d9c6;
+        border-left: 5px solid var(--warn);
+        border-radius: 10px;
+        padding: 20px 22px;
+      }
+
+      /* ---------- SELOS DE CONFIANÇA ---------- */
+      .sel {
+        display: inline-block;
+        font-size: 0.6rem;
+        font-weight: 900;
+        letter-spacing: 0.09em;
+        padding: 2px 7px;
+        border-radius: 3px;
+        vertical-align: middle;
+        white-space: nowrap;
+        line-height: 1.5;
+      }
+      .sel-a { background: #d3efe2; color: #0a5334; border: 1px solid #7cc7a5; }
+      .sel-m { background: #fdeec7; color: #6f4a0c; border: 1px solid #e3bf6a; }
+      .sel-b { background: #fbd5d5; color: #8a121c; border: 1px solid #e99a9f; }
+
+      .legenda { display: grid; gap: 9px; margin: 14px 0; }
+      .leg-item {
+        display: grid;
+        grid-template-columns: 62px 1fr;
+        gap: 14px;
+        align-items: start;
+        background: var(--mist);
+        border: 1px solid var(--line);
+        padding: 10px 14px;
+        border-radius: 8px;
+      }
+      .leg-item p { margin: 0; font-size: 0.85rem; }
+
+      /* ---------- LISTAS ---------- */
+      .achados, .ganchos, .lista-lim { margin: 0; padding-left: 22px; }
+      .achados li, .ganchos li, .lista-lim li { margin-bottom: 10px; }
+      .lista { margin: 0 0 12px; padding-left: 22px; }
+      .lista li { margin-bottom: 6px; }
+      .lista.compacta li { margin-bottom: 3px; }
+
+      /* ---------- TABELAS ---------- */
+      .tab {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0 16px;
+        font-size: 0.82rem;
+      }
+      .tab th {
+        background: var(--blue-900);
+        color: #fff;
+        text-align: left;
+        padding: 9px 11px;
+        font-weight: 700;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        line-height: 1.35;
+      }
+      .tab td {
+        padding: 8px 11px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      .tab tbody tr:nth-child(even) { background: #fafbfe; }
+      .tab tr.hl { background: #fff5d6 !important; }
+      .tab tr.warn { background: #fdece2 !important; }
+      .tab tr.total td {
+        border-top: 2px solid var(--blue-900);
+        border-bottom: none;
+        background: var(--blue-100) !important;
+        font-size: 0.9rem;
+      }
+      .tab .v {
+        text-align: right;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+      }
+      .tab .ok { color: var(--ok); font-weight: 700; }
+      .tab .no { color: var(--red); font-weight: 700; }
+      .tab-conta td:first-child { width: 44%; }
+      .tab-preco td:nth-child(2) { white-space: nowrap; font-weight: 600; }
+
+      .rolagem { overflow-x: auto; }
+
+      /* ---------- CALLOUTS ---------- */
+      .callout {
+        background: var(--mist);
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--blue-500);
+        border-radius: 0 9px 9px 0;
+        padding: 14px 18px;
+        margin: 16px 0;
+      }
+      .callout.ouro {
+        background: #fffbec;
+        border-color: #f0e0b0;
+        border-left-color: var(--gold);
+      }
+      .callout.alerta {
+        background: #fdf1eb;
+        border-color: #f2d9c9;
+        border-left-color: var(--warn);
+      }
+      .callout p:last-child { margin-bottom: 0; }
+      .callout ol, .callout ul { margin: 9px 0; padding-left: 22px; }
+      .callout li { margin-bottom: 5px; }
+
+      .frase {
+        font-size: 1rem;
+        font-style: italic;
+        color: var(--blue-900);
+        border-left: 3px solid var(--red);
+        padding-left: 14px;
+        margin: 12px 0 !important;
+        line-height: 1.5;
+      }
+
+      .nota {
+        font-size: 0.79rem;
+        color: var(--ink-soft);
+        background: #f7f9fc;
+        border: 1px dashed var(--line);
+        border-radius: 6px;
+        padding: 9px 12px;
+        margin: 11px 0 !important;
+      }
+
+      code {
+        background: #eef2f9;
+        padding: 1px 5px;
+        border-radius: 3px;
+        font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+        font-size: 0.86em;
+        color: var(--blue-700);
+        word-break: break-word;
+      }
+
+      /* ---------- FONTES ---------- */
+      .fontes ul { margin: 5px 0 15px; padding-left: 22px; font-size: 0.8rem; }
+      .fontes li { margin-bottom: 4px; }
+      .fontes a { color: var(--blue-500); }
+
+      .rodape {
+        border-top: 3px solid var(--red);
+        margin-top: 36px;
+        padding-top: 13px;
+        font-size: 0.76rem;
+        color: var(--ink-soft);
+      }
+      .rodape p { margin: 0 0 4px; }
+
+      /* =========================================================
+         IMPRESSÃO / PDF A4
+         ========================================================= */
+      @page { size: A4; margin: 14mm 12mm; }
+
+      @media print {
+        body { background: #fff; font-size: 10pt; }
+        .doc {
+          box-shadow: none;
+          max-width: none;
+          padding: 0;
+          background: #fff;
+        }
+
+        /* .pg abre página nova — dá ao PDF uma seção por página */
+        .pg { break-before: page; }
+        .capa { break-after: page; }
+
+        h2, h3, h4 { break-after: avoid; }
+        .callout, .leg-item, .nota, .frase, .toc { break-inside: avoid; }
+        .destaque, .limites { break-inside: avoid; }
+        .tab { font-size: 8.4pt; }
+        .tab tr { break-inside: avoid; }
+        .tab thead { display: table-header-group; }
+        .rolagem { overflow: visible; }
+        .toc ol { columns: 2; }
+
+        a { color: var(--blue-900); text-decoration: none; }
+        /* No PDF o link não é clicável em papel — imprime a URL das fontes */
+        .fontes a::after {
+          content: " — " attr(href);
+          font-size: 7pt;
+          color: #667;
+          word-break: break-all;
+        }
+      }
+
+      /* ---------- TELAS ESTREITAS ---------- */
+      @media (max-width: 780px) {
+        .doc { padding: 22px 15px; }
+        .capa h1 { font-size: 1.55rem; }
+        .capa-meta { grid-template-columns: 1fr; }
+        .toc ol { columns: 1; }
+        .tab { font-size: 0.75rem; }
+        .leg-item { grid-template-columns: 1fr; }
+        .bloco h2 { font-size: 1.15rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="doc">
+
+      <!-- ============ CAPA ============ -->
+      <header class="capa">
+        <div class="capa-tag">Documento interno · EQUIPE BRUMA · não distribuir</div>
+        <h1>Quanto custa manter uma LP de captação no ar o ano inteiro</h1>
+        <p class="sub">Dossiê de pesquisa para o pitch do Case B — Hackathon Future Builders</p>
+        <dl class="capa-meta">
+          <div><dt>Evento</dt><dd>08/09/2026, 8h — Av. Pompéia, 681</dd></div>
+          <div><dt>Compilado em</dt><dd>{hoje}</dd></div>
+          <div><dt>Base</dt><dd>Fontes públicas · sem dado de primeira mão da Wizard</dd></div>
+          <div><dt>Moeda</dt><dd>USD para infra · BRL para mercado brasileiro</dd></div>
+        </dl>
+      </header>
+
+      <!-- ============ SUMÁRIO ============ -->
+      <nav class="toc">
+        <h2>Sumário</h2>
+        <ol>
+          <li><span class="tn">i</span><a href="#ler">Como ler este dossiê</a></li>
+          <li><span class="tn">ii</span><a href="#resumo">Sumário executivo — os 9 achados</a></li>
+          <li><span class="tn">1</span><a href="#s1">Audiência do site da Wizard</a></li>
+          <li><span class="tn">2</span><a href="#s2">Sazonalidade</a></li>
+          <li><span class="tn">3</span><a href="#s3">Escala da rede e do setor</a></li>
+          <li><span class="tn">4</span><a href="#s4">O que a Wizard roda hoje</a></li>
+          <li><span class="tn">5</span><a href="#s5">Ameaças</a></li>
+          <li><span class="tn">6</span><a href="#s6">Preços unitários AWS</a></li>
+          <li><span class="tn">7</span><a href="#s7">Price Class — a correção</a></li>
+          <li><span class="tn">8</span><a href="#s8">Modelo de conta em escala</a></li>
+          <li><span class="tn">9</span><a href="#s9">Contra o que nos comparamos</a></li>
+          <li><span class="tn">10</span><a href="#s10">Custo de infra por lead</a></li>
+          <li><span class="tn">11</span><a href="#s11">Ganchos de pitch</a></li>
+          <li><span class="tn">12</span><a href="#s12">O que este dossiê NÃO prova</a></li>
+          <li><span class="tn">•</span><a href="#fontes">Fontes</a></li>
+        </ol>
+      </nav>
+
+      <!-- ============ COMO LER ============ -->
+      <section id="ler" class="bloco">
+        <h2>Como ler este dossiê</h2>
+        <p>Todo número aqui carrega um selo. O selo não é decoração: ele diz o que você pode falar no palco sem risco e o que exige a palavra "estimamos".</p>
+        <div class="legenda">
+          <div class="leg-item">
+            <span class="sel sel-a">ALTA</span>
+            <p>Tabela de preço oficial, relatório primário publicado, ou observação técnica direta que eu mesmo verifiquei. <strong>Pode afirmar.</strong></p>
+          </div>
+          <div class="leg-item">
+            <span class="sel sel-m">MÉDIA</span>
+            <p>Fonte secundária confiável, ou triangulação entre duas fontes que divergem. <strong>Diga "segundo X".</strong></p>
+          </div>
+          <div class="leg-item">
+            <span class="sel sel-b">BAIXA</span>
+            <p>Estimativa derivada por mim a partir de premissas. <strong>Diga "nossa estimativa, assumindo Y".</strong> Se alguém contestar, mude a premissa, não defenda o número.</p>
+          </div>
+        </div>
+        <p class="nota"><strong>Regra da equipe:</strong> nenhum número de selo BAIXA vai para o slide sem a premissa escrita ao lado dele.</p>
+      </section>
+
+      <!-- ============ SUMÁRIO EXECUTIVO ============ -->
+      <section id="resumo" class="bloco destaque pg">
+        <h2>Sumário executivo — os 9 achados que mudam o pitch</h2>
+        <ol class="achados">
+          <li>
+            <b>A Wizard já roda em AWS.</b> O <code>wizard.com.br</code> está atrás de CloudFront e Route 53 hoje. Nossa arquitetura não é uma proposta de migração — é uma proposta de <em>upgrade da origem</em>. <span class="sel sel-a">ALTA</span>
+          </li>
+          <li>
+            <b>A origem deles é o ponto frágil.</b> Apache + WordPress em servidor único, sem grupo de origem de failover observável. É exatamente o componente que a nossa arquitetura substitui por S3 multi-região. <span class="sel sel-a">ALTA</span>
+          </li>
+          <li>
+            <b>Desde out/2024, a AWS não cobra por requisição bloqueada pelo WAF.</b> Um ataque bloqueado custa zero em CloudFront — nem requisição, nem transferência. Isso derruba a objeção "e se o ataque estourar a fatura". <span class="sel sel-a">ALTA</span>
+          </li>
+          <li>
+            <b>Existe plano de tarifa fixa CloudFront sem cobrança de excedente</b> (nov/2025): US$ 0, 15, 200 e 1.000/mês, já com WAF, DDoS, Route 53 e bot management embutidos. Isso transforma "budget anual" em um número único e previsível. <span class="sel sel-a">ALTA</span>
+          </li>
+          <li>
+            <b>Nossa estimativa: a LP da Wizard em escala nacional de pico roda por ~US$ 130/mês</b> em pay-as-you-go, ou <b>US$ 200/mês fixos</b> no plano Business. Contra US$ 725–1.650/mês de hospedagem gerenciada equivalente. <span class="sel sel-b">BAIXA</span>
+          </li>
+          <li>
+            <b>O tráfego pago do domínio principal é quase nulo</b> — 2,85 mil visitas de busca paga contra ~300 mil no total. A audiência é orgânica e de marca. Isso muda a narrativa: o risco não é desperdiçar mídia, é <em>desperdiçar demanda espontânea</em>. <span class="sel sel-m">MÉDIA</span>
+          </li>
+          <li>
+            <b>Entre 25% e 38% dos envios de formulário de captação são bot.</b> O WAF não é só defesa de infra — é defesa do CRM e do tempo do time comercial. Argumento de negócio, não de TI. <span class="sel sel-m">MÉDIA</span>
+          </li>
+          <li>
+            <b>O Brasil concentra 84% das tentativas de ataque da América Latina</b> e cada organização brasileira sofreu ~4.001 ataques/semana em jun/2026. "Vai que acontece" não é hipótese aqui — é linha de base. <span class="sel sel-m">MÉDIA</span>
+          </li>
+          <li>
+            <b>Correção importante:</b> <code>PriceClass_200</code> <b>exclui</b> a América do Sul. Para público brasileiro, <code>PriceClass_All</code> (nosso default atual) é a escolha certa — não há economia a fazer aí. Detalhe no bloco 7. <span class="sel sel-a">ALTA</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============ 1. AUDIÊNCIA ============ -->
+      <section id="s1" class="bloco pg">
+        <h2><span class="num">1</span> Audiência do site da Wizard</h2>
+        <p>Duas ferramentas gratuitas, mesma referência (julho/2026), resultados que divergem ~14%. Apresentamos as duas — a divergência é honestidade, não fraqueza.</p>
+
+        <table class="tab">
+          <thead>
+            <tr><th>Métrica</th><th>Similarweb</th><th>Semrush</th><th>Selo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Visitas/mês (jul/2026)</td><td>279,6 mil</td><td>320,1 mil</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Busca orgânica</td><td>46,15%</td><td>27,65% via google.com</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Direto</td><td>não aberto no free</td><td>60,96%</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Busca <b>paga</b></td><td>não aberto no free</td><td><b>2,85 mil</b> (−39,6% no mês)</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Taxa de rejeição</td><td>58,91%</td><td>—</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Páginas por visita</td><td>3,33</td><td>—</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Duração média</td><td>1min36s</td><td>—</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Tráfego do Brasil</td><td>85,83%</td><td>—</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Variação mensal</td><td>+7,18%</td><td>+50,21% (jun 213,1k → jul 320,1k)</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>Ranking Brasil</td><td>#15.681</td><td>#6.767</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <h4>O achado que ninguém espera</h4>
+          <p><b>Praticamente nada do tráfego do domínio principal vem de mídia paga.</b> 2,85 mil visitas de busca paga em ~300 mil totais é menos de 1%. Três leituras possíveis, e vale escolher uma no pitch:</p>
+          <ol>
+            <li><b>A Wizard investe pouco em search pago para a marca</b> — não precisa, porque já domina o termo "wizard" organicamente.</li>
+            <li><b>A mídia paga vai para outro lugar</b> — LPs de campanha em domínios/subdomínios separados, ou direto para Meta/social, que o IAB aponta como 55% do investimento digital brasileiro contra 26% de search.</li>
+            <li><b>A captação é descentralizada nas franquias</b> — cada unidade rodando sua própria mídia regional.</li>
+          </ol>
+          <p class="nota">Qualquer uma das três <em>fortalece</em> nossa proposta: se a captação é fragmentada entre 1.000+ unidades, uma LP central resiliente e barata é ainda mais valiosa. <span class="sel sel-b">BAIXA — é interpretação nossa</span></p>
+        </div>
+
+        <p class="nota"><strong>Limite honesto:</strong> Similarweb e Semrush estimam por painel e clickstream. Para um site desse porte a margem de erro é alta. Use como <em>ordem de grandeza</em> — "algumas centenas de milhares de visitas/mês" — e nunca como número exato.</p>
+      </section>
+
+      <!-- ============ 2. SAZONALIDADE ============ -->
+      <section id="s2" class="bloco pg">
+        <h2><span class="num">2</span> Sazonalidade — quando o marketing infla a infra</h2>
+        <p>Não achei uma curva mensal publicada e auditável para "curso de inglês" no Brasil. O que existe é convergente mas indireto:</p>
+        <ul class="lista">
+          <li><b>Janeiro e fevereiro são os picos de busca</b> por "curso de inglês", seguidos por um segundo pico em julho — o padrão clássico de matrícula e férias. <span class="sel sel-m">MÉDIA</span></li>
+          <li><b>A sazonalidade de matrícula concentra-se em janeiro e julho</b>, reconhecida como fenômeno operacional em gestão educacional. <span class="sel sel-m">MÉDIA</span></li>
+          <li><b>As buscas online por cursos de idiomas cresceram 50% em dois anos.</b> <span class="sel sel-b">BAIXA — fonte setorial, sem metodologia aberta</span></li>
+          <li><b>Contraponto útil:</b> há quem argumente que ensino de idiomas tem demanda <em>estrutural</em>, não sazonal — o mercado de trabalho e o intercâmbio sustentam a procura o ano todo. <span class="sel sel-b">BAIXA</span></li>
+        </ul>
+
+        <div class="callout alerta">
+          <h4>Recomendação de pitch — não invente a curva</h4>
+          <p>Não temos a curva mensal com rigor. Mas <b>não precisamos dela</b>, e esse é o ponto forte da nossa arquitetura: em infra serverless o custo acompanha o tráfego automaticamente. Se o pico for 2×, 5× ou 20×, o modelo não quebra — só multiplica uma linha. Vire a fraqueza em argumento:</p>
+          <p class="frase">"Não vamos fingir que sabemos exatamente o tamanho do pico de janeiro de vocês. Não precisamos. A arquitetura cobra pelo que acontece: se vier o dobro, paga o dobro de uma conta que hoje é de dois dígitos em dólar. Um servidor dimensionado para o pico paga o pico os doze meses do ano."</p>
+        </div>
+
+        <p class="nota"><strong>Tarefa aberta para a equipe:</strong> abrir o Google Trends manualmente (termo "curso de inglês", Brasil, 5 anos), tirar print e anexar. Leva 3 minutos e sobe o selo de MÉDIA para ALTA, porque vira observação direta com fonte reproduzível. Eu não consigo capturar o gráfico daqui de forma citável.</p>
+      </section>
+
+      <!-- ============ 3. ESCALA DA REDE ============ -->
+      <section id="s3" class="bloco pg">
+        <h2><span class="num">3</span> Escala da rede Wizard e do setor</h2>
+
+        <h3>A rede</h3>
+        <table class="tab">
+          <thead><tr><th>Dado</th><th>Valor</th><th>Observação</th><th>Selo</th></tr></thead>
+          <tbody>
+            <tr><td>Unidades no Brasil</td><td>1.015 a 1.300+</td><td>Fontes divergem bastante — use "mais de mil"</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Cidades atendidas</td><td>800</td><td>Todos os estados</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Alunos</td><td>400 mil+</td><td>Dado de 2020 — provavelmente desatualizado</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>Posição ABF</td><td>11ª maior franquia do Brasil</td><td>1ª do segmento de idiomas</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Aquisição pela Pearson</td><td>R$ 1,95 bilhão (2013)</td><td>Comprada de Carlos Wizard Martins</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Brasil na Pearson global</td><td>3% das vendas (2019)</td><td>Contextualiza o peso da operação</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Faturamento médio por unidade</td><td>R$ 110 mil/mês</td><td>Outra fonte diz R$ 35–95 mil. Divergência grande</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>Royalties</td><td><b>Não cobra</b></td><td>Taxa de propaganda variável, calculada sobre o Kit de Material Didático</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Wizard On (online)</td><td>A partir de R$ 249, máx. 12 alunos/turma</td><td>Lançado em 2020, 10.000+ professores na base</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+          </tbody>
+        </table>
+        <p class="nota"><strong>Beco sem saída que vale relatar:</strong> tentei derivar o fundo nacional de marketing a partir da taxa de publicidade × faturamento da rede. <b>Não dá.</b> A Wizard não cobra royalties e calcula a taxa de propaganda sobre o kit de material didático, não sobre o faturamento. Sem a base de cálculo do kit, a conta não fecha. Não vamos estimar isso.</p>
+
+        <h3>O setor</h3>
+        <table class="tab">
+          <thead><tr><th>Dado</th><th>Valor</th><th>Selo</th></tr></thead>
+          <tbody>
+            <tr><td>Franchising brasileiro 2025</td><td>R$ 301,7 bi (+10,5%), 3.297 redes</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Segmento educação 2025</td><td>R$ 16,4 bi, 17 mil unidades ativas</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Projeção educação 2026</td><td>+8% a 10%</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Ticket médio de matrícula (idiomas)</td><td>R$ 341,94</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Alunos que escolhem presencial</td><td>86%</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Publicidade digital Brasil 2025</td><td>R$ 42,7 bi (+12,7%)</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Split de canais</td><td>Social 55% · Search 26% · Publishers 19%</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td><b>Fatia do setor Educação na verba digital</b></td><td><b>5% → ~R$ 2,1 bilhões em 2025</b></td><td><span class="sel sel-m">MÉDIA — o 5% é ALTA, a multiplicação é nossa</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <h4>Número de palco</h4>
+          <p class="frase">"O setor de Educação despejou cerca de <b>R$ 2,1 bilhões</b> em mídia digital no Brasil em 2025. Todo esse dinheiro termina em uma landing page. A pergunta é quanto custa garantir que a página esteja no ar quando o clique chega."</p>
+          <p class="nota">Derivação: 5% de R$ 42,7 bi (IAB Brasil / Digital Adspend 2026). O percentual é oficial; a multiplicação é nossa.</p>
+        </div>
+      </section>
+
+      <!-- ============ 4. RECON ============ -->
+      <section id="s4" class="bloco pg">
+        <h2><span class="num">4</span> O que a Wizard roda hoje — reconhecimento passivo</h2>
+        <p>Verificado por mim em <b>31/08/2026</b>, por cabeçalhos HTTP públicos e consultas DNS. Nenhum teste de carga, nenhuma varredura, nenhum acesso não-público. É a informação de <b>maior confiança</b> que temos sobre a Wizard neste dossiê — e a única em que comparamos <em>fato com fato</em> em vez de estimativa com estimativa.</p>
+
+        <table class="tab">
+          <thead><tr><th>Camada</th><th>Evidência observada</th><th>Leitura</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>CDN</td>
+              <td><code>X-Cache: Hit from cloudfront</code><br /><code>X-Amz-Cf-Pop: GRU3-P12</code></td>
+              <td><b>Amazon CloudFront</b>, servindo do edge de São Paulo</td>
+            </tr>
+            <tr>
+              <td>DNS</td>
+              <td><code>ns-513.awsdns-00.net</code> e mais 3</td>
+              <td><b>Amazon Route 53</b></td>
+            </tr>
+            <tr>
+              <td>Origem</td>
+              <td><code>Server: Apache/2.4.68 (Debian)</code></td>
+              <td><b>Servidor tradicional</b>, não bucket estático</td>
+            </tr>
+            <tr>
+              <td>Aplicação</td>
+              <td>60 referências a <code>wp-content</code>, <code>wp-includes</code>, <code>/wp-json</code>, <code>rel=shortlink</code></td>
+              <td><b>WordPress</b>, com SEO por Yoast</td>
+            </tr>
+            <tr>
+              <td>Cache</td>
+              <td><code>max-age=7200, s-maxage=7200, stale-while-revalidate=60, stale-if-error=86400</code></td>
+              <td>Postura de resiliência <b>já existente</b> — servem conteúdo obsoleto por até 24h se a origem falhar</td>
+            </tr>
+            <tr>
+              <td>Segmentação</td>
+              <td><code>X-Cache-Segment: human</code></td>
+              <td>Indício de separação humano/bot na borda</td>
+            </tr>
+            <tr>
+              <td>Analytics</td>
+              <td><code>googletagmanager</code> / <code>gtm.js</code></td>
+              <td>Google Tag Manager</td>
+            </tr>
+            <tr>
+              <td>Subdomínio de franquias</td>
+              <td><code>franquias.wizard.com.br</code> → <code>Server: cloudflare</code>, <code>CF-RAY: ...-GRU</code></td>
+              <td><b>Cloudflare</b> — CDN diferente do domínio principal</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <h4>As três conclusões que valem ouro no pitch</h4>
+          <ol>
+            <li><b>Não estamos propondo migração.</b> A Wizard já é cliente AWS na borda. Estamos propondo trocar a origem. O custo político da nossa proposta é baixíssimo — é o mesmo fornecedor, o mesmo time, o mesmo console.</li>
+            <li><b>A origem é o elo fraco.</b> Apache + WordPress em servidor único é o componente que cai sob pico ou ataque. E o <code>stale-if-error=86400</code> deles é a confissão disso: alguém já se preocupou com a origem cair. Nossa arquitetura resolve a causa, não o sintoma — S3 em duas regiões com grupo de origem e failover automático.</li>
+            <li><b>O parque está fragmentado.</b> Domínio principal em CloudFront, franquias em Cloudflare. Dois CDNs, duas configurações de WAF, duas superfícies. Consolidar é economia e é redução de risco.</li>
+          </ol>
+          <p class="nota"><strong>Cuidado de tom:</strong> isso vira arrogância com facilidade. Não diga "o site de vocês é frágil". Diga "vocês já estão na AWS e já se protegeram com <code>stale-if-error</code> — nós levamos essa mesma preocupação um passo adiante, para a origem".</p>
+        </div>
+      </section>
+
+      <!-- ============ 5. AMEAÇAS ============ -->
+      <section id="s5" class="bloco pg">
+        <h2><span class="num">5</span> Ameaças — o cenário que justifica o WAF</h2>
+
+        <h3>Volume global de ataques</h3>
+        <table class="tab">
+          <thead><tr><th>Dado</th><th>Valor</th><th>Fonte</th><th>Selo</th></tr></thead>
+          <tbody>
+            <tr><td>Ataques de camada de rede mitigados (1º sem/2026)</td><td>23,2 milhões</td><td>Cloudflare</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Requisições HTTP DDoS mitigadas</td><td>29,64 trilhões</td><td>Cloudflare</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Média por dia</td><td>~128 mil ataques</td><td>Cloudflare</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Ataques acima de 1 Tbps</td><td>935 (+519% de Q1 para Q2)</td><td>Cloudflare</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Maior ataque registrado</td><td>31,4 Tbps, 35 segundos (dez/2025)</td><td>Cloudflare</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr class="hl"><td><b>Ataques abaixo de 500 Mbps</b></td><td><b>96,62%</b></td><td>Cloudflare</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr class="hl"><td><b>Ataques que terminam em menos de 10 minutos</b></td><td><b>90,60%</b></td><td>Cloudflare</td><td><span class="sel sel-a">ALTA</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <h4>Por que essas duas últimas linhas são o coração do pitch</h4>
+          <p>A imprensa vende o ataque de 31 Tbps. A realidade é que <b>96,62% dos ataques são pequenos e 90,60% acabam em menos de 10 minutos</b>. Isso significa duas coisas:</p>
+          <ul>
+            <li><b>Ninguém consegue reagir manualmente.</b> Um ataque de 8 minutos acaba antes de alguém abrir o console. A defesa <em>tem</em> que ser automática e na borda — que é exatamente o que WAF com rate limit faz.</li>
+            <li><b>Mas 100 Mbps já derruba um servidor WordPress comum.</b> "Pequeno" é relativo ao mitigador, não à vítima. O ataque que não faz cócegas no CloudFront é o mesmo que mata um Apache.</li>
+          </ul>
+          <p class="frase">"Nove em cada dez ataques acabam antes de vocês conseguirem abrir o chamado. Por isso a defesa não pode depender de gente acordada às 3 da manhã de um domingo de janeiro."</p>
+        </div>
+
+        <h3>Brasil</h3>
+        <ul class="lista">
+          <li><b>84% das tentativas de ataque da América Latina</b> se concentram no Brasil — 753,8 bilhões de tentativas em 2025 (FortiGuard Labs / Fortinet). <span class="sel sel-m">MÉDIA</span></li>
+          <li><b>Mais de 470 mil ataques DDoS</b> no Brasil no 2º semestre de 2025, quase metade de toda a região. <span class="sel sel-m">MÉDIA</span></li>
+          <li><b>4.001 ataques por semana por organização brasileira</b> em junho/2026, alta de 44% no ano. <span class="sel sel-m">MÉDIA</span></li>
+          <li><b>Brasil é o 7º maior alvo do mundo.</b> <span class="sel sel-m">MÉDIA</span></li>
+        </ul>
+
+        <h3>Educação especificamente</h3>
+        <ul class="lista">
+          <li><b>Instituições de ensino enfrentam DDoS muito mais que empresas em geral: 36% contra 5%.</b> <span class="sel sel-b">BAIXA — não consegui rastrear a metodologia original</span></li>
+          <li><b>4.300 ciberataques por semana</b> por instituição de ensino, +40% no ano. <span class="sel sel-m">MÉDIA</span></li>
+          <li>Ataques ao setor educacional cresceram <b>63% globalmente</b>. <span class="sel sel-m">MÉDIA</span></li>
+        </ul>
+
+        <h3>Bots e leads falsos — o argumento de negócio</h3>
+        <table class="tab">
+          <thead><tr><th>Dado</th><th>Valor</th><th>Selo</th></tr></thead>
+          <tbody>
+            <tr><td>Tráfego web que é automatizado (2025)</td><td>53% (era 51% em 2024)</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Ataques de bot mirando APIs</td><td>27%</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr class="hl"><td><b>Envios de formulário inválidos ou gerados por bot</b></td><td><b>38%</b> (ClearTrust)</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr class="hl"><td><b>Tráfego de geração de leads que é falso</b></td><td><b>25%</b> (Anura, 2025)</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Taxa de bot em formulários desprotegidos</td><td>15% a 40%</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Fatia do budget de captação consumida por leads falsos</td><td>20% a 40%</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <h4>Traduzindo para a linguagem de quem decide</h4>
+          <p>Esse é o bloco que tira a conversa do território de TI. O WAF não protege só o servidor — protege o CRM, a agenda do time comercial e o custo por matrícula.</p>
+          <p class="frase">"Entre um quarto e um terço dos leads que chegam por formulário desprotegido não são pessoas. Cada um deles vira uma ligação que ninguém atende, um WhatsApp que não entrega, e uma hora do time comercial que não volta. A camada que barra o ataque é a mesma que barra o lead falso."</p>
+          <p class="nota"><strong>Ligação com o nosso código:</strong> temos o Bot Control comentado em <code>waf.tf</code>. Esse bloco é a justificativa de negócio para ligá-lo — e o preço está no bloco 6.</p>
+        </div>
+      </section>
+
+      <!-- ============ 6. PREÇOS AWS ============ -->
+      <section id="s6" class="bloco pg">
+        <h2><span class="num">6</span> Preços unitários AWS — a base do budget</h2>
+        <p>Todos extraídos das tabelas oficiais da AWS em 31/08/2026, região de referência EUA Leste e edge da América do Sul onde aplicável. <span class="sel sel-a">ALTA em todas as linhas</span></p>
+
+        <h3>Borda</h3>
+        <table class="tab tab-preco">
+          <thead><tr><th>Item</th><th>Preço</th><th>Nota</th></tr></thead>
+          <tbody>
+            <tr><td>CloudFront — camada sempre gratuita</td><td><b>1 TB/mês + 10 milhões de requisições/mês</b></td><td>Permanente, não expira em 12 meses</td></tr>
+            <tr><td>CloudFront — transferência, América do Sul</td><td>US$ 0,110 /GB</td><td>Acima da camada gratuita</td></tr>
+            <tr><td>CloudFront — requisições HTTPS, América do Sul</td><td>US$ 0,0220 / 10 mil</td><td>= US$ 2,20 por milhão</td></tr>
+            <tr><td>CloudFront — requisições HTTPS, EUA/México/Canadá</td><td>US$ 0,0100 / 10 mil</td><td>= US$ 1,00 por milhão</td></tr>
+            <tr><td>CloudFront Functions</td><td>US$ 0,10 / milhão</td><td>2 milhões grátis/mês</td></tr>
+            <tr><td>Transferência para a origem AWS</td><td><b>Gratuita</b></td><td>S3, EC2, ELB, VPC origins</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Segurança</h3>
+        <table class="tab tab-preco">
+          <thead><tr><th>Item</th><th>Preço</th><th>Nota</th></tr></thead>
+          <tbody>
+            <tr><td>WAF — Web ACL</td><td>US$ 5,00 /mês</td><td>Fixo</td></tr>
+            <tr><td>WAF — por regra</td><td>US$ 1,00 /mês</td><td>Temos 3</td></tr>
+            <tr><td>WAF — por grupo de regras gerenciado</td><td>US$ 1,00 /mês</td><td>Temos 2 (Common, KnownBadInputs)</td></tr>
+            <tr><td>WAF — requisições inspecionadas</td><td>US$ 0,60 / milhão</td><td></td></tr>
+            <tr><td>Bot Control (Common)</td><td>US$ 10,00 /mês + US$ 1,00/milhão</td><td>Primeiros 10 milhões grátis</td></tr>
+            <tr><td>Bot Control (Targeted)</td><td>US$ 10,00 / milhão</td><td>Primeiro 1 milhão grátis</td></tr>
+            <tr><td>Shield Standard</td><td><b>Gratuito</b></td><td>Já ativo em CloudFront e Route 53</td></tr>
+            <tr class="warn"><td>Shield Advanced</td><td>US$ 3.000 /mês</td><td>Compromisso mínimo de 1 ano · inclui proteção de custo contra DDoS · exige suporte Business/Enterprise para acionar o time de resposta</td></tr>
+          </tbody>
+        </table>
+        <p class="nota"><strong>Nosso WAF hoje custa US$ 8,00/mês fixos</strong> (1 Web ACL + 1 regra de rate limit + 2 grupos gerenciados) mais US$ 0,60 por milhão de requisições. Ligar o Bot Control Common adiciona US$ 10/mês e nada mais até 10 milhões de requisições.</p>
+
+        <h3>DNS e captação</h3>
+        <table class="tab tab-preco">
+          <thead><tr><th>Item</th><th>Preço</th><th>Nota</th></tr></thead>
+          <tbody>
+            <tr><td>Route 53 — hosted zone</td><td>US$ 0,50 /mês</td><td>Primeiras 25</td></tr>
+            <tr><td>Route 53 — consultas padrão</td><td>US$ 0,40 / milhão</td><td></td></tr>
+            <tr><td>Route 53 — health check em endpoint AWS</td><td><b>Gratuito até 50</b></td><td>Nosso health check aponta para CloudFront → grátis</td></tr>
+            <tr><td>Route 53 — health check fora da AWS</td><td>US$ 0,75 /mês</td><td>+ US$ 2,00 por recurso opcional</td></tr>
+            <tr><td>API Gateway — HTTP API</td><td>US$ 1,00 / milhão</td><td>Primeiros 300 milhões</td></tr>
+            <tr><td>API Gateway — REST API</td><td>US$ 3,50 / milhão</td><td>3,5× mais caro — checar qual usamos</td></tr>
+            <tr><td>Lambda — requisições</td><td>US$ 0,20 / milhão</td><td>1 milhão grátis/mês</td></tr>
+            <tr><td>Lambda — duração</td><td>US$ 0,0000166667 /GB-s</td><td>400 mil GB-s grátis/mês</td></tr>
+            <tr><td>DynamoDB — escritas sob demanda</td><td>US$ 0,625 / milhão</td><td></td></tr>
+            <tr><td>DynamoDB — leituras sob demanda</td><td>US$ 0,125 / milhão</td><td></td></tr>
+            <tr><td>DynamoDB — armazenamento</td><td>US$ 0,25 /GB-mês</td><td></td></tr>
+            <tr><td>DynamoDB — PITR</td><td>US$ 0,20 /GB-mês</td><td>Temos ligado</td></tr>
+            <tr><td>DynamoDB — Global Tables (escrita replicada)</td><td>US$ 0,625 / milhão</td><td>Temos réplica em sa-east-1: <b>toda escrita conta duas vezes</b></td></tr>
+            <tr><td>DynamoDB — Streams</td><td>US$ 0,02 / 100 mil</td><td>Obrigatório para Global Tables</td></tr>
+            <tr><td>S3 Standard — armazenamento</td><td>US$ 0,023 /GB-mês</td><td>Primeiros 50 TB</td></tr>
+            <tr><td>S3 — requisições GET</td><td>US$ 0,0004 / mil</td><td></td></tr>
+            <tr><td>S3 — requisições PUT</td><td>US$ 0,005 / mil</td><td></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout ouro">
+          <h4>Achado nº 1 que muda a conversa: requisição bloqueada não é cobrada</h4>
+          <p>Desde <b>25 de outubro de 2024</b>, o CloudFront <b>não cobra nada</b> por requisição bloqueada pelo AWS WAF — nem taxa de requisição, nem transferência de dados. Vale para toda distribuição CloudFront com WAF, sem configuração adicional. Ataques DDoS bloqueados também não contam contra a franquia dos planos de tarifa fixa. <span class="sel sel-a">ALTA</span></p>
+          <p><b>Consequência direta para o pitch:</b> a objeção clássica — "e se um ataque estourar a fatura de vocês?" — <b>não se aplica mais</b> na camada CloudFront. O que resta é o custo de inspeção do WAF, que é US$ 0,60 por milhão.</p>
+          <p class="nota">Nuance honesta: o WAF cobra por requisição <em>inspecionada</em>, então um ataque grande gera custo de WAF mesmo sendo bloqueado. É esse número que calculamos no cenário de ataque do bloco 8. <span class="sel sel-m">MÉDIA — interpretação nossa da tabela de preços</span></p>
+        </div>
+
+        <div class="callout ouro">
+          <h4>Achado nº 2: planos de tarifa fixa, sem cobrança de excedente</h4>
+          <p>Em <b>novembro de 2025</b> a AWS lançou planos de tarifa fixa que empacotam CloudFront + WAF + proteção DDoS + Route 53 + CloudWatch Logs + computação de borda + créditos de S3 em <b>um preço mensal único, sem cobrança de excedente</b>. <span class="sel sel-a">ALTA</span></p>
+          <table class="tab tab-planos">
+            <thead><tr><th>Plano</th><th>Preço/mês</th><th>Requisições</th><th>Transferência</th><th>Regras WAF</th><th>S3</th><th>Destaques</th></tr></thead>
+            <tbody>
+              <tr><td><b>Free</b></td><td>US$ 0</td><td>1 milhão</td><td>100 GB</td><td>5</td><td>5 GB</td><td>CDN, DNS, DDoS sempre ativo, TLS, edge compute</td></tr>
+              <tr><td><b>Pro</b></td><td>US$ 15</td><td>10 milhões</td><td>50 TB</td><td>25</td><td>50 GB</td><td>+ logs, proteções para PHP/WordPress/SQL</td></tr>
+              <tr class="hl"><td><b>Business</b></td><td>US$ 200</td><td>125 milhões</td><td>50 TB</td><td>50</td><td>1 TB</td><td>+ bot management, cache customizado, <b>SLA de uptime</b>, origem privada</td></tr>
+              <tr><td><b>Premium</b></td><td>US$ 1.000</td><td>500 milhões</td><td>50 TB</td><td>75</td><td>5 TB</td><td>+ DDoS avançado, <b>origin failover</b>, roteamento de alta velocidade</td></tr>
+            </tbody>
+          </table>
+          <ul class="lista compacta">
+            <li>Ao estourar a franquia, <b>não há cobrança extra</b> — há degradação de performance (entrega de edges mais distantes).</li>
+            <li><b>Requisições bloqueadas e ataques DDoS nunca contam</b> contra a franquia.</li>
+            <li>Cada plano cobre <b>uma distribuição e um domínio</b>. Até 100 planos por conta, até 3 planos Free.</li>
+          </ul>
+          <p class="frase">"O budget anual de infra da landing page não precisa ser uma estimativa. Pode ser um número fixo: US$ 200 por mês, com WAF, proteção DDoS, DNS, bot management e SLA inclusos, e sem cobrança extra nem no pico de janeiro nem durante um ataque. <b>US$ 2.400 no ano. Fim da pergunta.</b>"</p>
+        </div>
+      </section>
+
+      <!-- ============ 7. PRICE CLASS ============ -->
+      <section id="s7" class="bloco pg">
+        <h2><span class="num">7</span> Price Class — a correção que precisa ser feita</h2>
+        <p>Nosso <code>cloudfront.tf</code> não define <code>price_class</code>, então roda no default <code>PriceClass_All</code>. A hipótese inicial era que dava para economizar migrando para <code>PriceClass_200</code>. <b>Essa hipótese está errada</b>, e é importante que a equipe não a leve para o palco.</p>
+
+        <p>Li a tabela oficial direto no DOM da página de preços da AWS em 31/08/2026:</p>
+        <table class="tab">
+          <thead><tr><th>Região de edge</th><th>Price Class All</th><th>Price Class 200</th><th>Price Class 100</th></tr></thead>
+          <tbody>
+            <tr><td>EUA, México e Canadá</td><td class="ok">Sim</td><td class="ok">Sim</td><td class="ok">Sim</td></tr>
+            <tr><td>Europa, Israel e Turquia</td><td class="ok">Sim</td><td class="ok">Sim</td><td class="ok">Sim</td></tr>
+            <tr><td>África do Sul, Quênia, Nigéria, Egito e Oriente Médio</td><td class="ok">Sim</td><td class="ok">Sim</td><td class="no">não</td></tr>
+            <tr class="hl"><td><b>América do Sul</b></td><td class="ok">Sim</td><td class="no"><b>não</b></td><td class="no"><b>não</b></td></tr>
+            <tr><td>Japão</td><td class="ok">Sim</td><td class="ok">Sim</td><td class="no">não</td></tr>
+            <tr><td>Austrália e Nova Zelândia</td><td class="ok">Sim</td><td class="no">não</td><td class="no">não</td></tr>
+            <tr><td>Hong Kong, Indonésia, Filipinas, Singapura, Coreia do Sul, Taiwan, Tailândia, Malásia e Vietnã</td><td class="ok">Sim</td><td class="ok">Sim</td><td class="no">não</td></tr>
+            <tr><td>Índia</td><td class="ok">Sim</td><td class="ok">Sim</td><td class="no">não</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout alerta">
+          <h4>Conclusão: manter <code>PriceClass_All</code>. E isso é uma decisão, não um esquecimento.</h4>
+          <p><b>85,83% da audiência da Wizard está no Brasil.</b> Sair de <code>PriceClass_All</code> tiraria o edge de São Paulo (GRU) da rotação. O público brasileiro passaria a ser servido de edges na América do Norte — mais latência, pior Core Web Vitals, pior conversão. A economia por GB não compensa perder o edge do próprio público.</p>
+          <p>Note ainda: a AWS explicita que se o conteúdo for servido de um edge fora da sua price class, você é cobrado pela <b>tarifa mais barata da classe selecionada</b>. Ou seja, a economia aparente de 200 vem acompanhada de latência, não de mágica.</p>
+          <p class="frase">"Nós auditamos a nossa própria arquitetura procurando gordura para cortar. No CloudFront, a resposta foi que o default já é o certo para o público de vocês — e nós vamos explicar por quê, em vez de cortar custo em cima da experiência do aluno."</p>
+          <p class="nota"><strong>Onde a economia realmente está</strong>, e vale mencionar no lugar: (a) <b>taxa de acerto de cache</b> — nosso <code>default_ttl</code> de 3600s no comportamento estático já vai bem, e cada acerto é uma requisição de origem que não acontece; (b) <code>compress = true</code>, já ligado, que corta GB transferido; (c) transferência CloudFront → origem S3 é <b>gratuita</b>; (d) migrar para plano de tarifa fixa, se previsibilidade valer mais que centavos.</p>
+        </div>
+      </section>
+
+      <!-- ============ 8. MODELO ============ -->
+      <section id="s8" class="bloco pg">
+        <h2><span class="num">8</span> Modelo de conta em escala</h2>
+        <p>Estrutura: <b>custo unitário × volume</b>. Os preços unitários são ALTA. Os volumes são premissa nossa — mudem os volumes e o modelo continua válido. É por isso que ele é apresentado assim: para sobreviver a qualquer contestação de tráfego no palco.</p>
+
+        <h3>Premissas — mexam nestes números, não nos preços</h3>
+        <table class="tab">
+          <thead><tr><th>Premissa</th><th>Valor adotado</th><th>Selo</th></tr></thead>
+          <tbody>
+            <tr><td>Peso médio transferido por visita</td><td>1,0 MB</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>Requisições HTTP por visita</td><td>25</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>Taxa de conversão da LP</td><td>5% (conservador) a 8,4% (mediana Unbounce para educação)</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Consultas DNS por visita</td><td>1</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>Duração da Lambda de captação</td><td>200 ms a 128 MB</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>Escritas no DynamoDB por lead</td><td>2 (Global Tables replica)</td><td><span class="sel sel-a">ALTA</span></td></tr>
+          </tbody>
+        </table>
+
+        <h3>Degrau 1 — DEMO (o que roda no palco)</h3>
+        <p>5 mil requisições, ~1 GB, 50 leads.</p>
+        <table class="tab tab-conta">
+          <tbody>
+            <tr><td>CloudFront</td><td>dentro da camada gratuita (1 TB / 10 milhões)</td><td class="v">US$ 0,00</td></tr>
+            <tr><td>WAF</td><td>US$ 8,00 fixo + 5 mil requisições</td><td class="v">US$ 8,00</td></tr>
+            <tr><td>Route 53</td><td>hosted zone + health check (grátis, endpoint AWS)</td><td class="v">US$ 0,50</td></tr>
+            <tr><td>Captação (API GW + Lambda + SQS + DynamoDB)</td><td>tudo dentro da camada gratuita</td><td class="v">US$ 0,00</td></tr>
+            <tr><td>S3 + observabilidade</td><td>armazenamento mínimo, 4 alarmes</td><td class="v">US$ 0,50</td></tr>
+            <tr class="total"><td colspan="2"><b>TOTAL DEMO</b></td><td class="v"><b>~US$ 9,00 /mês</b></td></tr>
+          </tbody>
+        </table>
+        <p class="nota"><b>O piso da conta é o WAF, não o tráfego.</b> Se quiserem um número de palco ainda mais forte: no plano Free de tarifa fixa (1 milhão de requisições, 100 GB, 5 regras WAF, DDoS, DNS, TLS), a demo inteira roda por <b>US$ 0,00</b>.</p>
+
+        <h3>Degrau 2 — CAMPANHA (uma LP regional, 100 mil visitas/mês)</h3>
+        <table class="tab tab-conta">
+          <tbody>
+            <tr><td>CloudFront — transferência</td><td>100 GB · dentro do 1 TB gratuito</td><td class="v">US$ 0,00</td></tr>
+            <tr><td>CloudFront — requisições</td><td>2,5 milhões · dentro dos 10 milhões gratuitos</td><td class="v">US$ 0,00</td></tr>
+            <tr><td>WAF</td><td>US$ 8,00 + 2,5 milhões × US$ 0,60/milhão</td><td class="v">US$ 9,50</td></tr>
+            <tr><td>Route 53</td><td>US$ 0,50 + 100 mil consultas</td><td class="v">US$ 0,54</td></tr>
+            <tr><td>Captação — 8.400 leads</td><td>API GW US$ 0,01 · Lambda grátis · SQS grátis · DynamoDB US$ 0,01</td><td class="v">US$ 0,02</td></tr>
+            <tr><td>S3 (2 buckets)</td><td>1 GB + requisições de origem</td><td class="v">US$ 0,05</td></tr>
+            <tr><td>Observabilidade + GuardDuty</td><td>4 alarmes, SNS, detector</td><td class="v">US$ 5,00 a 10,00</td></tr>
+            <tr class="total"><td colspan="2"><b>TOTAL CAMPANHA</b></td><td class="v"><b>~US$ 15 a 20 /mês</b></td></tr>
+          </tbody>
+        </table>
+        <p class="nota"><b>Repare no que aconteceu:</b> 100 mil visitas e 8.400 leads capturados, e <b>o CloudFront custou zero</b> — tudo dentro da camada permanentemente gratuita. A conta inteira é dominada pelo WAF e pela observabilidade, que são <em>custos fixos de segurança</em>, não custos de tráfego.</p>
+
+        <h3>Degrau 3 — REDE (pico nacional, 1 milhão de visitas/mês)</h3>
+        <p>Cenário: ~3× o tráfego mensal atual do domínio principal, concentrado em janeiro.</p>
+        <table class="tab tab-conta">
+          <tbody>
+            <tr><td>CloudFront — transferência</td><td>1.500 GB − 1.000 GB grátis = 500 GB × US$ 0,110</td><td class="v">US$ 55,00</td></tr>
+            <tr><td>CloudFront — requisições</td><td>25 milhões − 10 milhões grátis = 15 milhões × US$ 2,20/milhão</td><td class="v">US$ 33,00</td></tr>
+            <tr><td>WAF</td><td>US$ 8,00 + 25 milhões × US$ 0,60/milhão</td><td class="v">US$ 23,00</td></tr>
+            <tr><td>Route 53</td><td>US$ 0,50 + 1 milhão de consultas × US$ 0,40/milhão</td><td class="v">US$ 0,90</td></tr>
+            <tr><td>Captação — 50.000 leads (5%)</td><td>API GW US$ 0,05 · Lambda grátis · DynamoDB US$ 0,06</td><td class="v">US$ 0,11</td></tr>
+            <tr><td>S3 + observabilidade + GuardDuty</td><td></td><td class="v">US$ 10,00 a 15,00</td></tr>
+            <tr class="total"><td colspan="2"><b>TOTAL PICO NACIONAL</b></td><td class="v"><b>~US$ 120 a 130 /mês</b></td></tr>
+          </tbody>
+        </table>
+
+        <h3>Cenário de ataque</h3>
+        <p>Flood de camada 7: 50 mil requisições/segundo por 1 hora = 180 milhões de requisições, todas bloqueadas pelo WAF.</p>
+        <table class="tab tab-conta">
+          <tbody>
+            <tr><td>CloudFront — requisições bloqueadas</td><td>não cobradas desde out/2024</td><td class="v">US$ 0,00</td></tr>
+            <tr><td>CloudFront — transferência das bloqueadas</td><td>não cobrada</td><td class="v">US$ 0,00</td></tr>
+            <tr><td>WAF — inspeção</td><td>180 milhões × US$ 0,60/milhão</td><td class="v">US$ 108,00</td></tr>
+            <tr class="total"><td colspan="2"><b>CUSTO DO ATAQUE (pay-as-you-go)</b></td><td class="v"><b>~US$ 108</b></td></tr>
+            <tr class="total hl"><td colspan="2"><b>CUSTO DO ATAQUE (plano de tarifa fixa)</b></td><td class="v"><b>US$ 0,00</b></td></tr>
+          </tbody>
+        </table>
+        <div class="callout ouro">
+          <p class="frase">"Um ataque de 180 milhões de requisições contra a landing page de vocês custa <b>cento e oito dólares</b> em pay-as-you-go — e <b>zero</b> se estivermos num plano de tarifa fixa, porque requisição bloqueada não conta contra a franquia. O ataque não derruba a página e não aparece na fatura."</p>
+          <p class="nota">Em proporção: um ataque desses representa cerca de <b>80% de um mês de pico</b>, ou <b>0% em plano fixo</b>. Se a equipe quiser a versão diluída para o budget anual, provisionar 2 a 3 incidentes por ano em pay-as-you-go dá ~US$ 220 a 325/ano. <span class="sel sel-b">BAIXA — cenário construído por nós</span></p>
+        </div>
+
+        <h3>Budget anual — as duas opções</h3>
+        <table class="tab">
+          <thead><tr><th>Modelo</th><th>Composição</th><th>Total anual</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>Pay-as-you-go</b></td>
+              <td>8 meses base (~US$ 20) + 4 meses de pico (~US$ 125) + provisão de 2 ataques</td>
+              <td class="v"><b>~US$ 880 /ano</b></td>
+            </tr>
+            <tr class="hl">
+              <td><b>Tarifa fixa Business</b></td>
+              <td>US$ 200/mês, sem excedente, com WAF, DDoS, bot management, DNS e SLA</td>
+              <td class="v"><b>US$ 2.400 /ano</b></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="nota"><b>Recomendação para o pitch:</b> apresentem o pay-as-you-go como <em>o custo real</em> e o Business como <em>o preço da tranquilidade</em>. A escolha entre eles é uma decisão de negócio, não de engenharia — e oferecer essa escolha ao cliente é o que separa uma proposta técnica de uma proposta consultiva. <span class="sel sel-b">BAIXA — totais derivados das nossas premissas</span></p>
+      </section>
+
+      <!-- ============ 9. COMPARAÇÃO ============ -->
+      <section id="s9" class="bloco pg">
+        <h2><span class="num">9</span> Contra o que nos comparamos</h2>
+        <p><b>Aviso metodológico que precisa estar no pitch:</b> quanto CNA, CCAA, Fisk ou qualquer concorrente gasta com infraestrutura <b>não é informação pública</b>. Procurei e não existe. Qualquer número que alguém apresentar sobre isso é invenção. O que <em>é</em> público é o preço de tabela das alternativas de arquitetura — e é contra elas que comparamos, sem citar marca de concorrente educacional.</p>
+
+        <table class="tab">
+          <thead><tr><th>Alternativa</th><th>Preço público</th><th>Capacidade</th><th>Selo</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td><b>Nossa arquitetura (pay-as-you-go)</b></td><td><b>~US$ 20 a 130 /mês</b></td><td>100 mil a 1 milhão de visitas</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr class="hl"><td><b>Nossa arquitetura (tarifa fixa Business)</b></td><td><b>US$ 200 /mês</b></td><td>125 milhões de requisições, 50 TB</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>Hospedagem WordPress gerenciada — entrada</td><td>US$ 30 a 35 /mês</td><td>25 mil visitas/mês</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Hospedagem WordPress gerenciada — negócios</td><td>US$ 115 a 400 /mês</td><td>150 mil a 600 mil visitas</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr class="warn"><td>Hospedagem WordPress gerenciada — enterprise</td><td><b>US$ 725 a 1.650 /mês</b></td><td>1 a 4 milhões de visitas</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Excedente de visitas na hospedagem gerenciada</td><td>US$ 1 por mil visitas extras</td><td>—</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Plataforma de automação (RD Station Marketing)</td><td>R$ 389 a R$ 499 /mês</td><td>LP inclusa em todos os planos</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr class="warn"><td>Plataforma de automação (HubSpot Professional)</td><td><b>US$ 800 /mês</b> (~R$ 4.500)</td><td>—</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Construtor de LP (Unbounce)</td><td>a partir de US$ 81 /mês</td><td>Plano anual</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout ouro">
+          <h4>A comparação que sustenta o "somos mais baratos"</h4>
+          <p>Na faixa de 1 milhão de visitas/mês — o cenário de pico nacional:</p>
+          <table class="tab tab-conta">
+            <tbody>
+              <tr><td>Hospedagem gerenciada enterprise</td><td class="v">US$ 725 a 1.650 /mês</td></tr>
+              <tr><td>Nossa arquitetura, tarifa fixa</td><td class="v">US$ 200 /mês</td></tr>
+              <tr class="total"><td><b>Nossa arquitetura, pay-as-you-go</b></td><td class="v"><b>~US$ 130 /mês</b></td></tr>
+            </tbody>
+          </table>
+          <p class="frase">"No pico, entregando o mesmo volume, a alternativa de mercado custa entre <b>5 e 12 vezes mais</b> — e mesmo assim continua com uma única origem, sem failover automático entre regiões."</p>
+          <p class="nota"><b>A ressalva honesta, e digam ela em voz alta:</b> não é a mesma coisa. Hospedagem gerenciada entrega WordPress com banco, admin, backup e suporte humano 24/7. Nós entregamos uma LP estática com captação serverless. <b>É mais barato porque faz menos</b> — e faz exatamente o que uma landing page de captação precisa fazer. Dizer isso antes que perguntem é o que separa confiança de esperteza.</p>
+        </div>
+      </section>
+
+      <!-- ============ 10. CUSTO POR LEAD ============ -->
+      <section id="s10" class="bloco pg">
+        <h2><span class="num">10</span> Custo de infra por lead — a resposta ao "quanto custa?"</h2>
+
+        <h3>Benchmarks de conversão e mídia</h3>
+        <table class="tab">
+          <thead><tr><th>Métrica</th><th>Valor</th><th>Selo</th></tr></thead>
+          <tbody>
+            <tr><td>Conversão mediana de LP — Educação</td><td>8,4% (baseline geral 6,6%)</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Conversão — páginas de curso online</td><td>18,3%</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Conversão — páginas de curso em geral</td><td>13%</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Conversão por canal — e-mail</td><td>14,1% (quase o dobro do 2º colocado)</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Conversão por canal — busca paga</td><td>7,3%</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Base do estudo</td><td>464 milhões de visitas, 41 mil LPs, 57 milhões de conversões</td><td><span class="sel sel-a">ALTA</span></td></tr>
+            <tr><td>CPC Google Ads — Educação (global)</td><td>US$ 4,39 (2024) → US$ 6,23 (2025) → queda de 22,79% em 2026</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>Taxa de conversão Google Ads — Educação</td><td>7,91% → 11,38% (2025) → 13,14% (2026)</td><td><span class="sel sel-m">MÉDIA</span></td></tr>
+            <tr><td>CPC Brasil — Educação</td><td>R$ 1 a R$ 5</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>CPL Brasil — Educação</td><td>R$ 60 a R$ 150</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+            <tr><td>Conversão lead → matrícula</td><td>5% a 12%</td><td><span class="sel sel-b">BAIXA</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout ouro">
+          <h4>O número que responde a pergunta final</h4>
+          <p>Degrau CAMPANHA: US$ 20/mês de infra ÷ 8.400 leads = <b>US$ 0,0024 por lead</b>. A R$ 5,40/US$: <b>cerca de R$ 0,013 — pouco mais de um centavo por lead.</b></p>
+          <p>Degrau REDE (pico): US$ 130/mês ÷ 50.000 leads = <b>US$ 0,0026 por lead</b> — praticamente idêntico. <b>O custo unitário não sobe com a escala.</b> Essa é a propriedade que vale demonstrar.</p>
+          <p class="frase">"O custo de infraestrutura por lead capturado é de aproximadamente <b>um centavo de real</b>. Contra um custo por lead de mídia entre R$ 60 e R$ 150. A infraestrutura representa algo em torno de <b>0,02% do custo de aquisição</b> — e é ela que decide se os outros 99,98% viram matrícula ou viram nada."</p>
+          <p class="nota"><span class="sel sel-b">BAIXA</span> — empilha nossa premissa de tráfego, a mediana de conversão da Unbounce e o CPL brasileiro. Cada um desses tem sua própria incerteza. Apresentem como ordem de grandeza: "menos de um centavo", nunca "R$ 0,013".</p>
+        </div>
+
+        <h3>Custo de uma hora fora do ar no pico</h3>
+        <p>Cadeia de cálculo, toda explícita para vocês poderem mexer:</p>
+        <table class="tab tab-conta">
+          <tbody>
+            <tr><td>1 milhão de visitas/mês em janeiro</td><td class="v">≈ 1.389 visitas/hora</td></tr>
+            <tr><td>× 8,4% de conversão (mediana educação)</td><td class="v">≈ 117 leads perdidos</td></tr>
+            <tr><td>× R$ 100 de CPL (meio da faixa brasileira)</td><td class="v">≈ <b>R$ 11.700 de mídia desperdiçada</b></td></tr>
+            <tr><td>× 8% de conversão lead → matrícula</td><td class="v">≈ 9 matrículas perdidas</td></tr>
+            <tr><td>× R$ 341,94 de ticket médio mensal</td><td class="v">≈ <b>R$ 3.200/mês de receita recorrente perdida</b></td></tr>
+          </tbody>
+        </table>
+        <p class="nota">Referências externas de custo de indisponibilidade, para contexto: Gartner cita US$ 5.600/minuto (média entre setores, frequentemente mal citada e inflada para PMEs); IDC estima US$ 137 a 427/minuto para pequenas empresas; ITIC aponta US$ 8.000 a 25.000/hora para empresas de 20 a 100 funcionários. <span class="sel sel-m">MÉDIA</span></p>
+        <p class="nota"><b>Comparação que fecha o argumento:</b> uma hora fora do ar no pico custa aproximadamente <b>R$ 11.700</b>. O ano inteiro de infraestrutura custa <b>US$ 2.400 ≈ R$ 13.000</b>. <b>Uma hora de queda em janeiro custa quase o ano inteiro de infraestrutura.</b> <span class="sel sel-b">BAIXA — mas é o número mais persuasivo do dossiê</span></p>
+      </section>
+
+      <!-- ============ 11. GANCHOS ============ -->
+      <section id="s11" class="bloco destaque pg">
+        <h2><span class="num">11</span> Ganchos de pitch — onde estão as oportunidades</h2>
+        <p>Para os 8 da equipe garimparem. Cada gancho aponta para o bloco que o sustenta.</p>
+        <ol class="ganchos">
+          <li><b>"Vocês já estão na AWS."</b> Abrir com isso desarma a objeção de migração antes que ela nasça. → Bloco 4</li>
+          <li><b>"Uma hora de queda em janeiro custa quase o ano inteiro de infraestrutura."</b> A frase de fechamento. → Bloco 10</li>
+          <li><b>"US$ 2.400 no ano, número fixo, sem surpresa."</b> A resposta literal ao "quanto custa?". → Bloco 6</li>
+          <li><b>"Um ataque de 180 milhões de requisições custa zero."</b> Contraintuitivo, verificável, memorável. → Bloco 8</li>
+          <li><b>"Nove em cada dez ataques acabam antes de alguém abrir o chamado."</b> Justifica automação sem apelar para o medo. → Bloco 5</li>
+          <li><b>"Um terço dos leads de formulário desprotegido não é gente."</b> Tira a conversa de TI e leva para o comercial. → Bloco 5</li>
+          <li><b>"O setor de educação gastou R$ 2,1 bilhões em mídia digital, e tudo isso termina numa landing page."</b> Dimensiona o que está em jogo. → Bloco 3</li>
+          <li><b>"Auditamos nossa própria arquitetura e o achado foi que o default estava certo."</b> Demonstra rigor e honestidade — vale mais que uma otimização inventada. → Bloco 7</li>
+          <li><b>"Custo por lead de infraestrutura: cerca de um centavo."</b> → Bloco 10</li>
+          <li><b>"É mais barato porque faz menos — e faz exatamente o necessário."</b> Antecipar a crítica é o que gera confiança. → Bloco 9</li>
+        </ol>
+      </section>
+
+      <!-- ============ 12. LIMITAÇÕES ============ -->
+      <section id="s12" class="bloco limites pg">
+        <h2><span class="num">12</span> O que este dossiê NÃO prova</h2>
+        <p>Leiam antes de montar slide. Cada item aqui é uma pergunta que pode vir da plateia.</p>
+        <ol class="lista-lim">
+          <li><b>Não sabemos o tráfego real da Wizard.</b> Temos duas estimativas de ferramentas gratuitas que divergem 14% entre si. <em>Se perguntarem:</em> "são estimativas de mercado, e por isso construímos o modelo como custo unitário × volume — mudem o volume e a conclusão se mantém."</li>
+          <li><b>Não sabemos quanto a Wizard gasta em mídia.</b> A estrutura de franquia dela não cobra royalties e calcula publicidade sobre o kit didático, o que impede a derivação. Não estimem.</li>
+          <li><b>Não sabemos quanto concorrente nenhum gasta com infra.</b> Não é público. Se alguém no evento apresentar esse número, ele foi inventado.</li>
+          <li><b>Não temos a curva de sazonalidade com rigor.</b> Temos indícios convergentes de picos em janeiro e julho. Alguém da equipe precisa puxar o Google Trends manualmente antes do dia 8.</li>
+          <li><b>Os totais do modelo são nossos, não da AWS.</b> Os preços unitários são oficiais; a composição é premissa. Um erro na premissa de peso por página muda o total de transferência proporcionalmente.</li>
+          <li><b>Não validamos o comportamento do WAF sob ataque real.</b> A leitura de que o WAF cobra por requisição inspecionada mesmo quando bloqueia é interpretação nossa da tabela de preços — plausível, mas não confirmada por documentação explícita.</li>
+          <li><b>Não sabemos se a Wizard já usa WAF.</b> Não é observável de fora. Não afirmem que eles estão desprotegidos.</li>
+          <li><b>O dado de "36% das instituições de ensino enfrentam DDoS"</b> não teve metodologia rastreável. Usem com "segundo levantamentos do setor" ou não usem.</li>
+          <li><b>Não medimos a LP da Wizard sob carga.</b> Deliberadamente — seria teste não autorizado contra infra de terceiro. Toda observação do bloco 4 é passiva.</li>
+          <li><b>Câmbio não fixado.</b> Onde converti, usei R$ 5,40/US$ como referência declarada. Ajustem para a cotação do dia 8. Tributos sobre a fatura AWS Brasil não estão incluídos.</li>
+        </ol>
+      </section>
+
+      <!-- ============ FONTES ============ -->
+      <section id="fontes" class="bloco fontes pg">
+        <h2>Fontes</h2>
+
+        <h3>AWS — preços oficiais <span class="sel sel-a">ALTA</span></h3>
+        <ul>
+          <li><a href="https://aws.amazon.com/cloudfront/pricing/">CloudFront — planos e preços</a> (inclui tabela de Price Class, lida diretamente no DOM em 31/08/2026)</li>
+          <li><a href="https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/">CloudFront — preços pay-as-you-go</a></li>
+          <li><a href="https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-flat-rate-pricing-plans-with-no-overages/">AWS — planos de tarifa fixa sem excedente</a></li>
+          <li><a href="https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-cloudfront-charges-requests-blocked-aws-waf">CloudFront deixa de cobrar por requisições bloqueadas pelo WAF</a></li>
+          <li><a href="https://aws.amazon.com/waf/pricing/">AWS WAF — preços</a></li>
+          <li><a href="https://aws.amazon.com/shield/pricing/">AWS Shield — preços</a></li>
+          <li><a href="https://aws.amazon.com/route53/pricing/">Route 53 — preços</a></li>
+          <li><a href="https://aws.amazon.com/lambda/pricing/">Lambda — preços</a></li>
+          <li><a href="https://aws.amazon.com/api-gateway/pricing/">API Gateway — preços</a></li>
+          <li><a href="https://aws.amazon.com/dynamodb/pricing/on-demand/">DynamoDB — preços sob demanda</a></li>
+          <li><a href="https://aws.amazon.com/s3/pricing/">S3 — preços</a></li>
+        </ul>
+
+        <h3>Ameaças <span class="sel sel-a">ALTA / MÉDIA</span></h3>
+        <ul>
+          <li><a href="https://blog.cloudflare.com/ddos-threat-report-2026-h1/">Cloudflare — DDoS Threat Report H1 2026</a></li>
+          <li><a href="https://www.imperva.com/blog/bad-bot-report-2026-bots-agentic-age/">Imperva — Bad Bot Report 2026</a></li>
+          <li><a href="https://www.imperva.com/blog/2025-imperva-bad-bot-report-how-ai-is-supercharging-the-bot-threat/">Imperva — Bad Bot Report 2025</a></li>
+          <li><a href="https://convergenciadigital.com.br/mercado/ataques-hackers-crescem-44-em-junho-e-brasil-ultrapassa-4-mil-ciberataques-semanais-por-empresa/">Convergência Digital — 4.001 ataques semanais por empresa no Brasil</a></li>
+          <li><a href="https://securityleaders.com.br/brasil-concentra-84-dos-ataques-digitais-da-america-latina/">Security Leaders — Brasil concentra 84% dos ataques da América Latina</a></li>
+          <li><a href="https://www.infosecurity-magazine.com/news/cyberattacks-surge-63-annually/">Infosecurity — ataques ao setor educacional sobem 63%</a></li>
+          <li><a href="https://securityboulevard.com/2026/05/ddos-protection-for-education-how-schools-universities-and-edtech-stay-resilient/">Security Boulevard — proteção DDoS no setor educacional</a></li>
+          <li><a href="https://www.cleartrust.cc/blog/preventing-fake-form-submissions">ClearTrust — envios de formulário falsos</a></li>
+          <li><a href="https://optickssecurity.com/fraud-types/fake-leads">Opticks Security — leads falsos gerados por bot</a></li>
+        </ul>
+
+        <h3>Wizard e setor <span class="sel sel-m">MÉDIA</span></h3>
+        <ul>
+          <li><a href="https://neofeed.com.br/negocios/wizard-on-o-paliativo-que-virou-um-negocio-para-o-grupo-pearson-no-brasil/">NeoFeed — Wizard On e o grupo Pearson no Brasil</a> (10/08/2020)</li>
+          <li><a href="https://guiafranquiasdesucesso.com/franquias/wizard-by-pearson/">Guia Franquias de Sucesso — Wizard by Pearson</a></li>
+          <li><a href="https://franquias.portaldofranchising.com.br/franquia-wizard-servicos-educacionais/">Portal do Franchising — franquia Wizard</a></li>
+          <li><a href="https://www.abf.com.br/balanco-das-franquias-2025-faturamento-acima-de-r-300-bi-e-alta-de-105/">ABF — balanço do franchising 2025</a></li>
+          <li><a href="https://www.abf.com.br/franquias-de-educacao-retomam-crescimento/">ABF — franquias de educação</a></li>
+          <li><a href="https://moveedu.com.br/blog/franquias-de-idiomas-mercado-de-linguas-brasil/">MoveEdu — mercado de franquias de idiomas</a></li>
+          <li><a href="https://www.meioemensagem.com.br/midia/iab-publicidade-digital-atinge-r-427-bilhoes-em-2025">Meio &amp; Mensagem — IAB Brasil, publicidade digital R$ 42,7 bi em 2025</a></li>
+        </ul>
+
+        <h3>Audiência e conversão <span class="sel sel-m">MÉDIA</span></h3>
+        <ul>
+          <li><a href="https://www.similarweb.com/website/wizard.com.br/">Similarweb — wizard.com.br</a> (dados de julho/2026)</li>
+          <li><a href="https://www.semrush.com/website/wizard.com.br/overview/">Semrush — wizard.com.br</a> (dados de julho/2026)</li>
+          <li><a href="https://unbounce.com/conversion-benchmark-report/education-conversion-rate/">Unbounce — Conversion Benchmark, setor educação</a></li>
+          <li><a href="https://www.wordstream.com/blog/2026-google-ads-benchmarks">WordStream — Google Ads Benchmarks 2026</a></li>
+          <li><a href="https://www.wordstream.com/blog/2025-google-ads-benchmarks">WordStream — Google Ads Benchmarks 2025</a></li>
+          <li><a href="https://babitonhela.com/blog/custo-por-lead-brasil-benchmarks/">Benchmarks de CPL no Brasil por canal e segmento</a></li>
+        </ul>
+
+        <h3>Alternativas de mercado <span class="sel sel-m">MÉDIA</span></h3>
+        <ul>
+          <li><a href="https://northiscale.com/guides/kinsta-pricing">Kinsta — planos e preços 2026</a></li>
+          <li><a href="https://hostingdive.com/wp-engine-vs-kinsta-managed-wordpress-2026/">WP Engine vs Kinsta — comparativo 2026</a></li>
+          <li><a href="https://www.rdstation.com/planos/marketing/">RD Station Marketing — planos e preços</a></li>
+          <li><a href="https://www.erwoodgroup.com/blog/the-true-costs-of-downtime-in-2025-a-deep-dive-by-business-size-and-industry/">Erwood Group — custos de indisponibilidade por porte e setor</a></li>
+          <li><a href="https://www.cloudsecuretech.com/cost-of-it-downtime-in-2025/">CloudSecureTech — custo de indisponibilidade de TI</a></li>
+        </ul>
+
+        <h3>Observação direta <span class="sel sel-a">ALTA</span></h3>
+        <p class="nota">Cabeçalhos HTTP e registros DNS públicos de <code>wizard.com.br</code>, <code>www.wizard.com.br</code> e <code>franquias.wizard.com.br</code>, coletados em 31/08/2026 via requisições HEAD e consultas DNS. Reproduzível com <code>curl -I</code> e <code>nslookup</code>. Nenhum teste ativo, de carga ou de vulnerabilidade foi executado.</p>
+      </section>
+
+      <footer class="rodape">
+        <p><b>EQUIPE BRUMA</b> · Case B · Hackathon Future Builders · compilado em {hoje}</p>
+        <p>Documento interno de trabalho. Números com selo BAIXA são estimativas nossas e não devem ser apresentados como dados da Wizard ou da AWS.</p>
+      </footer>
+
+    </main>
+
+  </body>
+</html>

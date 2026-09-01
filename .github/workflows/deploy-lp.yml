@@ -1,0 +1,126 @@
+# =============================================================================
+# Deploy automatico da Landing Page (pasta lp/) para os buckets de origem
+# do CloudFront, com invalidacao de cache.
+#
+# ESCOPO DESTE WORKFLOW - leia antes de mexer:
+#   - Dispara APENAS em push na branch `site-frontend` e APENAS quando algo
+#     dentro de lp/ muda. Nao roda na main.
+#   - Autentica via OIDC (sem chave estatica no repositorio). A role assumida
+#     tem a confianca travada nesta branch: de qualquer outra a AWS recusa.
+#   - Usa `aws s3 sync` SEM `--delete` e a role NAO tem `s3:DeleteObject`.
+#     O pipeline e incapaz de apagar objeto no bucket.
+#   - Versionamento esta ligado nos dois buckets: toda sobrescrita e reversivel.
+#     Passo a passo em ROLLBACK.md.
+#
+# Infra IAM correspondente: github_oidc.tf (na raiz do repo).
+# =============================================================================
+
+name: Deploy LP
+
+on:
+  push:
+    branches: [site-frontend]
+    paths:
+      - 'lp/**'
+      - '.github/workflows/deploy-lp.yml'
+  workflow_dispatch:
+
+# Necessario para o OIDC emitir o token que a AWS valida.
+permissions:
+  id-token: write
+  contents: read
+
+# Evita dois deploys simultanios escrevendo no mesmo bucket.
+concurrency:
+  group: deploy-lp
+  cancel-in-progress: false
+
+env:
+  AWS_ROLE: arn:aws:iam::140825045811:role/bruma-lp-deploy
+  BUCKET_PRIMARY: case-b-resilience-origin-primary-9efb5828
+  BUCKET_SECONDARY: case-b-resilience-origin-secondary-9efb5828
+  DISTRIBUTION_ID: E11LVFDZKEUA69
+  SITE_URL: https://d3fwxqahz0kapg.cloudfront.net
+
+jobs:
+  deploy:
+    name: Build e publicacao
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.24.0
+
+      - name: Instalar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: lp/pnpm-lock.yaml
+
+      - name: Instalar dependencias
+        working-directory: lp
+        run: pnpm install --frozen-lockfile
+
+      - name: Build da LP
+        working-directory: lp
+        run: pnpm build
+
+      - name: Conferir que as tres paginas foram geradas
+        working-directory: lp
+        run: |
+          set -e
+          for page in index.html exemplo.html dossie.html; do
+            if [ ! -f "dist/$page" ]; then
+              echo "ERRO: dist/$page nao foi gerado. Abortando antes de publicar."
+              exit 1
+            fi
+            echo "ok  dist/$page ($(wc -c < "dist/$page") bytes)"
+          done
+
+      - name: Autenticar na AWS via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE }}
+          role-session-name: gha-deploy-lp-${{ github.run_id }}
+          aws-region: us-east-1
+
+      - name: Publicar no bucket primario (us-east-1)
+        run: |
+          aws s3 sync lp/dist/ "s3://${BUCKET_PRIMARY}/" \
+            --no-progress \
+            --region us-east-1
+
+      - name: Publicar no bucket secundario (sa-east-1)
+        run: |
+          aws s3 sync lp/dist/ "s3://${BUCKET_SECONDARY}/" \
+            --no-progress \
+            --region sa-east-1
+
+      - name: Invalidar cache do CloudFront
+        run: |
+          ID=$(aws cloudfront create-invalidation \
+            --distribution-id "${DISTRIBUTION_ID}" \
+            --paths "/*" \
+            --query 'Invalidation.Id' --output text)
+          echo "Invalidacao criada: $ID"
+
+      - name: Resumo
+        run: |
+          {
+            echo "### LP publicada"
+            echo ""
+            echo "| Pagina | URL |"
+            echo "|---|---|"
+            echo "| LP principal | ${SITE_URL}/ |"
+            echo "| Exemplo | ${SITE_URL}/exemplo.html |"
+            echo "| Dossie | ${SITE_URL}/dossie.html |"
+            echo ""
+            echo "Publicado nos dois buckets de origem (us-east-1 e sa-east-1)."
+            echo "Cache do CloudFront invalidado. Rollback: ver ROLLBACK.md."
+          } >> "$GITHUB_STEP_SUMMARY"

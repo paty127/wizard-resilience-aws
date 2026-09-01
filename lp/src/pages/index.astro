@@ -250,7 +250,12 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         <h3>Garanta sua condição especial</h3>
         <p class="sub">Leva menos de 1 minuto <span class="required-note">* Campos obrigatórios</span></p>
 
-        <form id="leadForm" novalidate>
+        <form
+          id="leadForm"
+          novalidate
+          toolname="requestWizardCallback"
+          tooldescription="Envia um pedido de contato para a Wizard: um consultor liga de volta para ajudar a pessoa a se matricular na promoção Volta às Aulas."
+        >
           <div class="field">
             <label for="name">Nome completo <span class="required-mark">*</span></label>
             <input id="name" name="name" type="text" placeholder="Como podemos te chamar?" required minlength="2">
@@ -261,11 +266,30 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
           </div>
           <div class="field">
             <label for="phone">Telefone / WhatsApp <span class="required-mark">*</span></label>
-            <input id="phone" name="phone" type="tel" placeholder="(11) 99999-9999" required maxlength="15" pattern="\(\d{2}\) \d{4,5}-\d{4}" inputmode="numeric">
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="(11) 99999-9999"
+              required
+              maxlength="15"
+              pattern="\(\d{2}\) \d{4,5}-\d{4}"
+              inputmode="numeric"
+              toolparamdescription="Telefone/WhatsApp brasileiro com DDD, no formato (11) 99999-9999."
+            >
           </div>
           <div class="field autocomplete" id="unitField">
             <label for="unit">Unidade de interesse <span class="required-mark">*</span></label>
-            <input id="unit" name="unit" type="text" placeholder="Digite o nome da unidade ou a cidade" autocomplete="off" required minlength="2">
+            <input
+              id="unit"
+              name="unit"
+              type="text"
+              placeholder="Digite o nome da unidade ou a cidade"
+              autocomplete="off"
+              required
+              minlength="2"
+              toolparamdescription="Nome da unidade Wizard ou cidade de interesse (ex.: 'Wizard Paulista' ou 'São Paulo'). Deve corresponder a uma unidade real da lista de sugestões."
+            >
             <div class="autocomplete-list" id="unitSuggestions" hidden></div>
           </div>
           <input type="hidden" name="unit_slug" id="unitSlug" value="">
@@ -277,7 +301,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     </div>
   </section>
 
-  <div class="alert-overlay" id="formAlert" aria-hidden="true">
+  <div class="alert-overlay" id="formAlert" aria-hidden="true" inert>
     <div class="alert-box" id="formAlertBox" role="alertdialog" aria-modal="true" aria-labelledby="formAlertTitle" aria-describedby="formAlertMsg">
       <div class="alert-icon" id="formAlertIcon" aria-hidden="true">!</div>
       <h4 id="formAlertTitle"></h4>
@@ -675,12 +699,15 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     alertFocusTarget = focusEl;
     formAlert.classList.add("open");
     formAlert.setAttribute("aria-hidden", "false");
+    formAlert.removeAttribute("inert");
     document.body.style.overflow = "hidden";
+    formAlertOk.focus();
   }
 
   function closeFormAlert() {
     formAlert.classList.remove("open");
     formAlert.setAttribute("aria-hidden", "true");
+    formAlert.setAttribute("inert", "");
     document.body.style.overflow = "";
     const target = alertFocusTarget;
     alertFocusTarget = null;

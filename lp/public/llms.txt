@@ -1,0 +1,14 @@
+# Wizard by Pearson — Volta às Aulas
+
+> Landing page de captação de leads para a promoção "Volta às Aulas" da Wizard by Pearson, escola de inglês com mais de 1.200 unidades no Brasil. Página de teste (Case B, Hackathon Future Builders) — não é o site oficial da Wizard.
+
+Esta página apresenta a proposta da Wizard (aulas presenciais, modalidade Interactive, Wizard ON 100% online, app Wiz.me, certificação internacional Pearson) e um formulário de contato para quem quer se matricular com condição promocional.
+
+## Páginas
+
+- [Landing page principal](/): hero, diferenciais, localizador de unidades, FAQ e formulário de contato.
+
+## Observações para agentes
+
+- O formulário de contato (`#leadForm`) está anotado com WebMCP (`toolname="requestWizardCallback"`) para agendamento automatizado de retorno de contato.
+- Os dados enviados pelo formulário vão para uma API de leads da Wizard; não há conteúdo desta página destinado a treinamento de modelos.

@@ -1074,11 +1074,13 @@ footer {
 footer p { margin: 10px 0 0; }
 footer .footer-credits,
 footer .footer-tech {
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.62);
   font-size: 0.76rem;
 }
 footer .badge-live {
   display: inline-block;
+  background: white;
+  color: var(--wz-blue-700);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1089,11 +1091,13 @@ footer .badge-live {
   animation: badge-pulse 7s ease-in-out infinite;
 }
 @keyframes badge-pulse {
-  /* BG e cor do texto invertem juntos — assim o contraste nunca cai no
-     meio do ciclo (branco+azul e azul+branco sao as duas combinacoes
-     de maior contraste, nunca passa por azul-em-azul). */
-  0%, 100% { background: white; color: var(--wz-blue-700); }
-  50% { background: var(--wz-blue-500); color: white; }
+  /* Fundo e texto ficam fixos (branco + azul-700, ~11:1 de contraste) — só o
+     glow anima. Uma versão anterior invertia bg+cor juntos e, embora as duas
+     pontas do ciclo tivessem contraste bom, o navegador interpola as cores
+     continuamente, então o meio do ciclo passava por um tom de azul quase
+     igual ao azul do fundo (contraste ~1.4, reprovado pelo Lighthouse). */
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  50% { box-shadow: 0 0 14px 3px rgba(255,255,255,0.55); }
 }
 
 @media (prefers-reduced-motion: reduce) {

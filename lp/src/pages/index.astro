@@ -429,12 +429,21 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       };
       var goToCta = function () { movePill(navCta); };
 
-      // Estado inicial: pilula ja nasce em cima do "Quero minha vaga",
-      // sem deslizar (desliga a transicao so pra essa primeira posicao).
-      navPill.style.transition = "none";
-      goToCta();
-      navPill.offsetHeight;
-      navPill.style.transition = "";
+      // Estado inicial: pilula ja nasce em cima do "Quero minha vaga", sem
+      // deslizar. A transicao mora só na classe .pill-ready (ver CSS), que
+      // entra depois de posicionar — evita o truque antigo de "desliga
+      // transicao + le offsetHeight pra forcar reflow + religa", que o
+      // PageSpeed acusa como reflow forcado. Um so requestAnimationFrame
+      // ainda roda antes do primeiro layout natural da pagina (a leitura
+      // de getBoundingClientRect force-a de qualquer jeito); o segundo rAF
+      // aninhado so dispara depois que esse primeiro paint realmente
+      // aconteceu, entao a leitura ali vem de um layout ja calculado.
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          goToCta();
+          navPill.classList.add("pill-ready");
+        });
+      });
 
       // Todos os 4 itens (incluindo a CTA) disparam a pilula no hover —
       // se nao, mover o mouse de um link direto pro botao nao troca nada,
@@ -449,6 +458,80 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         if (!navDesktop.contains(e.relatedTarget)) goToCta();
       });
     }
+  })();
+</script>
+
+<script is:inline>
+  (function () {
+    // Colapso animado do FAQ: <details> nativo abre/fecha instantaneo, sem
+    // transicao possivel so em CSS (height:auto nao anima). Intercepta o
+    // clique, mede a altura real do <p> e anima com a Web Animations API.
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    var items = document.querySelectorAll(".faq-item");
+    items.forEach(function (item) {
+      var summary = item.querySelector("summary");
+      var body = item.querySelector("p");
+      if (!summary || !body) return;
+      var currentAnim = null;
+      // Intencao logica separada de "item.open": o atributo so vira false
+      // no FIM da animacao de fechar, entao usar "item.open" pra decidir a
+      // direcao de um clique no meio dessa animacao acertaria errado.
+      var isOpenState = false;
+
+      var collapse = function () {
+        var startH = body.offsetHeight;
+        var startM = parseFloat(getComputedStyle(body).marginBottom) || 0;
+        body.style.overflow = "hidden";
+        currentAnim = body.animate(
+          [
+            { height: startH + "px", marginBottom: startM + "px", opacity: 1 },
+            { height: "0px", marginBottom: "0px", opacity: 0 },
+          ],
+          { duration: 220, easing: "ease" }
+        );
+        currentAnim.onfinish = function () {
+          item.open = false;
+          body.style.removeProperty("height");
+          body.style.removeProperty("margin-bottom");
+          body.style.removeProperty("overflow");
+          currentAnim = null;
+        };
+      };
+
+      var expand = function () {
+        item.open = true;
+        var endH = body.offsetHeight;
+        var endM = parseFloat(getComputedStyle(body).marginBottom) || 0;
+        body.style.overflow = "hidden";
+        currentAnim = body.animate(
+          [
+            { height: "0px", marginBottom: "0px", opacity: 0 },
+            { height: endH + "px", marginBottom: endM + "px", opacity: 1 },
+          ],
+          { duration: 220, easing: "ease" }
+        );
+        currentAnim.onfinish = function () {
+          body.style.removeProperty("height");
+          body.style.removeProperty("margin-bottom");
+          body.style.removeProperty("overflow");
+          currentAnim = null;
+        };
+      };
+
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (currentAnim) currentAnim.cancel();
+        isOpenState = !isOpenState;
+        item.classList.toggle("is-open", isOpenState);
+        if (isOpenState) {
+          expand();
+        } else {
+          collapse();
+        }
+      });
+    });
   })();
 </script>
 

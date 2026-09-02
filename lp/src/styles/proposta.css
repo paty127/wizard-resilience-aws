@@ -149,6 +149,12 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   border-radius: 999px;
   pointer-events: none;
   z-index: 0;
+}
+.nav-pill.pill-ready {
+  /* Só entra depois do primeiro posicionamento (ver script no header) —
+     assim a pilula nasce direto em cima do CTA, sem deslizar de lugar
+     nenhum, sem precisar do truque "disable transition + forca reflow +
+     reenable" que isso substituiu. */
   transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
     width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.25s ease,
@@ -833,24 +839,43 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .faq-item summary {
   cursor: pointer;
   list-style: none;
-  padding: 18px 28px 18px 0;
+  padding: 18px 34px 18px 0;
   font-weight: 700;
   color: var(--wz-blue-900);
   font-size: 0.98rem;
   position: relative;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
+/* Icone +/− desenhado com duas barras (nao texto): a "+" era pequena e
+   desproporcional ao titulo, e trocar o caractere "+"/"−" via content não
+   anima (content não é uma propriedade transicionável). Girando a barra
+   vertical 90° ela vira horizontal e some dentro da barra fixa, formando
+   o "−" com uma transição de verdade. */
+.faq-item summary::before,
 .faq-item summary::after {
-  content: "+";
+  content: "";
   position: absolute;
-  right: 0;
-  top: 14px;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--wz-red);
-  transition: transform 0.15s ease;
+  right: 8px;
+  top: 50%;
+  width: 18px;
+  height: 2.5px;
+  margin-top: -1.25px;
+  background: var(--wz-red);
+  border-radius: 2px;
+  transition: transform 0.25s ease;
+  transform-origin: center;
 }
-.faq-item[open] summary::after { content: "−"; }
+.faq-item summary::before {
+  transform: rotate(90deg);
+}
+/* ".is-open" (controlada pelo JS) alem de "[open]": o JS anima o
+   colapso do <p> e só marca o <details> como open/closed no fim da
+   animação de fechar, então o icone precisa reagir no INICIO do toggle,
+   nao no fim — daí precisa de um gatilho proprio, nao so o atributo. */
+.faq-item[open] summary::before,
+.faq-item.is-open summary::before {
+  transform: rotate(0deg);
+}
 .faq-item p {
   margin: 0 0 18px;
   color: #45526b;

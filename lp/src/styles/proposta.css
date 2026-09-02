@@ -81,8 +81,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   animation-fill-mode: both;
 }
 /* Hover repete a onda letra a letra, so que sem opacity — senao cada letra
-   sumiria e reapareceria toda vez que o mouse passasse por cima. */
-.logo:hover .logo-mark .lp {
+   sumiria e reapareceria toda vez que o mouse passasse por cima. Em touch
+   nao existe hover, entao ".logo-active" (JS, no touchstart/touchend) faz
+   o mesmo papel quando a pessoa pressiona o logo com o dedo. */
+.logo:hover .logo-mark .lp,
+.logo.logo-active .logo-mark .lp {
   animation-name: letter-hover;
   animation-duration: 0.42s;
   animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -103,15 +106,62 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .nav-desktop {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 10px;
+  position: relative;
 }
 .nav-desktop a:not(.btn) {
+  position: relative;
+  z-index: 1;
   color: var(--wz-blue-900);
   text-decoration: none;
   font-weight: 700;
   font-size: 0.92rem;
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: color 0.25s ease;
 }
-.nav-desktop a:not(.btn):hover { color: var(--wz-red); }
+.nav-desktop a.btn {
+  position: relative;
+  z-index: 1;
+  background: none;
+  box-shadow: none;
+  color: var(--wz-red);
+  padding: 10px 18px;
+  transition: color 0.25s ease;
+}
+/* Sem o "levantar" (.btn-primary:hover) aqui: quem sobe/da sombra agora e
+   so a pilula compartilhada, entao o link em si tem que ficar parado —
+   senao ele sobe sozinho, sem a pilula acompanhar, e destoa. */
+.nav-desktop a.btn:hover {
+  transform: none;
+  box-shadow: none;
+}
+.nav-desktop a.is-pilled { color: white; }
+/* Uma unica pilula pro menu inteiro — nunca some. O estado de repouso (e
+   pra onde ela volta ao tirar o mouse do menu) e sempre em cima do "Quero
+   minha vaga", vermelha; ao passar por Diferenciais/Unidades/FAQ ela
+   desliza ate la e fica azul. O JS mede posicao/largura de cada item. */
+.nav-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.nav-pill.is-link {
+  background: var(--wz-blue-500);
+  box-shadow: 0 8px 18px rgba(31,79,160,0.35);
+}
+.nav-pill.is-cta {
+  background: var(--wz-red);
+  box-shadow: 0 10px 24px rgba(216,30,44,0.4);
+}
 .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
 
 .nav-toggle {
@@ -302,8 +352,13 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   color: rgba(255,255,255,0.82);
   max-width: 46ch;
   margin-bottom: 32px;
+  text-align: justify;
 }
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+/* mesma largura do paragrafo (46ch) pra os botoes centralizarem em relacao
+   a ele, sem puxar o eyebrow/titulo (que ficam a esquerda como antes). O
+   font-size aqui e so pra "ch" bater com o do paragrafo (1.15rem) — os
+   botoes tem o proprio font-size e nao herdam esse valor visualmente. */
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; font-size: 1.15rem; max-width: 46ch; justify-content: center; }
 .btn {
   display: inline-flex;
   align-items: center;
@@ -492,17 +547,19 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   gap: 20px;
   flex-wrap: wrap;
   background: var(--wz-mist);
+  border: 1.5px solid rgba(10,42,94,0.14);
   border-radius: 16px;
   padding: 24px;
   width: 100%;
+  box-shadow: 0 10px 28px rgba(10,42,94,0.12);
 }
 .locator-box .btn svg { width: 18px; height: 18px; }
-.locator-or { color: #5a6480; font-size: 0.85rem; }
+.locator-or { color: #5a6480; font-size: 1.02rem; }
 .locator-cep { display: flex; gap: 10px; flex: 1; min-width: 220px; }
 .locator-cep input {
   flex: 1;
-  padding: 13px 14px;
-  border-radius: 10px;
+  padding: 13px 20px;
+  border-radius: 999px;
   border: 1.5px solid #d9e0ee;
   font-size: 1.35rem;
   font-weight: 700;
@@ -518,13 +575,22 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .locator-cep { flex: 0 0 auto; min-width: 0; }
   .locator-cep input { flex: 0 0 auto; width: 180px; }
   .locator { border-radius: 24px; }
+  /* largura do conteudo, nao mais 100% — sem sobra de cinza nas bordas.
+     So no desktop: no mobile a box empilhada precisa continuar ocupando
+     a largura toda do card. */
+  .locator-box { width: fit-content; max-width: 100%; }
 }
 .btn-ghost-dark {
   background: white;
   color: var(--wz-blue-900);
   border: 1.5px solid #d9e0ee;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-.btn-ghost-dark:hover { border-color: var(--wz-blue-500); }
+.btn-ghost-dark:hover {
+  background: var(--wz-blue-900);
+  color: white;
+  border-color: var(--wz-blue-900);
+}
 
 .locator-msg { margin: 20px 0 0; font-size: 0.92rem; color: var(--wz-blue-900); font-weight: 700; min-height: 1.2em; width: 100%; }
 .locator-msg.is-loading { animation: locator-pulse 1.1s ease-in-out infinite; }
@@ -637,6 +703,28 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   display: flex; align-items: center; justify-content: center;
   font-size: 0.68rem;
   margin-top: 1px;
+}
+/* Variante "tabela": rotulo em negrito (Connections/Interactive/Wizard ON)
+   nunca quebra linha e fica alinhado numa coluna propria — cada <li> vira
+   "display:contents" pra suas 3 partes (tick/rotulo/descricao) entrarem
+   direto no grid do <ul>, como colunas de uma tabela de verdade. */
+.diff-list.diff-list-table {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  /* "start" em vez de "baseline": a descricao pode quebrar em 2 linhas e
+     deixar a linha da grid mais alta — com baseline ou "center" o tick
+     descola do rotulo em negrito, que e sempre 1 linha so. Alinhando as
+     3 celulas pelo topo elas ficam sempre juntas, nao importa a altura
+     da descricao ao lado. */
+  align-items: start;
+  column-gap: 10px;
+  row-gap: 12px;
+}
+.diff-list.diff-list-table li {
+  display: contents;
+}
+.diff-list.diff-list-table li b {
+  white-space: nowrap;
 }
 .diff-objection {
   background: white;
@@ -984,15 +1072,28 @@ footer {
   text-align: center;
 }
 footer p { margin: 10px 0 0; }
+footer .footer-credits,
+footer .footer-tech {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.76rem;
+}
 footer .badge-live {
   display: inline-block;
-  color: rgba(255,255,255,0.75);
   font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 1px solid rgba(255,255,255,0.25);
   padding: 5px 12px;
   border-radius: 999px;
+  animation: badge-pulse 7s ease-in-out infinite;
+}
+@keyframes badge-pulse {
+  /* BG e cor do texto invertem juntos — assim o contraste nunca cai no
+     meio do ciclo (branco+azul e azul+branco sao as duas combinacoes
+     de maior contraste, nunca passa por azul-em-azul). */
+  0%, 100% { background: white; color: var(--wz-blue-700); }
+  50% { background: var(--wz-blue-500); color: white; }
 }
 
 @media (prefers-reduced-motion: reduce) {

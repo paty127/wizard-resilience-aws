@@ -5,7 +5,7 @@ import heroPhoto from '../assets/photo-hero.png';
 import appPhoto from '../assets/hero-photo.jpg';
 import modalidadesPhoto from '../assets/photo-modalidades.jpg';
 import certificacaoPhoto from '../assets/photo-certificacao.jpg';
-import logoWizard from '../assets/logo-wizard.webp';
+import logoWizard from '../assets/logo-wizard.png';
 import logoWizardColor from '../assets/logo-wizard-color.webp';
 import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 ---
@@ -13,7 +13,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 <Layout>
   <header class="site-header">
     <div class="wrap header-row">
-      <a class="logo" href="#top"><Image src={logoWizard} alt="Wizard by Pearson" width={160} /></a>
+      <a class="logo" href="#top"><Image src={logoWizard} alt="Wizard by Pearson" height={34} /></a>
       <nav class="nav-desktop" aria-label="Navegação principal">
         <a href="#app-wizme">Diferenciais</a>
         <a href="#unidades">Unidades</a>
@@ -258,11 +258,26 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         >
           <div class="field">
             <label for="name">Nome completo <span class="required-mark">*</span></label>
-            <input id="name" name="name" type="text" placeholder="Como podemos te chamar?" required minlength="2">
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Como podemos te chamar?"
+              required
+              minlength="2"
+              toolparamdescription="Nome completo da pessoa interessada, com pelo menos 2 caracteres."
+            >
           </div>
           <div class="field">
             <label for="email">Seu melhor E-mail <span class="required-mark">*</span></label>
-            <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" required>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="seuemail@exemplo.com"
+              required
+              toolparamdescription="Endereco de e-mail valido da pessoa, usado para contato sobre a matricula."
+            >
           </div>
           <div class="field">
             <label for="phone">Telefone / WhatsApp <span class="required-mark">*</span></label>
@@ -279,16 +294,15 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
             >
           </div>
           <div class="field autocomplete" id="unitField">
-            <label for="unit">Unidade de interesse <span class="required-mark">*</span></label>
+            <label for="unit">Unidade de interesse</label>
             <input
               id="unit"
               name="unit"
               type="text"
               placeholder="Digite o nome da unidade ou a cidade"
               autocomplete="off"
-              required
               minlength="2"
-              toolparamdescription="Nome da unidade Wizard ou cidade de interesse (ex.: 'Wizard Paulista' ou 'São Paulo'). Deve corresponder a uma unidade real da lista de sugestões."
+              toolparamdescription="Nome da unidade Wizard ou cidade de interesse (ex.: 'Wizard Paulista' ou 'São Paulo'). Opcional — se preenchido, deve corresponder a uma unidade real da lista de sugestões."
             >
             <div class="autocomplete-list" id="unitSuggestions" hidden></div>
           </div>
@@ -648,8 +662,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 
 <script>
   // Saídas "leads_api_url" (primária) e "leads_api_url_secondary" do Terraform.
-  // A Lambda (lambda/leads.py) exige name/email/phone/unit — "unit" passou a
-  // ser obrigatório no backend, por isso o campo também é obrigatório aqui.
+  // "unit" é opcional: a Lambda (lambda/leads.py) vai deixar de exigi-lo.
   const PRIMARY_API = "https://azgerdpbbf.execute-api.us-east-1.amazonaws.com/lead";
   const SECONDARY_API = "https://d6vyxkv0ue.execute-api.sa-east-1.amazonaws.com/lead";
 
@@ -735,9 +748,6 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         ? "Informe um telefone com DDD pra gente te chamar."
         : "Esse telefone não ficou completo — confira o DDD e o número.";
     }
-    if (input === unitInput) {
-      return "Escolha uma unidade na lista de sugestões pra continuar.";
-    }
     return "Confira esse campo e tente de novo.";
   }
 
@@ -760,7 +770,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    for (const input of [nameInput, emailInput, phoneInput, unitInput]) {
+    for (const input of [nameInput, emailInput, phoneInput]) {
       if (!input.checkValidity()) {
         showFormAlert("error", "Confira esse campo", fieldErrorMessage(input), input);
         return;

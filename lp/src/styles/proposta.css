@@ -887,8 +887,12 @@ input:focus { border-color: var(--wz-blue-500); background: white; }
   justify-content: center;
   padding: 24px;
   background: rgba(10,17,32,0.55);
+  /* O minificador do build de producao trata backdrop-filter e a versao
+     -webkit- como duplicadas e descarta uma das duas silenciosamente,
+     mantendo so a ultima declarada (foi assim que sumiu o blur em prod,
+     mas nao no dev, que nao minifica). Safari >= 18 ja suporta sem
+     prefixo; versoes mais antigas so perdem o blur, nao quebram o alerta. */
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;

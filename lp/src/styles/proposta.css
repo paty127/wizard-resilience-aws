@@ -57,7 +57,49 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   align-items: center;
   text-decoration: none;
 }
-.logo img { display: block; height: 34px; width: auto; }
+.logo-mark {
+  display: block;
+  height: 34px;
+  width: auto;
+  /* o SVG recorta tudo que passa do viewBox por padrao — como as letras
+     estouram um pouco de tamanho no zoom da entrada/hover, "overflow:
+     visible" deixa isso passar sem precisar aumentar o viewBox (o que
+     encolheria a arte real pra abrir espaco de sobra). */
+  overflow: visible;
+}
+/* Cada letra/parte do logo (bird+circulo, e cada letra de WIZARD e de "by
+   Pearson") e um <path> proprio que entra com seu proprio delay (inline,
+   via style="animation-delay") — fica claro que sao pecas independentes,
+   nao uma imagem unica sendo esticada. */
+.logo-mark .lp {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation-name: letter-in;
+  animation-duration: 0.42s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-fill-mode: both;
+}
+/* Hover repete a onda letra a letra, so que sem opacity — senao cada letra
+   sumiria e reapareceria toda vez que o mouse passasse por cima. */
+.logo:hover .logo-mark .lp {
+  animation-name: letter-hover;
+  animation-duration: 0.42s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-fill-mode: both;
+}
+@keyframes letter-in {
+  0% { opacity: 0; transform: scale(0.3); }
+  60% { opacity: 1; transform: scale(1.18); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes letter-hover {
+  /* opacity precisa ficar explicita aqui: trocar o animation-name descarta
+     o "fill-mode:both" da letter-in, e a letra voltaria pro opacity:0 da
+     regra base (sumiria) enquanto essa anima so o transform. */
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.18); }
+}
 .nav-desktop {
   display: flex;
   align-items: center;

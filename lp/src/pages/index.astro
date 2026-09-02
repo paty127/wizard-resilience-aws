@@ -5,7 +5,6 @@ import heroPhoto from '../assets/photo-hero.png';
 import appPhoto from '../assets/hero-photo.jpg';
 import modalidadesPhoto from '../assets/photo-modalidades.jpg';
 import certificacaoPhoto from '../assets/photo-certificacao.jpg';
-import logoWizard from '../assets/logo-wizard.png';
 import logoWizardColor from '../assets/logo-wizard-color.webp';
 import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 ---
@@ -13,7 +12,27 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 <Layout>
   <header class="site-header">
     <div class="wrap header-row">
-      <a class="logo" href="#top"><Image src={logoWizard} alt="Wizard by Pearson" height={34} /></a>
+      <a class="logo" href="#top">
+        <svg class="logo-mark" viewBox="0 0 500 111" role="img" aria-label="Wizard by Pearson" xmlns="http://www.w3.org/2000/svg">
+        <path class="lp" style="animation-delay:0ms" d="m111.16 55.5c0 30.651-24.83 55.5-55.457 55.5-30.627 0-55.457-24.849-55.457-55.5s24.835-55.5 55.457-55.5c30.622 0 55.457 24.849 55.457 55.5z" fill="#fff"/>
+          <path class="lp" style="animation-delay:0ms" d="m76.208 37.832c-0.45039-0.90583-1.7964-2.53-4.6339-2.53-3.7757 0-9.0006 4.3277-9.615 4.8769-0.06559 0.06576-0.1078 0.1549-0.1078 0.25345 0 0.1924 0.15944 0.352 0.35167 0.352 0.06576 0 0.12664-0.01884 0.17827-0.04692 0.35638-0.17373 2.2607-1.0937 4.5401-1.8493 0.0703-0.02825 0.14548-0.04221 0.2252-0.04221 0.30475 0 0.55803 0.20653 0.6332 0.48806 0.23915 1.1406 1.0082 2.07 2.0917 2.3656 1.6275 0.4366 3.3535-0.71814 3.8554-2.5816 0.06105-0.2299 0.10326-0.45998 0.12193-0.68517 0.0094-0.07047 0.04221-0.13152 0.08914-0.17844 0.21107-0.1549 1.1162-0.06105 1.4634 0.13135 0.02809 0.01884 0.05634 0.03767 0.08443 0.05634 0.08443 0.06105 0.18281 0.09855 0.29079 0.09855 0.26724 0 0.48302-0.21578 0.48302-0.48806 0-0.07518-0.01867-0.15019-0.05146-0.21594m-20.496-37.837c-25.744 0-45.368 18.048-45.368 28.9 0 6.1442 7.5138 6.7779 14.671 5.2523-1.7353-1.6287-2.4013-3.6845-2.4951-5.3462-0.01884-0.29112 0.2627-0.4694 0.49244-0.2442 1.6087 1.5725 4.9903 2.8445 10.135 2.8445 12.729 0 22.921-4.3324 35.866-4.3324 7.1479 0 12.101 4.0789 14.31 8.7399 9.31-0.73697 17.743 6.5244 17.743 16.236 0 2.2765-0.60495 5.2945-2.0918 7.9935-0.22974 0.41776-0.79264 0.58208-1.0224 0.06576-1.2898-2.8727-3.2597-4.3559-7.162-4.3559-12.612 0-61.469 25.938-61.469 44.066 0 3.6284 1.9839 6.2569 9.7461 8.6319 4.5167 1.3801 10.229 2.5394 16.645 2.5394 30.627 0 55.452-24.849 55.452-55.5 0-30.651-24.83-55.491-55.452-55.491zm-6.7444 82.072c-4.3665 5.2992-6.238 11.04-6.238 14.781 0 3.328 0.47377 5.703 2.6781 8.402 0.2299 0.28171 0.05163 0.63371-0.3002 0.57266-6.5803-1.1781-8.9723-3.7738-8.9723-7.0033 0-4.3746 5.056-11.537 12.392-17.24 0.65187-0.50219 0.93795-0.10326 0.44551 0.49765m-29.961-26.473c-10.726 2.8727-15.642 3.0651-18.287-1.0091-0.15478-0.23949-0.45495-0.16902-0.45964 0.12664-0.098494 4.6188 0.4784 11.937 3.3394 19.799 0.13603 0.36613 0.4362 0.352 0.46903-0.009418 0.78795-9.2843 9.3241-15.673 15.135-18.367 0.43155-0.20182 0.47377-0.71814-0.18752-0.53986m32.723 9.6975c0.52052-0.18786 0.25782-0.629-0.16886-0.53986-27.696 5.7358-36.424 17.367-36.424 24.197 0 2.2296 0.53938 6.1817 5.9566 9.8711 0.2955 0.20182 0.50656 0.0094 0.39388-0.3473-4.3149-14.011 15.539-27.891 30.242-33.181z" fill="#e70022"/>
+          <path class="lp" style="animation-delay:38ms" d="M221.479 1.848H208.08L190.534 46.111 184.54 3.726C184.393 2.736 183.794 1.849 182.382 1.849H170.318L153.228 46.605 146.516 3.727C146.343 2.61 145.808 1.849 144.302 1.849H124.228C122.812 1.849 122.535 3.394 124.242 3.704 128.116 4.408 131.447 6.731 132.558 13.293L141.057 61.217C141.38 63.038 142.384 64.123 144.678 64.123H159.78L174.45 24.23 179.117 61.222C179.352 63.048 180.313 64.127 182.607 64.127H197.789L222.685 3.985C223.073 3.004 223.107 1.849 221.479 1.849Z" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:76ms" d="M245.05 1.849H231.392L224.318 61.217C224.071 63.043 224.793 64.123 227.082 64.123H239.46L246.668 3.727C246.846 2.558 246.157 1.854 245.05 1.854" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:114ms" d="M306.988 3.722C307.166 2.553 306.477 1.849 305.37 1.849H257.741L256.535 12.006C256.315 13.837 257.004 14.907 259.293 14.907H285.61L251.71 52.528 250.673 61.212C250.452 63.071 251.142 64.112 253.436 64.112H300.446L301.833 52.462C301.97 51.233 301.322 50.585 300.215 50.585H272.261L305.82 13.499 306.998 3.717Z" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:152ms" d="M350.022 1.848H326.206C324.788 1.848 324.52 3.393 326.017 3.703 329.174 4.355 332.701 7.735 330.149 13.09L307.233 61.216C306.334 63.042 306.67 64.117 308.959 64.117H321.82L326.584 53.223H350.748L352.681 61.217C353.093 63.047 354.205 64.117 356.499 64.117H369.415L352.836 4.05C352.395 2.623 351.734 1.849 350.017 1.849Z M331.959 40.919L342.137 17.628 347.764 40.919H331.955Z" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:190ms" d="M432.428 22.637C432.428 3.862 420.277 1.848 406.404 1.848H375.697C374.279 1.848 373.974 3.393 375.602 3.703 379.302 4.407 382.562 7.059 381.802 13.442L376.114 61.216C375.865 63.042 376.583 64.117 378.875 64.117H391.253L393.28 47.116H405.404L412.987 61.216C413.986 63.08 415.365 64.117 417.659 64.117H430.809L420.158 44.318C429.576 39.863 432.437 30.823 432.437 22.637Z M409.288 34.47H394.791L397.122 14.911H407.529C415.305 14.911 416.871 17.685 416.871 23.543 416.871 30.368 414.474 34.47 409.288 34.47Z" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:228ms" d="M466.938 1.844H438.712C437.296 1.844 436.986 3.389 438.618 3.699 442.319 4.403 445.579 7.05 444.819 13.438L439.129 61.212C438.882 63.038 439.598 64.113 441.892 64.113H461.507C484.052 64.113 499.755 50.787 499.755 28.257 499.755 12.016 490.525 1.845 466.938 1.845Z M462.596 50.589H455.883L460.133 14.906H467.895C480.14 14.906 483.649 20.22 483.649 28.377 483.649 42.735 476.231 50.588 462.596 50.588Z" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:266ms" d="M140.932 85.993C139.398 85.993 138.291 86.444 137.616 87.35 136.941 88.251 136.594 89.767 136.57 91.884V92.147C136.57 94.334 136.917 95.916 137.607 96.897 138.296 97.878 139.431 98.366 140.998 98.366 142.348 98.366 143.375 97.831 144.074 96.761 144.773 95.691 145.12 94.142 145.12 92.114 145.12 88.035 143.723 85.993 140.932 85.993Z M141.922 82.876C144.159 82.876 145.903 83.688 147.151 85.312 148.403 86.941 149.027 89.218 149.027 92.151 149.027 95.085 148.394 97.385 147.128 99.028 145.861 100.671 144.103 101.487 141.856 101.487 139.609 101.487 137.822 100.671 136.565 99.037H136.303L135.604 101.164H132.748V75.902H136.561V81.91C136.561 82.351 136.537 83.013 136.495 83.89 136.453 84.768 136.42 85.327 136.396 85.561H136.561C137.771 83.778 139.558 82.881 141.917 82.881" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:304ms" d="M150.734 83.2H154.89L158.539 93.381C159.092 94.832 159.458 96.197 159.641 97.47H159.767C159.866 96.873 160.044 96.151 160.302 95.301 160.56 94.451 161.934 90.415 164.425 83.195H168.547L160.87 103.538C159.477 107.274 157.15 109.143 153.895 109.143 153.051 109.143 152.23 109.049 151.428 108.866V105.843C152.001 105.974 152.657 106.035 153.394 106.035 155.232 106.035 156.527 104.97 157.272 102.839L157.938 101.149 150.734 83.19Z" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:342ms" d="M184.19 89.012H186.249C188.237 89.012 189.697 88.664 190.63 87.974 191.562 87.28 192.028 86.2 192.028 84.726 192.028 83.36 191.609 82.347 190.775 81.671 189.944 80.999 188.645 80.666 186.881 80.666H184.19Z M196.018 84.595C196.018 87.073 195.206 88.974 193.583 90.293 191.962 91.617 189.653 92.274 186.656 92.274H184.193V101.155H180.315V77.418H187.148C190.113 77.418 192.332 78.023 193.808 79.239 195.287 80.45 196.023 82.233 196.023 84.594" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:380ms" d="M206.787 85.769C205.571 85.769 204.6 86.154 203.874 86.919 203.147 87.688 202.706 88.81 202.57 90.279H210.717C210.693 88.796 210.337 87.674 209.647 86.909 208.958 86.149 208.001 85.764 206.795 85.764Z M207.495 101.484C204.705 101.484 202.523 100.672 200.947 99.038 199.377 97.409 198.588 95.166 198.588 92.307S199.319 87.069 200.777 85.388C202.237 83.713 204.244 82.872 206.795 82.872 209.165 82.872 211.031 83.591 212.411 85.032 213.785 86.468 214.469 88.449 214.469 90.969V93.035H202.513C202.565 94.776 203.04 96.114 203.929 97.053 204.816 97.991 206.063 98.456 207.678 98.456 208.738 98.456 209.723 98.353 210.641 98.156 211.551 97.954 212.537 97.625 213.586 97.161V100.263C212.655 100.705 211.716 101.019 210.764 101.207 209.812 101.39 208.724 101.484 207.503 101.484" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:418ms" d="M224.341 98.559C225.725 98.559 226.837 98.174 227.676 97.4 228.515 96.63 228.932 95.541 228.932 94.142V92.584L226.63 92.683C224.834 92.744 223.53 93.049 222.713 93.584 221.897 94.119 221.49 94.94 221.49 96.043 221.49 96.846 221.729 97.466 222.207 97.902 222.681 98.339 223.394 98.559 224.346 98.559Z M230.026 101.16L229.262 98.658H229.134C228.266 99.751 227.399 100.493 226.522 100.887 225.644 101.286 224.519 101.479 223.15 101.479 221.386 101.479 220.012 101 219.023 100.052 218.033 99.099 217.536 97.752 217.536 96.01 217.536 94.161 218.221 92.762 219.6 91.819 220.969 90.876 223.061 90.364 225.875 90.275L228.975 90.176V89.219C228.975 88.073 228.707 87.214 228.169 86.646 227.634 86.078 226.803 85.792 225.678 85.792 224.758 85.792 223.877 85.923 223.033 86.2 222.188 86.468 221.378 86.787 220.599 87.158L219.365 84.431C220.34 83.924 221.405 83.539 222.563 83.267 223.722 83.004 224.815 82.868 225.843 82.868 228.127 82.868 229.847 83.365 231.011 84.36 232.173 85.36 232.755 86.923 232.755 89.054V101.15H230.031Z" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:456ms" d="M247.173 82.878C247.942 82.878 248.579 82.934 249.072 83.042L248.702 86.595C248.157 86.464 247.595 86.403 247.013 86.403 245.484 86.403 244.25 86.905 243.298 87.9 242.351 88.895 241.882 90.191 241.882 91.782V101.165H238.069V83.206H241.056L241.559 86.37H241.751C242.346 85.299 243.12 84.45 244.082 83.821 245.039 83.192 246.07 82.877 247.178 82.877" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:494ms" d="M264.455 96.044C264.455 97.799 263.818 99.142 262.543 100.08 261.266 101.019 259.437 101.489 257.058 101.489 254.682 101.489 252.75 101.127 251.3 100.4V97.104C253.411 98.076 255.372 98.564 257.186 98.564 259.536 98.564 260.708 97.855 260.708 96.438 260.708 95.983 260.577 95.602 260.32 95.297 260.061 94.997 259.63 94.682 259.035 94.354 258.438 94.03 257.614 93.664 256.549 93.251 254.484 92.448 253.086 91.65 252.355 90.848 251.623 90.045 251.258 89.008 251.258 87.731 251.258 86.196 251.877 85.004 253.115 84.15 254.349 83.3 256.038 82.873 258.17 82.873 260.304 82.873 262.275 83.3 264.156 84.154L262.921 87.032C260.985 86.229 259.357 85.83 258.039 85.83 256.028 85.83 255.023 86.407 255.023 87.553 255.023 88.116 255.286 88.595 255.812 88.984 256.337 89.374 257.481 89.909 259.245 90.589 260.726 91.162 261.801 91.688 262.472 92.167 263.143 92.641 263.644 93.195 263.967 93.814 264.292 94.434 264.455 95.18 264.455 96.044Z" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:532ms" d="M271.429 92.148C271.429 96.292 272.958 98.367 276.02 98.367S280.566 96.292 280.566 92.148C280.566 88.003 279.041 85.994 275.989 85.994 274.389 85.994 273.23 86.525 272.509 87.585 271.791 88.646 271.429 90.167 271.429 92.148Z M284.492 92.148C284.492 95.082 283.737 97.372 282.237 99.015 280.73 100.662 278.639 101.484 275.955 101.484 274.277 101.484 272.8 101.104 271.51 100.348 270.22 99.592 269.23 98.503 268.54 97.086 267.847 95.668 267.504 94.021 267.504 92.148 267.504 89.238 268.249 86.961 269.741 85.328 271.233 83.694 273.338 82.873 276.049 82.873S280.703 83.708 282.216 85.384C283.732 87.055 284.487 89.308 284.487 92.143" fill="#021068" fill-rule="evenodd"/>
+          <path class="lp" style="animation-delay:570ms" d="M304.66 101.16H300.827V90.12C300.827 88.735 300.551 87.698 299.993 87.017S298.553 85.994 297.342 85.994C295.735 85.994 294.552 86.473 293.805 87.421 293.06 88.374 292.69 89.97 292.69 92.214V101.16H288.876V83.201H291.86L292.394 85.553H292.591C293.126 84.698 293.895 84.037 294.894 83.572 295.889 83.107 296.991 82.872 298.2 82.872 302.507 82.872 304.66 85.065 304.66 89.449V101.155Z" fill="#021068" fill-rule="evenodd"/>
+        </svg>
+      </a>
       <nav class="nav-desktop" aria-label="Navegação principal">
         <a href="#app-wizme">Diferenciais</a>
         <a href="#unidades">Unidades</a>
@@ -77,7 +96,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         </div>
       </div>
       <div class="hero-visual">
-        <Image src={heroPhoto} alt="Aluna sorrindo enquanto estuda com um tablet" width={520} height={620} class="hero-photo" />
+        <Image src={heroPhoto} alt="Aluna sorrindo enquanto estuda com um tablet" width={520} height={620} class="hero-photo" loading="eager" fetchpriority="high" />
         <div class="discount-chip">
           <span class="num"><b class="counter" data-target="30" data-prefix="-" data-suffix="%">0</b></span>
           <span class="cap">na matrícula<br>por pouco<br>tempo</span>
@@ -332,506 +351,508 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     </div>
   </footer>
 
-  <script>
-  const navToggle = document.getElementById("navToggle") as HTMLButtonElement;
-  const navClose = document.getElementById("navClose") as HTMLButtonElement;
-  const navMobile = document.getElementById("navMobile") as HTMLElement;
-  const navOverlay = document.getElementById("navOverlay") as HTMLDivElement;
+  <script is:inline>
+  (function () {
+    var navToggle = document.getElementById("navToggle");
+    var navClose = document.getElementById("navClose");
+    var navMobile = document.getElementById("navMobile");
+    var navOverlay = document.getElementById("navOverlay");
 
-  function openNav() {
-    navMobile.classList.add("open");
-    navOverlay.classList.add("open");
-    navToggle.setAttribute("aria-expanded", "true");
-  }
+    function openNav() {
+      navMobile.classList.add("open");
+      navOverlay.classList.add("open");
+      navToggle.setAttribute("aria-expanded", "true");
+    }
 
-  function closeNav() {
-    navMobile.classList.remove("open");
-    navOverlay.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-  }
+    function closeNav() {
+      navMobile.classList.remove("open");
+      navOverlay.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
 
-  navToggle.addEventListener("click", openNav);
-  navClose.addEventListener("click", closeNav);
-  navOverlay.addEventListener("click", closeNav);
-  navMobile.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNav));
+    navToggle.addEventListener("click", openNav);
+    navClose.addEventListener("click", closeNav);
+    navOverlay.addEventListener("click", closeNav);
+    navMobile.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", closeNav); });
 
-  // Se a janela voltar pro tamanho desktop com o menu mobile aberto, fecha
-  // (o header desktop já mostra os links, não faz sentido manter o overlay).
-  const desktopQuery = window.matchMedia("(min-width: 861px)");
-  desktopQuery.addEventListener("change", (e) => {
-    if (e.matches) closeNav();
-  });
+    // Se a janela voltar pro tamanho desktop com o menu mobile aberto, fecha
+    // (o header desktop já mostra os links, não faz sentido manter o overlay).
+    var desktopQuery = window.matchMedia("(min-width: 861px)");
+    desktopQuery.addEventListener("change", function (e) {
+      if (e.matches) closeNav();
+    });
 
-  // Efeito "luzes de cinema" no selo de desconto: no desktop o :hover do CSS
-  // já resolve, mas :active não é confiável em toque (iOS só dispara em
-  // elemento com handler de touch/click), então alterna a classe no touch.
-  const heroVisual = document.querySelector<HTMLElement>(".hero-visual");
-  if (heroVisual) {
-    heroVisual.addEventListener("touchstart", () => heroVisual.classList.add("marquee-active"), { passive: true });
-    const clearMarquee = () => heroVisual.classList.remove("marquee-active");
-    heroVisual.addEventListener("touchend", clearMarquee);
-    heroVisual.addEventListener("touchcancel", clearMarquee);
-  }
+    // Efeito "luzes de cinema" no selo de desconto: no desktop o :hover do CSS
+    // já resolve, mas :active não é confiável em toque (iOS só dispara em
+    // elemento com handler de touch/click), então alterna a classe no touch.
+    var heroVisual = document.querySelector(".hero-visual");
+    if (heroVisual) {
+      heroVisual.addEventListener("touchstart", function () { heroVisual.classList.add("marquee-active"); }, { passive: true });
+      var clearMarquee = function () { heroVisual.classList.remove("marquee-active"); };
+      heroVisual.addEventListener("touchend", clearMarquee);
+      heroVisual.addEventListener("touchcancel", clearMarquee);
+    }
+  })();
 </script>
 
-<script>
+<script is:inline>
   // Contador animado das estatísticas do hero e do chip de desconto: conta de
   // 0 até o alvo assim que a página carrega (o hero já aparece na tela sem
   // precisar rolar, então dispara direto — nada de esperar IntersectionObserver
   // aqui, senão fica zerado até o usuário rolar).
-  const counters = document.querySelectorAll<HTMLElement>(".counter");
+  (function () {
+    var counters = document.querySelectorAll(".counter");
 
-  function animateCounter(el: HTMLElement) {
-    const target = Number(el.dataset.target || "0");
-    const prefix = el.dataset.prefix || "";
-    const suffix = el.dataset.suffix || "";
-    const duration = 1200;
-    const start = performance.now();
+    function animateCounter(el) {
+      var target = Number(el.dataset.target || "0");
+      var prefix = el.dataset.prefix || "";
+      var suffix = el.dataset.suffix || "";
+      var duration = 1200;
+      var start = performance.now();
 
-    function tick(now: number) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const value = Math.round(target * eased);
-      el.textContent = prefix + value.toLocaleString("pt-BR") + suffix;
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        el.classList.add("pop");
-        setTimeout(() => el.classList.remove("pop"), 250);
+      function tick(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var value = Math.round(target * eased);
+        el.textContent = prefix + value.toLocaleString("pt-BR") + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.classList.add("pop");
+          setTimeout(function () { el.classList.remove("pop"); }, 250);
+        }
       }
+      requestAnimationFrame(tick);
     }
-    requestAnimationFrame(tick);
-  }
 
-  counters.forEach((el) => animateCounter(el));
+    counters.forEach(function (el) { animateCounter(el); });
+  })();
 </script>
 
-<script>
+<script is:inline>
   // Unidades: dataset estático (só SP, ver lp/scripts/refresh-units.mjs), gerado
   // no deploy a partir da API da Wizard. Localizador e autocomplete do form
   // rodam 100% no navegador a partir desse JSON — nunca chamam a API da Wizard
   // em produção (só o CEP é geocodificado, via BrasilAPI, que não é da Wizard).
+  (function () {
+    // Script inline (is:inline) pra tirar essa cadeia do preload scanner —
+    // por isso "/" fixo em vez de import.meta.env.BASE_URL (só funciona em
+    // script processado pelo Vite/Astro). O projeto não define "base" no
+    // astro.config.mjs, então BASE_URL sempre resolveria pra "/" mesmo.
+    var BASE_URL = "/";
 
-  type Unit = {
-    slug: string | null;
-    name: string;
-    address: string;
-    city: string | null;
-    uf: string;
-    phone: string | null;
-    lat: number | null;
-    lng: number | null;
-  };
-
-  const BASE_URL = import.meta.env.BASE_URL;
-
-  let unitsPromise: Promise<Unit[]> | null = null;
-  function loadUnits(): Promise<Unit[]> {
-    if (!unitsPromise) {
-      unitsPromise = fetch(`${BASE_URL}data/units-sp.json`)
-        .then((r) => r.json())
-        .then((data) => data.units as Unit[])
-        .catch(() => []);
-    }
-    return unitsPromise;
-  }
-
-  function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number) {
-    const R = 6371;
-    const dLat = ((lat2 - lat1) * Math.PI) / 180;
-    const dLng = ((lng2 - lng1) * Math.PI) / 180;
-    const a =
-      Math.sin(dLat / 2) ** 2 +
-      Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
-    return R * 2 * Math.asin(Math.sqrt(a));
-  }
-
-  function normalize(s: string) {
-    return s
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .toLowerCase();
-  }
-
-  // ---------- Preenchimento do campo "unidade" no form final ----------
-  const unitInput = document.getElementById("unit") as HTMLInputElement;
-  const unitSlugInput = document.getElementById("unitSlug") as HTMLInputElement;
-  let lastConfirmedText = "";
-
-  function setUnit(unit: Unit) {
-    const label = `${unit.name} — ${unit.city}`;
-    unitInput.value = label;
-    unitSlugInput.value = unit.slug || "";
-    lastConfirmedText = label;
-  }
-
-  // Campo opcional: só fica preenchido se bater com uma unidade escolhida no
-  // autocomplete. Texto digitado sem selecionar sugestão é limpo ao sair do
-  // campo — sem alerta, sem travar o formulário, já que é opcional.
-  function clearUnitIfUnconfirmed() {
-    if (unitInput.value !== lastConfirmedText) {
-      unitInput.value = "";
-      unitSlugInput.value = "";
-    }
-  }
-  unitInput.addEventListener("blur", () => {
-    // atraso pra dar tempo do click numa sugestão (que chama setUnit) rodar
-    // antes da checagem — clicar num botão da lista tira o foco do input.
-    window.setTimeout(clearUnitIfUnconfirmed, 150);
-  });
-  // Rede de segurança: cobre o caso raro de enviar sem o input perder o foco.
-  document.getElementById("leadForm")?.addEventListener("submit", clearUnitIfUnconfirmed, { capture: true });
-
-  // ---------- Autocomplete ----------
-  const unitSuggestions = document.getElementById("unitSuggestions") as HTMLDivElement;
-
-  function renderSuggestions(matches: Unit[]) {
-    if (!matches.length) {
-      unitSuggestions.hidden = true;
-      unitSuggestions.innerHTML = "";
-      return;
-    }
-    unitSuggestions.innerHTML = matches
-      .slice(0, 8)
-      .map(
-        (u, i) =>
-          `<button type="button" class="autocomplete-item" data-idx="${i}">${u.name} <span>— ${u.city}</span></button>`
-      )
-      .join("");
-    unitSuggestions.hidden = false;
-
-    unitSuggestions.querySelectorAll<HTMLButtonElement>(".autocomplete-item").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const idx = Number(btn.dataset.idx);
-        setUnit(matches[idx]);
-        unitSuggestions.hidden = true;
-      });
-    });
-  }
-
-  let debounceTimer: ReturnType<typeof setTimeout>;
-  unitInput?.addEventListener("input", () => {
-    clearTimeout(debounceTimer);
-    const query = normalize(unitInput.value.trim());
-    if (query.length < 2) {
-      unitSuggestions.hidden = true;
-      return;
-    }
-    debounceTimer = setTimeout(async () => {
-      const units = await loadUnits();
-      const matches = units.filter(
-        (u) => normalize(u.name).includes(query) || normalize(u.city || "").includes(query)
-      );
-      renderSuggestions(matches);
-    }, 150);
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!(e.target instanceof Node)) return;
-    if (!document.getElementById("unitField")?.contains(e.target)) {
-      unitSuggestions.hidden = true;
-    }
-  });
-
-  // ---------- Localizador (seção #unidades) ----------
-  const btnGeo = document.getElementById("btnGeo") as HTMLButtonElement;
-  const btnCep = document.getElementById("btnCep") as HTMLButtonElement;
-  const cepInput = document.getElementById("cepInput") as HTMLInputElement;
-  const locatorMsg = document.getElementById("locatorMsg") as HTMLParagraphElement;
-  const locatorResults = document.getElementById("locatorResults") as HTMLDivElement;
-
-  // Só deixa dígito passar (max 8) e aplica a máscara 00000-000 enquanto digita.
-  cepInput.addEventListener("input", () => {
-    const digits = cepInput.value.replace(/\D/g, "").slice(0, 8);
-    cepInput.value = digits.length > 5 ? `${digits.slice(0, 5)}-${digits.slice(5)}` : digits;
-  });
-
-  function setLocatorMsg(text: string, loading = false) {
-    locatorMsg.textContent = text;
-    locatorMsg.classList.toggle("is-loading", loading);
-  }
-
-  function renderLocatorResults(units: Unit[], withDistance: boolean, originLat?: number, originLng?: number) {
-    if (!units.length) {
-      locatorResults.hidden = true;
-      locatorResults.innerHTML = "";
-      return;
-    }
-    locatorResults.innerHTML = units
-      .slice(0, 3)
-      .map((u, i) => {
-        const dist =
-          withDistance && originLat != null && originLng != null && u.lat != null && u.lng != null
-            ? `<span class="unit-distance">${haversineKm(originLat, originLng, u.lat, u.lng).toFixed(1)} km</span>`
-            : "";
-        return `
-        <div class="unit-result">
-          <div class="unit-result-head">
-            <h4>${u.name}</h4>
-            ${dist}
-          </div>
-          <p>${u.address}</p>
-          <div class="unit-result-actions">
-            ${u.phone ? `<a href="https://wa.me/55${u.phone.replace(/\D/g, "")}" target="_blank" rel="noopener">WhatsApp</a>` : ""}
-            <button type="button" class="pick-unit" data-idx="${i}">Escolher esta unidade</button>
-          </div>
-        </div>`;
-      })
-      .join("");
-    locatorResults.hidden = false;
-
-    locatorResults.querySelectorAll<HTMLButtonElement>(".pick-unit").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const idx = Number(btn.dataset.idx);
-        setUnit(units[idx]);
-        setLocatorMsg(`Unidade selecionada: ${units[idx].name}. Role até o final da página pra se matricular.`);
-        const locatorCta = document.getElementById("locatorCta");
-        if (locatorCta) locatorCta.textContent = "Quero me matricular";
-      });
-    });
-  }
-
-  btnGeo?.addEventListener("click", () => {
-    if (!navigator.geolocation) {
-      setLocatorMsg("Seu navegador não suporta localização automática. Tente digitar seu CEP.");
-      return;
-    }
-    setLocatorMsg("Buscando sua localização...", true);
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        const { latitude, longitude } = pos.coords;
-        const units = (await loadUnits()).filter((u) => u.lat != null && u.lng != null);
-        const sorted = units
-          .map((u) => ({ u, d: haversineKm(latitude, longitude, u.lat as number, u.lng as number) }))
-          .sort((a, b) => a.d - b.d)
-          .map((x) => x.u);
-        setLocatorMsg(
-          sorted.length
-            ? "Unidades mais próximas de você:"
-            : "Não encontramos unidades próximas com dados de localização."
-        );
-        renderLocatorResults(sorted, true, latitude, longitude);
-      },
-      () => {
-        setLocatorMsg("Não conseguimos acessar sua localização. Tente digitar seu CEP.");
-      },
-      { timeout: 8000 }
-    );
-  });
-
-  btnCep?.addEventListener("click", async () => {
-    const cep = cepInput.value.replace(/\D/g, "");
-    if (cep.length !== 8) {
-      setLocatorMsg("Digite um CEP válido (8 dígitos).");
-      return;
-    }
-    setLocatorMsg("Buscando...", true);
-    try {
-      const res = await fetch(`https://brasilapi.com.br/api/cep/v2/${cep}`);
-      if (!res.ok) throw new Error("CEP não encontrado");
-      const data = await res.json();
-      const lat = data?.location?.coordinates?.latitude;
-      const lng = data?.location?.coordinates?.longitude;
-      const units = await loadUnits();
-
-      if (lat && lng) {
-        const withCoords = units.filter((u) => u.lat != null && u.lng != null);
-        const sorted = withCoords
-          .map((u) => ({ u, d: haversineKm(Number(lat), Number(lng), u.lat as number, u.lng as number) }))
-          .sort((a, b) => a.d - b.d)
-          .map((x) => x.u);
-        setLocatorMsg("Unidades mais próximas do seu CEP:");
-        renderLocatorResults(sorted, true, Number(lat), Number(lng));
-      } else {
-        const city = normalize(data?.city || "");
-        const sameCity = units.filter((u) => normalize(u.city || "") === city);
-        setLocatorMsg(
-          sameCity.length
-            ? `Unidades em ${data?.city}:`
-            : "Não encontramos unidades na cidade desse CEP."
-        );
-        renderLocatorResults(sameCity, false);
+    var unitsPromise = null;
+    function loadUnits() {
+      if (!unitsPromise) {
+        unitsPromise = fetch(BASE_URL + "data/units-sp.json")
+          .then(function (r) { return r.json(); })
+          .then(function (data) { return data.units; })
+          .catch(function () { return []; });
       }
-    } catch {
-      setLocatorMsg("Não encontramos esse CEP. Confira e tente de novo.");
-      locatorResults.hidden = true;
+      return unitsPromise;
     }
-  });
 
+    function haversineKm(lat1, lng1, lat2, lng2) {
+      var R = 6371;
+      var dLat = ((lat2 - lat1) * Math.PI) / 180;
+      var dLng = ((lng2 - lng1) * Math.PI) / 180;
+      var a =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
+      return R * 2 * Math.asin(Math.sqrt(a));
+    }
+
+    function normalize(s) {
+      return s
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "")
+        .toLowerCase();
+    }
+
+    // ---------- Preenchimento do campo "unidade" no form final ----------
+    var unitInput = document.getElementById("unit");
+    var unitSlugInput = document.getElementById("unitSlug");
+    var lastConfirmedText = "";
+
+    function setUnit(unit) {
+      var label = unit.name + " — " + unit.city;
+      unitInput.value = label;
+      unitSlugInput.value = unit.slug || "";
+      lastConfirmedText = label;
+    }
+
+    // Campo opcional: só fica preenchido se bater com uma unidade escolhida no
+    // autocomplete. Texto digitado sem selecionar sugestão é limpo ao sair do
+    // campo — sem alerta, sem travar o formulário, já que é opcional.
+    function clearUnitIfUnconfirmed() {
+      if (unitInput.value !== lastConfirmedText) {
+        unitInput.value = "";
+        unitSlugInput.value = "";
+      }
+    }
+    unitInput.addEventListener("blur", function () {
+      // atraso pra dar tempo do click numa sugestão (que chama setUnit) rodar
+      // antes da checagem — clicar num botão da lista tira o foco do input.
+      window.setTimeout(clearUnitIfUnconfirmed, 150);
+    });
+    // Rede de segurança: cobre o caso raro de enviar sem o input perder o foco.
+    var leadFormEl = document.getElementById("leadForm");
+    if (leadFormEl) leadFormEl.addEventListener("submit", clearUnitIfUnconfirmed, { capture: true });
+
+    // ---------- Autocomplete ----------
+    var unitSuggestions = document.getElementById("unitSuggestions");
+
+    function renderSuggestions(matches) {
+      if (!matches.length) {
+        unitSuggestions.hidden = true;
+        unitSuggestions.innerHTML = "";
+        return;
+      }
+      unitSuggestions.innerHTML = matches
+        .slice(0, 8)
+        .map(
+          function (u, i) {
+            return '<button type="button" class="autocomplete-item" data-idx="' + i + '">' + u.name + " <span>— " + u.city + "</span></button>";
+          }
+        )
+        .join("");
+      unitSuggestions.hidden = false;
+
+      unitSuggestions.querySelectorAll(".autocomplete-item").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var idx = Number(btn.dataset.idx);
+          setUnit(matches[idx]);
+          unitSuggestions.hidden = true;
+        });
+      });
+    }
+
+    var debounceTimer;
+    if (unitInput) unitInput.addEventListener("input", function () {
+      clearTimeout(debounceTimer);
+      var query = normalize(unitInput.value.trim());
+      if (query.length < 2) {
+        unitSuggestions.hidden = true;
+        return;
+      }
+      debounceTimer = setTimeout(async function () {
+        var units = await loadUnits();
+        var matches = units.filter(
+          function (u) { return normalize(u.name).includes(query) || normalize(u.city || "").includes(query); }
+        );
+        renderSuggestions(matches);
+      }, 150);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!(e.target instanceof Node)) return;
+      var unitField = document.getElementById("unitField");
+      if (!unitField || !unitField.contains(e.target)) {
+        unitSuggestions.hidden = true;
+      }
+    });
+
+    // ---------- Localizador (seção #unidades) ----------
+    var btnGeo = document.getElementById("btnGeo");
+    var btnCep = document.getElementById("btnCep");
+    var cepInput = document.getElementById("cepInput");
+    var locatorMsg = document.getElementById("locatorMsg");
+    var locatorResults = document.getElementById("locatorResults");
+
+    // Só deixa dígito passar (max 8) e aplica a máscara 00000-000 enquanto digita.
+    cepInput.addEventListener("input", function () {
+      var digits = cepInput.value.replace(/\D/g, "").slice(0, 8);
+      cepInput.value = digits.length > 5 ? digits.slice(0, 5) + "-" + digits.slice(5) : digits;
+    });
+
+    function setLocatorMsg(text, loading) {
+      locatorMsg.textContent = text;
+      locatorMsg.classList.toggle("is-loading", !!loading);
+    }
+
+    function renderLocatorResults(units, withDistance, originLat, originLng) {
+      if (!units.length) {
+        locatorResults.hidden = true;
+        locatorResults.innerHTML = "";
+        return;
+      }
+      locatorResults.innerHTML = units
+        .slice(0, 3)
+        .map(function (u, i) {
+          var dist =
+            withDistance && originLat != null && originLng != null && u.lat != null && u.lng != null
+              ? '<span class="unit-distance">' + haversineKm(originLat, originLng, u.lat, u.lng).toFixed(1) + " km</span>"
+              : "";
+          return (
+            '<div class="unit-result">' +
+            '<div class="unit-result-head">' +
+            "<h4>" + u.name + "</h4>" +
+            dist +
+            "</div>" +
+            "<p>" + u.address + "</p>" +
+            '<div class="unit-result-actions">' +
+            (u.phone ? '<a href="https://wa.me/55' + u.phone.replace(/\D/g, "") + '" target="_blank" rel="noopener">WhatsApp</a>' : "") +
+            '<button type="button" class="pick-unit" data-idx="' + i + '">Escolher esta unidade</button>' +
+            "</div>" +
+            "</div>"
+          );
+        })
+        .join("");
+      locatorResults.hidden = false;
+
+      locatorResults.querySelectorAll(".pick-unit").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var idx = Number(btn.dataset.idx);
+          setUnit(units[idx]);
+          setLocatorMsg("Unidade selecionada: " + units[idx].name + ". Role até o final da página pra se matricular.");
+          var locatorCta = document.getElementById("locatorCta");
+          if (locatorCta) locatorCta.textContent = "Quero me matricular";
+        });
+      });
+    }
+
+    if (btnGeo) btnGeo.addEventListener("click", function () {
+      if (!navigator.geolocation) {
+        setLocatorMsg("Seu navegador não suporta localização automática. Tente digitar seu CEP.");
+        return;
+      }
+      setLocatorMsg("Buscando sua localização...", true);
+      navigator.geolocation.getCurrentPosition(
+        async function (pos) {
+          var latitude = pos.coords.latitude;
+          var longitude = pos.coords.longitude;
+          var units = (await loadUnits()).filter(function (u) { return u.lat != null && u.lng != null; });
+          var sorted = units
+            .map(function (u) { return { u: u, d: haversineKm(latitude, longitude, u.lat, u.lng) }; })
+            .sort(function (a, b) { return a.d - b.d; })
+            .map(function (x) { return x.u; });
+          setLocatorMsg(
+            sorted.length
+              ? "Unidades mais próximas de você:"
+              : "Não encontramos unidades próximas com dados de localização."
+          );
+          renderLocatorResults(sorted, true, latitude, longitude);
+        },
+        function () {
+          setLocatorMsg("Não conseguimos acessar sua localização. Tente digitar seu CEP.");
+        },
+        { timeout: 8000 }
+      );
+    });
+
+    if (btnCep) btnCep.addEventListener("click", async function () {
+      var cep = cepInput.value.replace(/\D/g, "");
+      if (cep.length !== 8) {
+        setLocatorMsg("Digite um CEP válido (8 dígitos).");
+        return;
+      }
+      setLocatorMsg("Buscando...", true);
+      try {
+        var res = await fetch("https://brasilapi.com.br/api/cep/v2/" + cep);
+        if (!res.ok) throw new Error("CEP não encontrado");
+        var data = await res.json();
+        var lat = data && data.location && data.location.coordinates && data.location.coordinates.latitude;
+        var lng = data && data.location && data.location.coordinates && data.location.coordinates.longitude;
+        var units = await loadUnits();
+
+        if (lat && lng) {
+          var withCoords = units.filter(function (u) { return u.lat != null && u.lng != null; });
+          var sorted = withCoords
+            .map(function (u) { return { u: u, d: haversineKm(Number(lat), Number(lng), u.lat, u.lng) }; })
+            .sort(function (a, b) { return a.d - b.d; })
+            .map(function (x) { return x.u; });
+          setLocatorMsg("Unidades mais próximas do seu CEP:");
+          renderLocatorResults(sorted, true, Number(lat), Number(lng));
+        } else {
+          var city = normalize((data && data.city) || "");
+          var sameCity = units.filter(function (u) { return normalize(u.city || "") === city; });
+          setLocatorMsg(
+            sameCity.length
+              ? "Unidades em " + (data && data.city) + ":"
+              : "Não encontramos unidades na cidade desse CEP."
+          );
+          renderLocatorResults(sameCity, false);
+        }
+      } catch (err) {
+        setLocatorMsg("Não encontramos esse CEP. Confira e tente de novo.");
+        locatorResults.hidden = true;
+      }
+    });
+  })();
 </script>
 
-<script>
+<script is:inline>
   // Saídas "leads_api_url" (primária) e "leads_api_url_secondary" do Terraform.
   // "unit" é opcional: a Lambda (lambda/leads.py) vai deixar de exigi-lo.
-  const PRIMARY_API = "https://azgerdpbbf.execute-api.us-east-1.amazonaws.com/lead";
-  const SECONDARY_API = "https://d6vyxkv0ue.execute-api.sa-east-1.amazonaws.com/lead";
+  (function () {
+    var PRIMARY_API = "https://azgerdpbbf.execute-api.us-east-1.amazonaws.com/lead";
+    var SECONDARY_API = "https://d6vyxkv0ue.execute-api.sa-east-1.amazonaws.com/lead";
 
-  const form = document.getElementById("leadForm") as HTMLFormElement;
-  const btn = document.getElementById("submitBtn") as HTMLButtonElement;
-  const nameInput = document.getElementById("name") as HTMLInputElement;
-  const emailInput = document.getElementById("email") as HTMLInputElement;
-  const phoneInput = document.getElementById("phone") as HTMLInputElement;
-  const unitInput = document.getElementById("unit") as HTMLInputElement;
+    var form = document.getElementById("leadForm");
+    var btn = document.getElementById("submitBtn");
+    var nameInput = document.getElementById("name");
+    var emailInput = document.getElementById("email");
+    var phoneInput = document.getElementById("phone");
 
-  // ---------- Máscara de telefone: (11) 99999-9999 / (11) 9999-9999 ----------
-  function formatPhoneBR(raw: string) {
-    const digits = raw.replace(/\D/g, "").slice(0, 11);
-    const len = digits.length;
-    if (len === 0) return "";
-    if (len <= 2) return `(${digits}`;
-    if (len <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-    if (len <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
-    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
-  }
-  phoneInput.addEventListener("input", () => {
-    phoneInput.value = formatPhoneBR(phoneInput.value);
-  });
-
-  // ---------- Alerta fancy (valida campo a campo e avisa de sucesso) ----------
-  const formAlert = document.getElementById("formAlert") as HTMLDivElement;
-  const formAlertBox = document.getElementById("formAlertBox") as HTMLDivElement;
-  const formAlertIcon = document.getElementById("formAlertIcon") as HTMLDivElement;
-  const formAlertTitle = document.getElementById("formAlertTitle") as HTMLHeadingElement;
-  const formAlertMsg = document.getElementById("formAlertMsg") as HTMLParagraphElement;
-  const formAlertOk = document.getElementById("formAlertOk") as HTMLButtonElement;
-
-  let alertFocusTarget: HTMLInputElement | null = null;
-
-  function showFormAlert(
-    kind: "error" | "success",
-    title: string,
-    message: string,
-    focusEl: HTMLInputElement | null = null,
-    okLabel = "Entendi"
-  ) {
-    formAlertBox.classList.toggle("success", kind === "success");
-    formAlertIcon.textContent = kind === "success" ? "✓" : "!";
-    formAlertTitle.textContent = title;
-    formAlertMsg.textContent = message;
-    formAlertOk.textContent = okLabel;
-    alertFocusTarget = focusEl;
-    formAlert.classList.add("open");
-    formAlert.setAttribute("aria-hidden", "false");
-    formAlert.removeAttribute("inert");
-    document.body.style.overflow = "hidden";
-    formAlertOk.focus();
-  }
-
-  function closeFormAlert() {
-    formAlert.classList.remove("open");
-    formAlert.setAttribute("aria-hidden", "true");
-    formAlert.setAttribute("inert", "");
-    document.body.style.overflow = "";
-    const target = alertFocusTarget;
-    alertFocusTarget = null;
-    if (target) {
-      // espera a transição de fechar (0.3s) terminar antes de levar o
-      // cursor pro campo, senão o foco rola a página no meio da animação.
-      setTimeout(() => target.focus(), 280);
+    // ---------- Máscara de telefone: (11) 99999-9999 / (11) 9999-9999 ----------
+    function formatPhoneBR(raw) {
+      var digits = raw.replace(/\D/g, "").slice(0, 11);
+      var len = digits.length;
+      if (len === 0) return "";
+      if (len <= 2) return "(" + digits;
+      if (len <= 6) return "(" + digits.slice(0, 2) + ") " + digits.slice(2);
+      if (len <= 10) return "(" + digits.slice(0, 2) + ") " + digits.slice(2, 6) + "-" + digits.slice(6);
+      return "(" + digits.slice(0, 2) + ") " + digits.slice(2, 7) + "-" + digits.slice(7);
     }
-  }
-  formAlertOk.addEventListener("click", closeFormAlert);
+    phoneInput.addEventListener("input", function () {
+      phoneInput.value = formatPhoneBR(phoneInput.value);
+    });
 
-  function fieldErrorMessage(input: HTMLInputElement): string {
-    if (input === nameInput) {
-      return input.validity.valueMissing
-        ? "Conta pra gente seu nome completo pra continuar."
-        : "Digite seu nome completo (pelo menos 2 letras).";
-    }
-    if (input === emailInput) {
-      return input.validity.valueMissing
-        ? "Informe seu melhor e-mail pra gente entrar em contato."
-        : "Esse e-mail não parece válido — confira e tente de novo.";
-    }
-    if (input === phoneInput) {
-      return input.validity.valueMissing
-        ? "Informe um telefone com DDD pra gente te chamar."
-        : "Esse telefone não ficou completo — confira o DDD e o número.";
-    }
-    return "Confira esse campo e tente de novo.";
-  }
+    // ---------- Alerta fancy (valida campo a campo e avisa de sucesso) ----------
+    var formAlert = document.getElementById("formAlert");
+    var formAlertBox = document.getElementById("formAlertBox");
+    var formAlertIcon = document.getElementById("formAlertIcon");
+    var formAlertTitle = document.getElementById("formAlertTitle");
+    var formAlertMsg = document.getElementById("formAlertMsg");
+    var formAlertOk = document.getElementById("formAlertOk");
 
-  async function postLead(url: string, payload: Record<string, string>, timeoutMs = 4000) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        signal: controller.signal,
-      });
-      return res;
-    } finally {
-      clearTimeout(timer);
+    var alertFocusTarget = null;
+
+    function showFormAlert(kind, title, message, focusEl, okLabel) {
+      focusEl = focusEl || null;
+      okLabel = okLabel || "Entendi";
+      formAlertBox.classList.toggle("success", kind === "success");
+      formAlertIcon.textContent = kind === "success" ? "✓" : "!";
+      formAlertTitle.textContent = title;
+      formAlertMsg.textContent = message;
+      formAlertOk.textContent = okLabel;
+      alertFocusTarget = focusEl;
+      formAlert.classList.add("open");
+      formAlert.setAttribute("aria-hidden", "false");
+      formAlert.removeAttribute("inert");
+      document.body.style.overflow = "hidden";
+      formAlertOk.focus();
     }
-  }
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    function closeFormAlert() {
+      formAlert.classList.remove("open");
+      formAlert.setAttribute("aria-hidden", "true");
+      formAlert.setAttribute("inert", "");
+      document.body.style.overflow = "";
+      var target = alertFocusTarget;
+      alertFocusTarget = null;
+      if (target) {
+        // espera a transição de fechar (0.3s) terminar antes de levar o
+        // cursor pro campo, senão o foco rola a página no meio da animação.
+        setTimeout(function () { target.focus(); }, 280);
+      }
+    }
+    formAlertOk.addEventListener("click", closeFormAlert);
 
-    for (const input of [nameInput, emailInput, phoneInput]) {
-      if (!input.checkValidity()) {
-        showFormAlert("error", "Confira esse campo", fieldErrorMessage(input), input);
-        return;
+    function fieldErrorMessage(input) {
+      if (input === nameInput) {
+        return input.validity.valueMissing
+          ? "Conta pra gente seu nome completo pra continuar."
+          : "Digite seu nome completo (pelo menos 2 letras).";
+      }
+      if (input === emailInput) {
+        return input.validity.valueMissing
+          ? "Informe seu melhor e-mail pra gente entrar em contato."
+          : "Esse e-mail não parece válido — confira e tente de novo.";
+      }
+      if (input === phoneInput) {
+        return input.validity.valueMissing
+          ? "Informe um telefone com DDD pra gente te chamar."
+          : "Esse telefone não ficou completo — confira o DDD e o número.";
+      }
+      return "Confira esse campo e tente de novo.";
+    }
+
+    async function postLead(url, payload, timeoutMs) {
+      timeoutMs = timeoutMs || 4000;
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, timeoutMs);
+      try {
+        var res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          signal: controller.signal,
+        });
+        return res;
+      } finally {
+        clearTimeout(timer);
       }
     }
 
-    const payload = {
-      name: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      phone: phoneInput.value.trim(),
-      unit: (form.elements.namedItem("unit") as HTMLInputElement).value.trim(),
-      unit_slug: (form.elements.namedItem("unit_slug") as HTMLInputElement).value.trim(),
-      campaign: (form.elements.namedItem("campaign") as HTMLInputElement).value,
-    };
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    btn.disabled = true;
-    btn.textContent = "Enviando...";
+      var requiredInputs = [nameInput, emailInput, phoneInput];
+      for (var i = 0; i < requiredInputs.length; i++) {
+        var input = requiredInputs[i];
+        if (!input.checkValidity()) {
+          showFormAlert("error", "Confira esse campo", fieldErrorMessage(input), input);
+          return;
+        }
+      }
 
-    let res, usedFallback = false;
-    try {
-      res = await postLead(PRIMARY_API, payload);
-    } catch (primaryErr) {
-      // Região primária falhou ou não respondeu a tempo: tenta a secundária.
-      console.warn("Região primária indisponível, tentando failover:", primaryErr);
-      usedFallback = true;
+      var payload = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        unit: form.elements.namedItem("unit").value.trim(),
+        unit_slug: form.elements.namedItem("unit_slug").value.trim(),
+        campaign: form.elements.namedItem("campaign").value,
+      };
+
+      btn.disabled = true;
+      btn.textContent = "Enviando...";
+
+      var res, usedFallback = false;
       try {
-        res = await postLead(SECONDARY_API, payload);
-      } catch (secondaryErr) {
-        showFormAlert("error", "Não conseguimos enviar", "Erro de conexão em ambas as regiões. Tente novamente em instantes.");
+        res = await postLead(PRIMARY_API, payload);
+      } catch (primaryErr) {
+        // Região primária falhou ou não respondeu a tempo: tenta a secundária.
+        console.warn("Região primária indisponível, tentando failover:", primaryErr);
+        usedFallback = true;
+        try {
+          res = await postLead(SECONDARY_API, payload);
+        } catch (secondaryErr) {
+          showFormAlert("error", "Não conseguimos enviar", "Erro de conexão em ambas as regiões. Tente novamente em instantes.");
+          btn.disabled = false;
+          btn.textContent = "Quero minha vaga";
+          return;
+        }
+      }
+
+      try {
+        var data = await res.json();
+        if (res.ok) {
+          showFormAlert(
+            "success",
+            "Recebemos sua solicitação!",
+            usedFallback
+              ? "Obrigado pelo contato! Seus dados chegaram via nossa região de contingência — em breve um consultor Wizard fala com você."
+              : "Obrigado pelo contato! Em breve um consultor Wizard vai falar com você.",
+            null,
+            "Fechar"
+          );
+          form.reset();
+        } else {
+          showFormAlert(
+            "error",
+            "Não foi possível enviar",
+            (data.details && data.details.join(", ")) || "Confira os dados e tente de novo."
+          );
+        }
+      } catch (err) {
+        showFormAlert("error", "Erro de conexão", "Tente novamente em instantes.");
+      } finally {
         btn.disabled = false;
         btn.textContent = "Quero minha vaga";
-        return;
       }
-    }
-
-    try {
-      const data = await res.json();
-      if (res.ok) {
-        showFormAlert(
-          "success",
-          "Recebemos sua solicitação!",
-          usedFallback
-            ? "Obrigado pelo contato! Seus dados chegaram via nossa região de contingência — em breve um consultor Wizard fala com você."
-            : "Obrigado pelo contato! Em breve um consultor Wizard vai falar com você.",
-          null,
-          "Fechar"
-        );
-        form.reset();
-      } else {
-        showFormAlert(
-          "error",
-          "Não foi possível enviar",
-          (data.details && data.details.join(", ")) || "Confira os dados e tente de novo."
-        );
-      }
-    } catch (err) {
-      showFormAlert("error", "Erro de conexão", "Tente novamente em instantes.");
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Quero minha vaga";
-    }
-  });
+    });
+  })();
   </script>
 </Layout>

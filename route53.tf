@@ -41,7 +41,8 @@ resource "aws_route53_record" "primary" {
 # --- Bucket S3 estático com página de fallback, usado como registro secundário ---
 # Ativado automaticamente pelo Route 53 se o health check do CloudFront falhar.
 resource "aws_s3_bucket" "fallback" {
-  bucket = "${var.project_tag}-dns-fallback-${random_id.bucket_suffix.hex}"
+  bucket        = "${var.project_tag}-dns-fallback-${random_id.bucket_suffix.hex}"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_website_configuration" "fallback" {

@@ -46,6 +46,17 @@ variable "waf_rate_limit" {
   default     = 2000
 }
 
+variable "short_url_bucket_name" {
+  description = <<-EOT
+    Nome do bucket S3 usado como "URL curta" memorizável para a demo ao vivo
+    (redireciona via S3 website hosting pro domínio real do CloudFront).
+    Precisa ser único globalmente entre todos os buckets S3 do mundo -
+    se o apply falhar com BucketAlreadyExists, troque por outro nome.
+  EOT
+  type        = string
+  default     = "wizard-bruma"
+}
+
 variable "enable_custom_domain" {
   description = <<-EOT
     Controla se o CloudFront usa domínio customizado + certificado ACM.

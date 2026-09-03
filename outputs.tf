@@ -23,6 +23,11 @@ output "route53_nameservers" {
   value       = aws_route53_zone.primary.name_servers
 }
 
+output "short_url" {
+  description = "URL curta/memorizável pra demo ao vivo (slide 7) - redireciona (HTTP 301) pro CloudFront real em HTTPS. Precisa digitar o http:// na frente."
+  value       = "http://${aws_s3_bucket_website_configuration.url_redirect.website_endpoint}"
+}
+
 output "s3_bucket_primary" {
   description = "Bucket S3 primário (us-east-1) - time de Backend faz o deploy do site aqui"
   value       = aws_s3_bucket.origin_primary.id

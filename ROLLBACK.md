@@ -122,28 +122,16 @@ ou nos buckets em si. A infra do case fica intacta.
 
 ## Pendencias conhecidas
 
-### 1. `terraform destroy` nao completa hoje
+### 1. `terraform destroy` nao completava — RESOLVIDO (03/09/2026)
 
-Nenhum dos tres buckets (`origin_primary`, `origin_secondary`, `fallback`) tem
-`force_destroy = true`, e os tres estao com versionamento ligado e com objetos
-dentro. O `terraform destroy` — e portanto o `teardown.sh` — falha com
+Nenhum dos tres buckets (`origin_primary`, `origin_secondary`, `fallback`) tinha
+`force_destroy = true`, e os tres ficam com versionamento ligado e com objetos
+dentro. O `terraform destroy` — e portanto o `teardown.sh` — falhava com
 `BucketNotEmpty`.
 
-Como a regra 5 do hackathon avalia a facilidade do teardown, vale corrigir. Sao
-tres linhas, uma em cada recurso:
-
-```hcl
-resource "aws_s3_bucket" "origin_primary" {
-  bucket        = "${var.project_tag}-origin-primary-${random_id.bucket_suffix.hex}"
-  force_destroy = true
-}
-```
-
-Idem em `aws_s3_bucket.origin_secondary` (s3.tf) e `aws_s3_bucket.fallback`
-(route53.tf). Precisa de um `terraform apply` de quem tem o tfstate.
-
-> Alternativa sem alterar o codigo: esvaziar os tres buckets pelo console
-> (incluindo as versoes antigas) logo antes de rodar o teardown.
+Corrigido em `s3.tf` e `route53.tf` (`force_destroy = true` nos tres). Falta
+apenas rodar `terraform apply` (de quem tem o tfstate local) pra essa mudanca
+valer antes do teardown final.
 
 ### 2. Recursos do OIDC mantidos de proposito
 
@@ -167,3 +155,20 @@ Se a resposta for negativa, apague nesta ordem (a role depende do provedor):
 
 Nao ha backend remoto configurado, entao o state vive na maquina de quem
 aplicou. Na pratica, so essa pessoa consegue executar o teardown.
+
+---
+
+## Recurso novo: URL curta para a demo ao vivo (03/09/2026)
+
+Adicionado `url_redirect.tf` — um bucket S3 (`wizard-bruma`) configurado como
+website estatico em modo redirecionamento, so pra dar um endereco curto e
+decoravel pra demonstracao ao vivo do slide 7 (o dominio real do CloudFront e
+um hash aleatorio tipo `d3fwxqahz0kapg.cloudfront.net`, impossivel de
+decorar). Nao registramos dominio proprio (custaria dinheiro) — o bucket
+redireciona (`http://wizard-bruma.s3-website-us-east-1.amazonaws.com`, ver
+output `short_url`) via HTTP 301 pro CloudFront real em HTTPS.
+
+Bucket vazio, sem objetos, sem politica publica — so a config de website
+hosting. Custo: zero (bem abaixo do free tier). **Nao precisa de passo manual
+de teardown**: cai junto no `terraform destroy` / `teardown.sh`, igual todo o
+resto.

@@ -9,6 +9,8 @@ Terraform da camada de borda: **Route 53 + CloudFront + WAF + S3 (origens)**.
 - `waf.tf` — WAF WebACL com regras gerenciadas (Common, KnownBadInputs) + rate limiting por IP
 - `acm.tf` — Certificado TLS com validação automática via DNS
 - `s3.tf` — Buckets de origem (privados, acesso só via CloudFront)
+- `url_redirect.tf` — Bucket S3 "URL curta" (`wizard-bruma`) pra demo ao vivo do
+  slide 7, sem precisar comprar domínio - ver output `short_url`
 - `variables.tf` / `terraform.tfvars.example` — configuração
 - `outputs.tf` — valores úteis pros outros times (URL, IDs, bucket names)
 

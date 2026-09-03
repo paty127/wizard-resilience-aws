@@ -10,7 +10,8 @@ resource "random_id" "bucket_suffix" {
 
 # --- Bucket primário (us-east-1) ---
 resource "aws_s3_bucket" "origin_primary" {
-  bucket = "${var.project_tag}-origin-primary-${random_id.bucket_suffix.hex}"
+  bucket        = "${var.project_tag}-origin-primary-${random_id.bucket_suffix.hex}"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_public_access_block" "origin_primary" {
@@ -30,8 +31,9 @@ resource "aws_s3_bucket_versioning" "origin_primary" {
 
 # --- Bucket secundário (sa-east-1) - réplica para failover ---
 resource "aws_s3_bucket" "origin_secondary" {
-  provider = aws.secondary
-  bucket   = "${var.project_tag}-origin-secondary-${random_id.bucket_suffix.hex}"
+  provider      = aws.secondary
+  bucket        = "${var.project_tag}-origin-secondary-${random_id.bucket_suffix.hex}"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_public_access_block" "origin_secondary" {

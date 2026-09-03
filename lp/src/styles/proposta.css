@@ -66,6 +66,12 @@ a:focus-visible, button:focus-visible, input:focus-visible {
      visible" deixa isso passar sem precisar aumentar o viewBox (o que
      encolheria a arte real pra abrir espaco de sobra). */
   overflow: visible;
+  /* As letras de WIZARD/by Pearson usam fill="currentColor" (ver
+     LogoMark.astro) pra reaproveitar o mesmo SVG em fundos diferentes sem
+     duplicar a arte — aqui fixa a cor original (texto escuro sobre o
+     header branco). O passaro/circulo do icone mantem cor propria fixa,
+     nao depende de "color". */
+  color: #021068;
 }
 /* Cada letra/parte do logo (bird+circulo, e cada letra de WIZARD e de "by
    Pearson") e um <path> proprio que entra com seu proprio delay (inline,
@@ -85,7 +91,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
    nao existe hover, entao ".logo-active" (JS, no touchstart/touchend) faz
    o mesmo papel quando a pessoa pressiona o logo com o dedo. */
 .logo:hover .logo-mark .lp,
-.logo.logo-active .logo-mark .lp {
+.logo.logo-active .logo-mark .lp,
+.nav-mobile-logo.logo-active .logo-mark .lp {
   animation-name: letter-hover;
   animation-duration: 0.42s;
   animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -232,7 +239,10 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   padding: 4px;
 }
 .nav-mobile-logo { display: flex; justify-content: center; margin: 4px 0 20px; }
-.nav-mobile-logo img { height: 32px; width: auto; }
+/* Fundo do menu mobile e --wz-blue-900 (bem escuro): o texto escuro
+   original (#021068, herdado de .logo-mark) ficaria com contraste baixo
+   contra ele — so troca a cor herdada pelas letras, sem duplicar o SVG. */
+.logo-mark-mobile { height: 46px; overflow: visible; color: #fff; }
 
 .nav-mobile-links {
   display: flex;
@@ -791,9 +801,21 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 
 @media (max-width: 860px) {
+  /* O scroll-padding-top global (88px) tem mais folga do que o header real
+     no mobile (~62px, so logo+padding, sem os links de texto do nav
+     desktop) — a sobra revelava uma tira da secao anterior (ex.: o branco
+     do .locator) acima do titulo ao chegar via ancora. No desktop o header
+     e do mesmo tamanho, mas a folga extra nao chega a incomodar visualmente
+     (grid maior, mais respiro) — por isso o ajuste fica so aqui. */
+  html { scroll-padding-top: 64px; }
   .diff-section { padding: 56px 0; }
   .diff-grid { grid-template-columns: 1fr; text-align: left; gap: 32px; }
-  .diff-alt .diff-photo-wrap { order: 0; }
+  /* No mobile o texto sempre vem antes da foto, nas duas variantes (alt ou
+     nao) — no desktop a ordem alterna pra dar ritmo visual (ver ".diff-alt
+     .diff-photo-wrap{order:2}" acima), mas empilhado isso faz a foto
+     aparecer primeiro ao chegar via ancora do menu, dando a impressao de
+     que carregou a secao errada antes da pessoa ver o titulo. */
+  .diff-photo-wrap { order: 2; }
   .diff-photo { aspect-ratio: 4 / 3; }
 
   /* CTA de contorno animado: menos folga em volta e as duas linhas do texto
@@ -810,6 +832,13 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 /* ---------- FAQ ---------- */
 .faq { padding: 90px 0 20px; }
+@media (max-width: 860px) {
+  /* Regra fora do bloco de media query la de cima de proposito: essa
+     ".faq" base vem depois dele no arquivo, entao — mesma especificidade —
+     ela venceria a sobrescrita mobile se ficassem no mesmo bloco anterior.
+     Ficando depois da base, o cascade aplica certo dentro do breakpoint. */
+  .faq { padding: 48px 0 20px; }
+}
 .faq .kicker {
   color: var(--wz-red);
   font-weight: 800;
@@ -1102,6 +1131,18 @@ footer .footer-tech {
   color: rgba(255,255,255,0.62);
   font-size: 0.76rem;
 }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.footer-logo {
+  height: 27px;
+  width: auto;
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.85);
+}
 footer .badge-live {
   display: inline-block;
   background: white;
@@ -1114,6 +1155,10 @@ footer .badge-live {
   padding: 5px 12px;
   border-radius: 999px;
   animation: badge-pulse 7s ease-in-out infinite;
+}
+@media (max-width: 860px) {
+  .footer-brand { flex-direction: column; gap: 6px; }
+  .footer-logo { height: 40px; }
 }
 @keyframes badge-pulse {
   /* Fundo e texto ficam fixos (branco + azul-700, ~11:1 de contraste) — só o

@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/LayoutProposta.astro';
+import LogoMark from '../components/LogoMark.astro';
+import BrumaLogo from '../components/BrumaLogo.astro';
 import { Image } from 'astro:assets';
 import heroPhoto from '../assets/photo-hero.png';
 import appPhoto from '../assets/hero-photo.jpg';
 import modalidadesPhoto from '../assets/photo-modalidades.jpg';
 import certificacaoPhoto from '../assets/photo-certificacao.jpg';
-import logoWizardColor from '../assets/logo-wizard-color.webp';
 import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 ---
 
@@ -13,30 +14,12 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   <header class="site-header">
     <div class="wrap header-row">
       <a class="logo" href="#top">
-        <svg class="logo-mark" viewBox="0 0 500 111" role="img" aria-label="Wizard by Pearson" xmlns="http://www.w3.org/2000/svg">
-        <path class="lp" style="animation-delay:0ms" d="m111.16 55.5c0 30.651-24.83 55.5-55.457 55.5-30.627 0-55.457-24.849-55.457-55.5s24.835-55.5 55.457-55.5c30.622 0 55.457 24.849 55.457 55.5z" fill="#fff"/>
-          <path class="lp" style="animation-delay:0ms" d="m76.208 37.832c-0.45039-0.90583-1.7964-2.53-4.6339-2.53-3.7757 0-9.0006 4.3277-9.615 4.8769-0.06559 0.06576-0.1078 0.1549-0.1078 0.25345 0 0.1924 0.15944 0.352 0.35167 0.352 0.06576 0 0.12664-0.01884 0.17827-0.04692 0.35638-0.17373 2.2607-1.0937 4.5401-1.8493 0.0703-0.02825 0.14548-0.04221 0.2252-0.04221 0.30475 0 0.55803 0.20653 0.6332 0.48806 0.23915 1.1406 1.0082 2.07 2.0917 2.3656 1.6275 0.4366 3.3535-0.71814 3.8554-2.5816 0.06105-0.2299 0.10326-0.45998 0.12193-0.68517 0.0094-0.07047 0.04221-0.13152 0.08914-0.17844 0.21107-0.1549 1.1162-0.06105 1.4634 0.13135 0.02809 0.01884 0.05634 0.03767 0.08443 0.05634 0.08443 0.06105 0.18281 0.09855 0.29079 0.09855 0.26724 0 0.48302-0.21578 0.48302-0.48806 0-0.07518-0.01867-0.15019-0.05146-0.21594m-20.496-37.837c-25.744 0-45.368 18.048-45.368 28.9 0 6.1442 7.5138 6.7779 14.671 5.2523-1.7353-1.6287-2.4013-3.6845-2.4951-5.3462-0.01884-0.29112 0.2627-0.4694 0.49244-0.2442 1.6087 1.5725 4.9903 2.8445 10.135 2.8445 12.729 0 22.921-4.3324 35.866-4.3324 7.1479 0 12.101 4.0789 14.31 8.7399 9.31-0.73697 17.743 6.5244 17.743 16.236 0 2.2765-0.60495 5.2945-2.0918 7.9935-0.22974 0.41776-0.79264 0.58208-1.0224 0.06576-1.2898-2.8727-3.2597-4.3559-7.162-4.3559-12.612 0-61.469 25.938-61.469 44.066 0 3.6284 1.9839 6.2569 9.7461 8.6319 4.5167 1.3801 10.229 2.5394 16.645 2.5394 30.627 0 55.452-24.849 55.452-55.5 0-30.651-24.83-55.491-55.452-55.491zm-6.7444 82.072c-4.3665 5.2992-6.238 11.04-6.238 14.781 0 3.328 0.47377 5.703 2.6781 8.402 0.2299 0.28171 0.05163 0.63371-0.3002 0.57266-6.5803-1.1781-8.9723-3.7738-8.9723-7.0033 0-4.3746 5.056-11.537 12.392-17.24 0.65187-0.50219 0.93795-0.10326 0.44551 0.49765m-29.961-26.473c-10.726 2.8727-15.642 3.0651-18.287-1.0091-0.15478-0.23949-0.45495-0.16902-0.45964 0.12664-0.098494 4.6188 0.4784 11.937 3.3394 19.799 0.13603 0.36613 0.4362 0.352 0.46903-0.009418 0.78795-9.2843 9.3241-15.673 15.135-18.367 0.43155-0.20182 0.47377-0.71814-0.18752-0.53986m32.723 9.6975c0.52052-0.18786 0.25782-0.629-0.16886-0.53986-27.696 5.7358-36.424 17.367-36.424 24.197 0 2.2296 0.53938 6.1817 5.9566 9.8711 0.2955 0.20182 0.50656 0.0094 0.39388-0.3473-4.3149-14.011 15.539-27.891 30.242-33.181z" fill="#e70022"/>
-          <path class="lp" style="animation-delay:38ms" d="M221.479 1.848H208.08L190.534 46.111 184.54 3.726C184.393 2.736 183.794 1.849 182.382 1.849H170.318L153.228 46.605 146.516 3.727C146.343 2.61 145.808 1.849 144.302 1.849H124.228C122.812 1.849 122.535 3.394 124.242 3.704 128.116 4.408 131.447 6.731 132.558 13.293L141.057 61.217C141.38 63.038 142.384 64.123 144.678 64.123H159.78L174.45 24.23 179.117 61.222C179.352 63.048 180.313 64.127 182.607 64.127H197.789L222.685 3.985C223.073 3.004 223.107 1.849 221.479 1.849Z" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:76ms" d="M245.05 1.849H231.392L224.318 61.217C224.071 63.043 224.793 64.123 227.082 64.123H239.46L246.668 3.727C246.846 2.558 246.157 1.854 245.05 1.854" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:114ms" d="M306.988 3.722C307.166 2.553 306.477 1.849 305.37 1.849H257.741L256.535 12.006C256.315 13.837 257.004 14.907 259.293 14.907H285.61L251.71 52.528 250.673 61.212C250.452 63.071 251.142 64.112 253.436 64.112H300.446L301.833 52.462C301.97 51.233 301.322 50.585 300.215 50.585H272.261L305.82 13.499 306.998 3.717Z" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:152ms" d="M350.022 1.848H326.206C324.788 1.848 324.52 3.393 326.017 3.703 329.174 4.355 332.701 7.735 330.149 13.09L307.233 61.216C306.334 63.042 306.67 64.117 308.959 64.117H321.82L326.584 53.223H350.748L352.681 61.217C353.093 63.047 354.205 64.117 356.499 64.117H369.415L352.836 4.05C352.395 2.623 351.734 1.849 350.017 1.849Z M331.959 40.919L342.137 17.628 347.764 40.919H331.955Z" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:190ms" d="M432.428 22.637C432.428 3.862 420.277 1.848 406.404 1.848H375.697C374.279 1.848 373.974 3.393 375.602 3.703 379.302 4.407 382.562 7.059 381.802 13.442L376.114 61.216C375.865 63.042 376.583 64.117 378.875 64.117H391.253L393.28 47.116H405.404L412.987 61.216C413.986 63.08 415.365 64.117 417.659 64.117H430.809L420.158 44.318C429.576 39.863 432.437 30.823 432.437 22.637Z M409.288 34.47H394.791L397.122 14.911H407.529C415.305 14.911 416.871 17.685 416.871 23.543 416.871 30.368 414.474 34.47 409.288 34.47Z" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:228ms" d="M466.938 1.844H438.712C437.296 1.844 436.986 3.389 438.618 3.699 442.319 4.403 445.579 7.05 444.819 13.438L439.129 61.212C438.882 63.038 439.598 64.113 441.892 64.113H461.507C484.052 64.113 499.755 50.787 499.755 28.257 499.755 12.016 490.525 1.845 466.938 1.845Z M462.596 50.589H455.883L460.133 14.906H467.895C480.14 14.906 483.649 20.22 483.649 28.377 483.649 42.735 476.231 50.588 462.596 50.588Z" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:266ms" d="M140.932 85.993C139.398 85.993 138.291 86.444 137.616 87.35 136.941 88.251 136.594 89.767 136.57 91.884V92.147C136.57 94.334 136.917 95.916 137.607 96.897 138.296 97.878 139.431 98.366 140.998 98.366 142.348 98.366 143.375 97.831 144.074 96.761 144.773 95.691 145.12 94.142 145.12 92.114 145.12 88.035 143.723 85.993 140.932 85.993Z M141.922 82.876C144.159 82.876 145.903 83.688 147.151 85.312 148.403 86.941 149.027 89.218 149.027 92.151 149.027 95.085 148.394 97.385 147.128 99.028 145.861 100.671 144.103 101.487 141.856 101.487 139.609 101.487 137.822 100.671 136.565 99.037H136.303L135.604 101.164H132.748V75.902H136.561V81.91C136.561 82.351 136.537 83.013 136.495 83.89 136.453 84.768 136.42 85.327 136.396 85.561H136.561C137.771 83.778 139.558 82.881 141.917 82.881" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:304ms" d="M150.734 83.2H154.89L158.539 93.381C159.092 94.832 159.458 96.197 159.641 97.47H159.767C159.866 96.873 160.044 96.151 160.302 95.301 160.56 94.451 161.934 90.415 164.425 83.195H168.547L160.87 103.538C159.477 107.274 157.15 109.143 153.895 109.143 153.051 109.143 152.23 109.049 151.428 108.866V105.843C152.001 105.974 152.657 106.035 153.394 106.035 155.232 106.035 156.527 104.97 157.272 102.839L157.938 101.149 150.734 83.19Z" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:342ms" d="M184.19 89.012H186.249C188.237 89.012 189.697 88.664 190.63 87.974 191.562 87.28 192.028 86.2 192.028 84.726 192.028 83.36 191.609 82.347 190.775 81.671 189.944 80.999 188.645 80.666 186.881 80.666H184.19Z M196.018 84.595C196.018 87.073 195.206 88.974 193.583 90.293 191.962 91.617 189.653 92.274 186.656 92.274H184.193V101.155H180.315V77.418H187.148C190.113 77.418 192.332 78.023 193.808 79.239 195.287 80.45 196.023 82.233 196.023 84.594" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:380ms" d="M206.787 85.769C205.571 85.769 204.6 86.154 203.874 86.919 203.147 87.688 202.706 88.81 202.57 90.279H210.717C210.693 88.796 210.337 87.674 209.647 86.909 208.958 86.149 208.001 85.764 206.795 85.764Z M207.495 101.484C204.705 101.484 202.523 100.672 200.947 99.038 199.377 97.409 198.588 95.166 198.588 92.307S199.319 87.069 200.777 85.388C202.237 83.713 204.244 82.872 206.795 82.872 209.165 82.872 211.031 83.591 212.411 85.032 213.785 86.468 214.469 88.449 214.469 90.969V93.035H202.513C202.565 94.776 203.04 96.114 203.929 97.053 204.816 97.991 206.063 98.456 207.678 98.456 208.738 98.456 209.723 98.353 210.641 98.156 211.551 97.954 212.537 97.625 213.586 97.161V100.263C212.655 100.705 211.716 101.019 210.764 101.207 209.812 101.39 208.724 101.484 207.503 101.484" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:418ms" d="M224.341 98.559C225.725 98.559 226.837 98.174 227.676 97.4 228.515 96.63 228.932 95.541 228.932 94.142V92.584L226.63 92.683C224.834 92.744 223.53 93.049 222.713 93.584 221.897 94.119 221.49 94.94 221.49 96.043 221.49 96.846 221.729 97.466 222.207 97.902 222.681 98.339 223.394 98.559 224.346 98.559Z M230.026 101.16L229.262 98.658H229.134C228.266 99.751 227.399 100.493 226.522 100.887 225.644 101.286 224.519 101.479 223.15 101.479 221.386 101.479 220.012 101 219.023 100.052 218.033 99.099 217.536 97.752 217.536 96.01 217.536 94.161 218.221 92.762 219.6 91.819 220.969 90.876 223.061 90.364 225.875 90.275L228.975 90.176V89.219C228.975 88.073 228.707 87.214 228.169 86.646 227.634 86.078 226.803 85.792 225.678 85.792 224.758 85.792 223.877 85.923 223.033 86.2 222.188 86.468 221.378 86.787 220.599 87.158L219.365 84.431C220.34 83.924 221.405 83.539 222.563 83.267 223.722 83.004 224.815 82.868 225.843 82.868 228.127 82.868 229.847 83.365 231.011 84.36 232.173 85.36 232.755 86.923 232.755 89.054V101.15H230.031Z" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:456ms" d="M247.173 82.878C247.942 82.878 248.579 82.934 249.072 83.042L248.702 86.595C248.157 86.464 247.595 86.403 247.013 86.403 245.484 86.403 244.25 86.905 243.298 87.9 242.351 88.895 241.882 90.191 241.882 91.782V101.165H238.069V83.206H241.056L241.559 86.37H241.751C242.346 85.299 243.12 84.45 244.082 83.821 245.039 83.192 246.07 82.877 247.178 82.877" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:494ms" d="M264.455 96.044C264.455 97.799 263.818 99.142 262.543 100.08 261.266 101.019 259.437 101.489 257.058 101.489 254.682 101.489 252.75 101.127 251.3 100.4V97.104C253.411 98.076 255.372 98.564 257.186 98.564 259.536 98.564 260.708 97.855 260.708 96.438 260.708 95.983 260.577 95.602 260.32 95.297 260.061 94.997 259.63 94.682 259.035 94.354 258.438 94.03 257.614 93.664 256.549 93.251 254.484 92.448 253.086 91.65 252.355 90.848 251.623 90.045 251.258 89.008 251.258 87.731 251.258 86.196 251.877 85.004 253.115 84.15 254.349 83.3 256.038 82.873 258.17 82.873 260.304 82.873 262.275 83.3 264.156 84.154L262.921 87.032C260.985 86.229 259.357 85.83 258.039 85.83 256.028 85.83 255.023 86.407 255.023 87.553 255.023 88.116 255.286 88.595 255.812 88.984 256.337 89.374 257.481 89.909 259.245 90.589 260.726 91.162 261.801 91.688 262.472 92.167 263.143 92.641 263.644 93.195 263.967 93.814 264.292 94.434 264.455 95.18 264.455 96.044Z" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:532ms" d="M271.429 92.148C271.429 96.292 272.958 98.367 276.02 98.367S280.566 96.292 280.566 92.148C280.566 88.003 279.041 85.994 275.989 85.994 274.389 85.994 273.23 86.525 272.509 87.585 271.791 88.646 271.429 90.167 271.429 92.148Z M284.492 92.148C284.492 95.082 283.737 97.372 282.237 99.015 280.73 100.662 278.639 101.484 275.955 101.484 274.277 101.484 272.8 101.104 271.51 100.348 270.22 99.592 269.23 98.503 268.54 97.086 267.847 95.668 267.504 94.021 267.504 92.148 267.504 89.238 268.249 86.961 269.741 85.328 271.233 83.694 273.338 82.873 276.049 82.873S280.703 83.708 282.216 85.384C283.732 87.055 284.487 89.308 284.487 92.143" fill="#021068" fill-rule="evenodd"/>
-          <path class="lp" style="animation-delay:570ms" d="M304.66 101.16H300.827V90.12C300.827 88.735 300.551 87.698 299.993 87.017S298.553 85.994 297.342 85.994C295.735 85.994 294.552 86.473 293.805 87.421 293.06 88.374 292.69 89.97 292.69 92.214V101.16H288.876V83.201H291.86L292.394 85.553H292.591C293.126 84.698 293.895 84.037 294.894 83.572 295.889 83.107 296.991 82.872 298.2 82.872 302.507 82.872 304.66 85.065 304.66 89.449V101.155Z" fill="#021068" fill-rule="evenodd"/>
-        </svg>
+        <LogoMark />
       </a>
       <nav class="nav-desktop" aria-label="Navegação principal">
         <span class="nav-pill" id="navPill" aria-hidden="true"></span>
-        <a href="#app-wizme">Diferenciais</a>
         <a href="#unidades">Unidades</a>
+        <a href="#app-wizme">Diferenciais</a>
         <a href="#faq">FAQ</a>
         <a class="btn btn-primary btn-sm" href="#form-card">Quero minha vaga</a>
       </nav>
@@ -49,10 +32,10 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
   <div class="nav-overlay" id="navOverlay"></div>
   <aside class="nav-mobile" id="navMobile" aria-label="Menu">
     <button class="nav-close" id="navClose" aria-label="Fechar menu">&times;</button>
-    <div class="nav-mobile-logo"><Image src={logoWizardColor} alt="Wizard by Pearson" width={160} /></div>
+    <div class="nav-mobile-logo"><LogoMark class="logo-mark logo-mark-mobile" /></div>
     <nav class="nav-mobile-links">
-      <a href="#app-wizme">Diferenciais</a>
       <a href="#unidades">Unidades</a>
+      <a href="#app-wizme">Diferenciais</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-primary nav-mobile-cta" href="#form-card">Quero minha vaga</a>
@@ -88,7 +71,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         <p class="lead">Garanta sua vaga na Wizard com condições exclusivas de Volta às Aulas. Aulas práticas, professores nativos e um método que já formou milhões de alunos no Brasil.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#form-card">Quero minha vaga</a>
-          <a class="btn btn-ghost" href="#unidades">Ver benefícios</a>
+          <a class="btn btn-ghost" href="#app-wizme">Ver benefícios</a>
         </div>
         <div class="stat-row" id="statRow">
           <div class="stat"><b class="counter" data-target="1200" data-prefix="+">0</b><span>unidades<br>no Brasil</span></div>
@@ -347,7 +330,10 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 
   <footer>
     <div class="wrap">
-      <span class="badge-live">Equipe BRUMA</span>
+      <div class="footer-brand">
+        <BrumaLogo class="footer-logo" />
+        <span class="badge-live">Equipe BRUMA</span>
+      </div>
       <p>Wizard — Landing page de teste (Case B, Hackathon Future Builders). Não é o site oficial.</p>
       <p class="footer-credits">Hackathon Future Builders 2026, realizado pela Escola da Nuvem em parceria com a AWS — a Wizard participa como avaliadora do case.</p>
       <p class="footer-tech">Infraestrutura resiliente na AWS: CloudFront, WAF, Route 53 com failover regional e S3 multi-região.</p>
@@ -361,16 +347,27 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
     var navMobile = document.getElementById("navMobile");
     var navOverlay = document.getElementById("navOverlay");
 
+    // Logo do menu mobile: mesmo pulso letra a letra do hover do logo
+    // principal (".logo-active", ver CSS), disparado uma unica vez quando o
+    // menu surge — nao o fade/zoom de entrada, que so faz sentido no
+    // primeiro load da pagina. So precisa dar toggle na classe: cada vez
+    // que o menu fecha ela sai, entao a proxima abertura sempre conta como
+    // uma aplicacao nova da regra (o navegador reinicia a animacao sozinho,
+    // sem precisar do truque de forcar reflow).
+    var navMobileLogo = navMobile.querySelector(".nav-mobile-logo");
+
     function openNav() {
       navMobile.classList.add("open");
       navOverlay.classList.add("open");
       navToggle.setAttribute("aria-expanded", "true");
+      if (navMobileLogo) navMobileLogo.classList.add("logo-active");
     }
 
     function closeNav() {
       navMobile.classList.remove("open");
       navOverlay.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
+      if (navMobileLogo) navMobileLogo.classList.remove("logo-active");
     }
 
     navToggle.addEventListener("click", openNav);
@@ -453,8 +450,22 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
         item.addEventListener("mouseenter", function () { movePill(item); });
         item.addEventListener("focus", function () { movePill(item); });
       });
-      navDesktop.addEventListener("mouseleave", goToCta);
+
+      // Clicar num link de ancora (#faq, #unidades...) faz o navegador
+      // mover o foco pro elemento de destino da rolagem assim que a pagina
+      // desliza ate la — isso dispara um "focusout" do nav mesmo com o
+      // mouse parado em cima do link clicado, e a pilula pulava pro CTA no
+      // meio do clique (parecia um soluco/recarregamento). Rastreando se o
+      // ponteiro esta mesmo sobre o nav, so reagimos ao focusout de
+      // verdade (ex.: Tab saindo do menu pelo teclado).
+      var isPointerOverNav = false;
+      navDesktop.addEventListener("mouseenter", function () { isPointerOverNav = true; });
+      navDesktop.addEventListener("mouseleave", function () {
+        isPointerOverNav = false;
+        goToCta();
+      });
       navDesktop.addEventListener("focusout", function (e) {
+        if (isPointerOverNav) return;
         if (!navDesktop.contains(e.relatedTarget)) goToCta();
       });
     }

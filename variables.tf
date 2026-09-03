@@ -74,3 +74,14 @@ variable "ses_notification_email" {
   type        = string
   default     = "bruma3237@gmail.com"
 }
+
+variable "monthly_budget_limit_usd" {
+  description = "Limite mensal operacional do AWS Budget em dólares. Não representa um teto oficial do hackathon."
+  type        = number
+  default     = 10
+
+  validation {
+    condition     = var.monthly_budget_limit_usd > 0
+    error_message = "O limite mensal do orçamento deve ser maior que zero."
+  }
+}

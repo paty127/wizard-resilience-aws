@@ -833,11 +833,19 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
 </script>
 
 <script is:inline>
-  // Saídas "leads_api_url" (primária) e "leads_api_url_secondary" do Terraform.
-  // "unit" é opcional: a Lambda (lambda/leads.py) vai deixar de exigi-lo.
+  // "/lead" é um path relativo ao proprio dominio da LP, de proposito: o
+  // CloudFront ja tem um behavior pra "/lead" apontando pro API Gateway
+  // primario, protegido pelo WAF (cloudfront.tf). Chamar a URL da API
+  // diretamente (execute-api.amazonaws.com) contornaria esse WAF - por
+  // isso nao existe mais uma constante com a URL absoluta aqui.
+  //
+  // Sem fallback pra regiao secundaria: a API secundaria nao tem behavior
+  // no CloudFront (nao esta atras do WAF), entao chama-la direto do
+  // navegador seria o mesmo problema de seguranca. Se "/lead" falhar, so
+  // avisamos a pessoa pra tentar de novo - sem contornar a protecao.
+  // "unit" é opcional: a Lambda (lambda/leads.py) já não exige mais.
   (function () {
-    var PRIMARY_API = "https://azgerdpbbf.execute-api.us-east-1.amazonaws.com/lead";
-    var SECONDARY_API = "https://d6vyxkv0ue.execute-api.sa-east-1.amazonaws.com/lead";
+    var LEAD_ENDPOINT = "/lead";
 
     var form = document.getElementById("leadForm");
     var btn = document.getElementById("submitBtn");
@@ -960,21 +968,17 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
       btn.disabled = true;
       btn.textContent = "Enviando...";
 
-      var res, usedFallback = false;
+      var res;
       try {
-        res = await postLead(PRIMARY_API, payload);
-      } catch (primaryErr) {
-        // Região primária falhou ou não respondeu a tempo: tenta a secundária.
-        console.warn("Região primária indisponível, tentando failover:", primaryErr);
-        usedFallback = true;
-        try {
-          res = await postLead(SECONDARY_API, payload);
-        } catch (secondaryErr) {
-          showFormAlert("error", "Não conseguimos enviar", "Erro de conexão em ambas as regiões. Tente novamente em instantes.");
-          btn.disabled = false;
-          btn.textContent = "Quero minha vaga";
-          return;
-        }
+        res = await postLead(LEAD_ENDPOINT, payload);
+      } catch (err) {
+        // Sem fallback pra outra regiao aqui de proposito (ver comentario
+        // no topo do arquivo) - so pedimos pra tentar de novo.
+        console.warn("Falha ao enviar o lead:", err);
+        showFormAlert("error", "Não conseguimos enviar", "Erro de conexão. Tente novamente em instantes.");
+        btn.disabled = false;
+        btn.textContent = "Quero minha vaga";
+        return;
       }
 
       try {
@@ -983,9 +987,7 @@ import logoPearsonWhite from '../assets/logo-pearson-white.webp';
           showFormAlert(
             "success",
             "Recebemos sua solicitação!",
-            usedFallback
-              ? "Obrigado pelo contato! Seus dados chegaram via nossa região de contingência — em breve um consultor Wizard fala com você."
-              : "Obrigado pelo contato! Em breve um consultor Wizard vai falar com você.",
+            "Obrigado pelo contato! Em breve um consultor Wizard vai falar com você.",
             null,
             "Fechar"
           );
